@@ -9,7 +9,7 @@
 add_action( 'wp_head', 'rx_theme_meta_viewport', 0 );
 
 // Additional body classes.
-add_filter( 'body_class', 'rx_theme_extra_body_classes' );
+add_filter( 'body_class', 'rx_theme_assistant_body_classes' );
 
 // Enqueue sticky menu if required.
 add_filter( 'rx-theme/assets-depends/script', 'rx_theme_enqueue_misc' );
@@ -37,7 +37,7 @@ function rx_theme_meta_viewport() {
  * @param  array $classes Existing classes.
  * @return array
  */
-function rx_theme_extra_body_classes( $classes ) {
+function rx_theme_assistant_body_classes( $classes ) {
 
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {

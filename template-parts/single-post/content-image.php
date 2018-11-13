@@ -9,7 +9,7 @@
 
 ?>
 
-<?php do_action( 'rx_theme_extra_post_format_image', array( 'size' => 'rx-theme-thumb-l' ) ); ?>
+<?php do_action( 'rx_theme_assistant_post_format_image', array( 'size' => 'rx-theme-thumb-l' ) ); ?>
 
 <div class="entry-content">
 	<?php the_content(); ?>
