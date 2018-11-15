@@ -226,6 +226,9 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			// Add default posts and comments RSS feed links to head.
 			add_theme_support( 'automatic-feed-links' );
 
+			//Enable builded custom headers and footers
+			add_theme_support( 'header-footer-elementor' );
+
 		}
 
 		/**
@@ -479,6 +482,8 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 				$handler = array( jet_theme_core()->locations, 'do_location' );
 			} elseif ( function_exists( 'elementor_theme_do_location' ) ) {
 				$handler = 'elementor_theme_do_location';
+			} elseif ( class_exists( 'Header_Footer_Elementor' ) ){
+				$handler = array( 'Rx_Theme_Assistant_Header_Footer_Plugin_Ext', 'rx_theme_assistant_return_template' );
 			}
 
 			// If handler is found - try to do passed location
