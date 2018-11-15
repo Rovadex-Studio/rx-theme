@@ -93,6 +93,12 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			// Maybe register Elementor Pro locations.
 			add_action( 'elementor/theme/register_locations', array( $this, 'elementor_locations' ) );
 
+			// Register plugins config for Jet Plugins Wizard.
+			add_action( 'init', array( $this, 'register_plugins_wizard_config' ), 5 );
+
+			// Register import config for Jet Data Importer.
+			add_action( 'init', array( $this, 'register_data_importer_config' ), 5 );
+
 		}
 
 		/**
@@ -254,6 +260,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			 * Classes.
 			*/
 			require_once get_theme_file_path( 'inc/classes/class-widget-area.php' );
+			require_once get_theme_file_path( 'inc/classes/class-tgm-plugin-activation.php' );
 
 			/**
 			 * Functions.
@@ -267,6 +274,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			require_once get_theme_file_path( 'inc/breadcrumbs.php' );
 			require_once get_theme_file_path( 'inc/context.php' );
 			require_once get_theme_file_path( 'inc/hooks.php' );
+			require_once get_theme_file_path( 'inc/register-plugins.php' );
 
 		}
 
@@ -526,6 +534,46 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			$elementor_theme_manager->register_location( 'header' );
 			$elementor_theme_manager->register_location( 'footer' );
 
+		}
+
+		/**
+		 * Register plugins config for Jet Plugins Wizard.
+		 *
+		 * @since 1.0.0
+		 */
+		public function register_plugins_wizard_config() {
+			if ( ! function_exists( 'rx_theme_wizard_register_config' ) ) {
+				return;
+			}
+
+			if ( ! is_admin() ) {
+				return;
+			}
+
+			require_once get_parent_theme_file_path( 'config/plugins-wizard.php' );
+
+			/**
+			 * @var array $config Defined in config file.
+			 */
+			rx_theme_wizard_register_config( $config );
+		}
+
+		/**
+		 * Register import config for Jet Data Importer.
+		 *
+		 * @since 1.0.0
+		 */
+		public function register_data_importer_config() {
+			if ( ! function_exists( 'jet_data_importer_register_config' ) ) {
+				return;
+			}
+
+			require_once get_parent_theme_file_path( 'config/import.php' );
+
+			/**
+			 * @var array $config Defined in config file.
+			 */
+			jet_data_importer_register_config( $config );
 		}
 
 		/**
