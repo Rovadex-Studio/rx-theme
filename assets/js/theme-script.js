@@ -32,9 +32,14 @@
 		},
 
 		responsiveMenuInit: function() {
-			if (typeof rxThemeResponsiveMenu !== 'undefined') {
-				rxThemeResponsiveMenu();
-			}
+			$( '.main-navigation' ).RxMenu( {
+				/*enabled: rollUp,
+				mouseLeaveDelay: +jetMenuMouseleaveDelay,
+				megaWidthType: jetMenuMegaWidthType,
+				megaWidthSelector: jetMenuMegaWidthSelector,
+				openSubType: jetMenuMegaOpenSubType,
+				threshold: +jetMenuMobileBreakpoint*/
+			} );
 		},
 
 		magnificPopupInit: function() {
