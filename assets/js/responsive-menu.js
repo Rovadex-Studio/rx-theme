@@ -91,6 +91,14 @@
 			if ( self.mobileAndTabletcheck() ) {
 				this.$instance.on( 'touchstart', '.menu-item > a', touchStartItem );
 				this.$instance.on( 'touchend', '.menu-item > a', touchEndItem );
+				this.$document.on( 'touchend', function( event ) {
+					self.$instance.find( '.menu-item' ).removeClass( 'menu-hover' );
+
+					if ( $( 'body' ).hasClass( 'mobile-menu-visible' ) ) {
+						//$( 'body' ).removeClass( 'mobile-menu-visible' );
+						//self.$element.removeClass( 'mobile-menu-active-state' );
+					}
+				} );
 			} else {
 
 				this.$instance.on( 'mouseenter', '.menu-item > a', mouseEnterHandler );
@@ -137,13 +145,13 @@
 					$( '.menu-item-has-children', $siblingsItems ).removeClass( 'menu-hover' );
 				}
 
-				if ( ! $( '.sub-menu', $this )[0] || $this.hasClass( 'menu-hover' ) ) {
-					//window.location = $link.attr( 'href' );
+				if ( ! $( '.sub-menu', $this )[0] ) {
+					window.location = $link.attr( 'href' );
 
-					//$( 'body' ).removeClass( 'mobile-menu-visible' );
-					//self.$element.removeClass( 'mobile-menu-active-state' );
+					$( 'body' ).removeClass( 'mobile-menu-visible' );
+					self.$element.removeClass( 'mobile-menu-active-state' );
 
-					//return false;
+					return false;
 				}
 
 				if ( $this.hasClass( 'menu-hover' ) ) {
