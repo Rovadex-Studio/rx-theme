@@ -15,7 +15,9 @@ do_action( 'rx-theme/sidebar/before' );
 
 if ( is_active_sidebar( 'sidebar' ) && 'none' !== rx_theme()->sidebar_position ) : ?>
 	<aside id="secondary" <?php rx_theme_secondary_content_class( array( 'widget-area' ) ); ?>>
-		<?php dynamic_sidebar( 'sidebar' ); ?>
+		<div class="widget-area-inner"><?php
+			dynamic_sidebar( 'sidebar' );
+		?></div>
 	</aside><!-- #secondary -->
 <?php endif;
 
