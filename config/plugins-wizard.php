@@ -31,13 +31,18 @@ $plugins = array(
 		'access' => 'base',
 	),
 
-	'smart-slider-3' => array(
-		'name'   => esc_html__( 'Smart Slider 3', 'rx-theme' ),
+	'header-footer-elementor' => array(
+		'name'   => esc_html__( 'Header Footer Elementor', 'rx-theme' ),
 		'access' => 'base',
 	),
 
-	'header-footer-elementor' => array(
-		'name'   => esc_html__( 'Header Footer Elementor', 'rx-theme' ),
+	'block-builder' => array(
+		'name'   => esc_html__( 'Elementor Blocks for Gutenberg', 'rx-theme' ),
+		'access' => 'base',
+	),
+
+	'smart-slider-3' => array(
+		'name'   => esc_html__( 'Smart Slider 3', 'rx-theme' ),
 		'access' => 'base',
 	),
 
@@ -58,11 +63,6 @@ $plugins = array(
 	'contact-form-7' => array(
 		'name'   => esc_html__( 'Contact Form 7', 'rx-theme' ),
 		'access' => 'base',
-	),
-
-	'gutenberg' => array(
-		'name'   => esc_html__( 'Gutenberg', 'rx-theme' ),
-		'access' => 'skins',
 	),
 
 	'wp-gdpr-compliance' => array(
