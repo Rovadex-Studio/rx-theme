@@ -5,12 +5,20 @@
 
 	Rx_Theme_JS = {
 
+		$window: $( window ),
+
+		$body: $( 'body' ),
+
+		threshold: 768,
+
 		init: function() {
 			this.page_preloader_init();
+			this.eventsInit();
 			this.toTopInit();
 			this.responsiveMenuInit();
 			this.magnificPopupInit();
 			this.swiperInit();
+			this.mobilePanelInit();
 		},
 
 		page_preloader_init: function(self) {
@@ -77,6 +85,78 @@
 				})
 
 			}
+		},
+
+
+
+		mobilePanelInit: function() {
+			var $mobilePanel = $( '.rx-mobile-panel' ),
+				$body        = $( 'body' );
+
+			if ( ! $mobilePanel[0] ) {
+				return false;
+			}
+
+			var $sidebarToggle = $( '.rx-mobile-panel__control--sidebar', $mobilePanel );
+
+			$sidebarToggle.on( 'click.rxTheme', function( event ) {
+				$body.toggleClass( 'sidebar-visible' );
+				$sidebarToggle.toggleClass( 'active' );
+			} );
+
+		},
+
+		eventsInit: function() {
+			Rx_Theme_JS.$window.on( 'resize.RxTheme orientationchange.RxTheme', Rx_Theme_JS.debounce( 50, Rx_Theme_JS.watcher.bind( this ) ) ).trigger( 'resize.RxTheme' );
+		},
+
+		/**
+		 * Responsive menu watcher callback.
+		 *
+		 * @param  {Object} Resize or Orientationchange event.
+		 * @return {void}
+		 */
+		watcher: function( event ) {
+
+			if ( Rx_Theme_JS.isThreshold() ) {
+				Rx_Theme_JS.$body.addClass( 'mobile-layout' );
+				Rx_Theme_JS.$body.removeClass( 'desktop-layout' );
+			} else {
+				Rx_Theme_JS.$body.addClass( 'desktop-layout' );
+				Rx_Theme_JS.$body.removeClass( 'mobile-layout' );
+			}
+		},
+
+		/**
+		 * Get mobile status.
+		 *
+		 * @return {boolean} Mobile Status
+		 */
+		isThreshold: function() {
+			return ( Rx_Theme_JS.$window.width() < Rx_Theme_JS.threshold ) ? true : false;
+		},
+
+		/**
+		 * Debounce the function call
+		 *
+		 * @param  {number}   threshold The delay.
+		 * @param  {Function} callback  The function.
+		 */
+		debounce: function ( threshold, callback ) {
+			var timeout;
+
+			return function debounced( $event ) {
+				function delayed() {
+					callback.call( this, $event );
+					timeout = null;
+				}
+
+				if ( timeout ) {
+					clearTimeout( timeout );
+				}
+
+				timeout = setTimeout( delayed, threshold );
+			};
 		}
 	};
 

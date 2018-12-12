@@ -32,9 +32,31 @@
 }
 
 #secondary {
-	@include media-breakpoint-down(sm) {
-		margin-top: 40px;
+	position: relative;
+
+	.mobile-layout & {
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		top: 0;
+		left: 0;
+		background-color: $color__white;
+		overflow-y: scroll;
+		z-index: 998;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.3s ease;
 	}
+
+	.mobile-layout.sidebar-visible & {
+		opacity: 1;
+		pointer-events: all;
+	}
+}
+
+body.sidebar-visible {
+	overflow: hidden;
+	height: 100vh;
 }
 
 .space-between-content {
@@ -52,6 +74,12 @@
 --------------------------------------------------------------*/
 
 @import "primary/top-panel";
+
+/*--------------------------------------------------------------
+## Top panel
+--------------------------------------------------------------*/
+
+@import "primary/mobile-panel";
 
 /*--------------------------------------------------------------
 ## Footer
@@ -78,7 +106,7 @@
 @import "primary/single-post";
 
 /*--------------------------------------------------------------
-## Sticky 
+## Sticky
 --------------------------------------------------------------*/
 
 @import "primary/sticky";

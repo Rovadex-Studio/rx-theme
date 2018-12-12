@@ -1,0 +1,57 @@
+.rx-mobile-panel {
+	display: block;
+	position: fixed;
+	width: 100vw;
+	left: 0px;
+	bottom: 0px;
+	background-color: $color__white;
+	box-shadow: $box__shadow;
+	border-radius: $border__radius;
+	z-index: 999;
+
+	@include media-breakpoint-up(sm) {
+		display: none;
+	}
+
+	&__inner {
+		padding: 5px;
+
+		@include media-breakpoint-down(xs) {
+			display: block;
+			text-align: center;
+		}
+	}
+
+	&__controls {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	&__control {
+		width: 40px;
+		height: 40px;
+		margin: 0 3px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: $border__radius;
+		color: #a1a2a4;
+		background-color: $color__light;
+		font-size: 25px;
+
+		&.active {
+			color: $color__white;
+			background-color: #398ffc;
+		}
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}

@@ -272,6 +272,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			require_once get_theme_file_path( 'inc/extras.php' );
 			require_once get_theme_file_path( 'inc/customizer.php' );
 			require_once get_theme_file_path( 'inc/breadcrumbs.php' );
+			require_once get_theme_file_path( 'inc/mobile-panel.php' );
 			require_once get_theme_file_path( 'inc/context.php' );
 			require_once get_theme_file_path( 'inc/hooks.php' );
 			require_once get_theme_file_path( 'inc/register-plugins.php' );
@@ -286,7 +287,6 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 		public function modules_base() {
 
 			return 'inc/modules/';
-
 		}
 
 		/**
