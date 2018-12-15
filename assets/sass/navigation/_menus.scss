@@ -1,6 +1,12 @@
 .main-navigation {
 	position: relative;
 	flex: 1 1 auto;
+
+	@media (max-width: 768px) {
+		position: fixed;
+		opacity: 0;
+		pointer-events: none;
+	}
 }
 
 .menu {
