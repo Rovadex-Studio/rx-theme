@@ -54,23 +54,15 @@
 				self.$moreItemsInstance.attr( { 'hidden': 'hidden' } );
 			}
 
-			// Add mobile menu toogle button
-			if ( ! tools.isEmpty( this.settings.templates.mobileMenuToogleButton ) ) {
-				this.$element.prepend( this.settings.templates.mobileMenuToogleButton );
-				this.$mobileToogleButton = $( '.mobile-menu-toggle-button', this.$element );
-			}
-
 			if ( this.isThreshold() ) {
 				this.$element.addClass( 'mobile-menu' );
-				$( 'body' ).addClass( 'mobile-menu-active' );
+				$( 'body' ).addClass( 'mobile-layout' );
 			} else {
-				$( 'body' ).addClass( 'desktop-menu-active' );
+				$( 'body' ).addClass( 'desktop-layout' );
 				this.rebuildItems();
 			}
 
 			this.subMenuHandler();
-
-			this.mobileViewHandler();
 
 			this.watch();
 		},
@@ -149,7 +141,13 @@
 					window.location = $link.attr( 'href' );
 
 					$( 'body' ).removeClass( 'mobile-menu-visible' );
-					self.$element.removeClass( 'mobile-menu-active-state' );
+
+					self.$window.trigger( {
+						type: 'rx-theme/responsive-menu/mobile/hide-event',
+						data: {
+							event: event,
+						}
+					} );
 
 					return false;
 				}
@@ -197,36 +195,13 @@
 			}
 
 			self.$window.on( 'orientationchange resize', function() {
-				if ( $( 'body' ).hasClass( 'mobile-menu-active' ) ) {
+				if ( $( 'body' ).hasClass( 'mobile-layout' ) ) {
 					return;
 				}
 
 				self.$instance.find( '.menu-item' ).removeClass( 'menu-hover' );
 			} );
 
-		},
-
-		/**
-		 * Mobile View Handler.
-		 *
-		 * @return {void}
-		 */
-		mobileViewHandler: function() {
-			var self             = this,
-				toogleStartEvent = 'mousedown',
-				toogleEndEvent   = 'mouseup';
-
-			if ( 'ontouchend' in window || 'ontouchstart' in window ) {
-				toogleStartEvent = 'touchstart';
-				toogleEndEvent = 'touchend';
-			}
-
-			this.$mobileToogleButton.on( toogleEndEvent, function( event ) {
-				event.preventDefault();
-
-				$( 'body' ).toggleClass( 'mobile-menu-visible' );
-				self.$element.toggleClass( 'mobile-menu-active-state' );
-			} );
 		},
 
 		/**
@@ -252,8 +227,8 @@
 
 			if ( this.isThreshold() ) {
 				this.$element.addClass( 'mobile-menu' );
-				$( 'body' ).addClass( 'mobile-menu-active' );
-				$( 'body' ).removeClass( 'desktop-menu-active' );
+				$( 'body' ).addClass( 'mobile-layout' );
+				$( 'body' ).removeClass( 'desktop-layout' );
 				this.$menuItems.removeAttr( 'hidden' );
 
 				// More-items listing not empty checking
@@ -267,8 +242,8 @@
 
 			} else {
 				this.$element.removeClass( 'mobile-menu' );
-				$( 'body' ).removeClass( 'mobile-menu-active' );
-				$( 'body' ).addClass( 'desktop-menu-active' );
+				$( 'body' ).removeClass( 'mobile-layout' );
+				$( 'body' ).addClass( 'desktop-layout' );
 				$( 'body' ).removeClass( 'mobile-menu-visible' );
 
 				this.rebuildItems();

@@ -87,8 +87,6 @@
 			}
 		},
 
-
-
 		mobilePanelInit: function() {
 			var $mobilePanel = $( '.rx-mobile-panel' ),
 				$body        = $( 'body' );
@@ -97,13 +95,75 @@
 				return false;
 			}
 
-			var $sidebarToggle = $( '.rx-mobile-panel__control--sidebar', $mobilePanel );
+			var $controls         = $( '.rx-mobile-panel__control', $mobilePanel ),
+				controlsData      = {},
+				$sidebarToggle    = $( '.rx-mobile-panel__control--sidebar', $mobilePanel ),
+				$mobileMenuToggle = $( '.rx-mobile-panel__control--mobile-menu', $mobilePanel );
 
-			$sidebarToggle.on( 'click.rxTheme', function( event ) {
-				$body.toggleClass( 'sidebar-visible' );
-				$sidebarToggle.toggleClass( 'active' );
+			$controls.each( function( intex ) {
+				var $control    = $( this ),
+					type        = $control.data( 'control-type' ),
+					controlData = {
+						'selector': $control,
+						'type': type,
+						'status': 'hidden',
+					};
+
+				controlsData[ type ] = controlData;
 			} );
 
+			console.log(controlsData);
+
+			$controls.on( 'click.rxTheme', function( event ) {
+				var $this = $( this ),
+					type  = $this.data( 'control-type' );
+
+				if ( ! $this.hasClass( 'active' ) ) {
+					modifyControlData( type, 'status', 'visible' );
+				} else {
+					modifyControlData( type, 'status', 'hidden' );
+				}
+
+				controlsSync();
+			} );
+
+			this.$window.on( 'rx-theme/responsive-menu/mobile/hide-event', function() {
+				//$mobileMenuToggle.removeClass( 'active' );
+
+				modifyControlData( 'mobile-menu', 'status', 'hidden' );
+				controlsSync();
+			} );
+
+			function modifyControlData( type, key, value ) {
+
+				if ( 'status' === key ) {
+					for ( var _key in controlsData ) {
+						controlsData[ _key ][ 'status' ] = 'hidden';
+					}
+				}
+
+				controlsData[ type ][ key ] = value;
+			}
+
+			function controlsSync() {
+
+				for ( var key in controlsData ) {
+					var $control = controlsData[ key ].selector,
+						type     = controlsData[ key ].type,
+						status   = controlsData[ key ].status;
+
+					if ( 'hidden' == status ) {
+						$control.removeClass( 'active' );
+						$body.removeClass( type + '-visible' );
+					}
+
+					if ( 'visible' == status ) {
+						$control.addClass( 'active' );
+						$body.addClass( type + '-visible' );
+					}
+
+				}
+			}
 		},
 
 		eventsInit: function() {
@@ -111,7 +171,7 @@
 		},
 
 		/**
-		 * Responsive menu watcher callback.
+		 * Resize Event Watcher callback.
 		 *
 		 * @param  {Object} Resize or Orientationchange event.
 		 * @return {void}
