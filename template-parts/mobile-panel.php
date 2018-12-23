@@ -10,10 +10,10 @@
 do_action( 'rx-theme/mobile-panel/mobile-panel-before' );
 
 $controls_list = [
-	/*'search' => [
+	'search' => [
 		'label' => esc_html__( 'Search', 'rx-theme' ),
 		'icon'  => 'fa fa-search',
-	],*/
+	],
 	'mobile-menu' => [
 		'label' => esc_html__( 'Menu', 'rx-theme' ),
 		'icon'  => 'fa fa-bars',
@@ -47,6 +47,4 @@ $controls_list = apply_filters( 'rx-theme/mobile-panel/mobile-panel-controls', $
 	</div>
 </div><?php
 
-do_action( 'rx-theme/mobile-panel/mobile-panel-after' );
-
-?>
+do_action( 'rx-theme/mobile-panel/mobile-panel-after' ); ?>

@@ -10,7 +10,7 @@ $color__nothumb: $color__lightblue;
 	### Grid layouts styles
 	------------------------*/
 	/* 4grids */
-	&.list-style-v4, 
+	&.list-style-v4,
 	&.list-style-v5 {
 		display: flex;
 		flex-wrap: wrap;
@@ -45,8 +45,8 @@ $color__nothumb: $color__lightblue;
 
 	}
 	/* 3grids */
-	&.list-style-default, 
-	&.list-style-v2, 
+	&.list-style-default,
+	&.list-style-v2,
 	&.list-style-v6 {
 		display: flex;
 		flex-wrap: wrap;
@@ -71,8 +71,8 @@ $color__nothumb: $color__lightblue;
 		}
 	}
 	/* 2grids */
-	&.list-style-v3, 
-	&.list-style-v7, 
+	&.list-style-v3,
+	&.list-style-v7,
 	&.list-style-v8,
 	&.list-style-v10 {
 		display: flex;
@@ -168,7 +168,7 @@ $color__nothumb: $color__lightblue;
 					margin: 0 0 0.43em;
 				}
 			}
-		}	
+		}
 	}
 	/*-------------------
 	### V2 Styles
@@ -520,7 +520,7 @@ $color__nothumb: $color__lightblue;
 			}
 			.grid-item-inner {
 				position: relative;
-				overflow: hidden;				
+				overflow: hidden;
 				background-color: rgba(0,0,0, 0.1);
 				@include transition(all 0.25s ease);
 				@include border-radius();
@@ -623,7 +623,7 @@ $color__nothumb: $color__lightblue;
 					transition-delay: 0.22s;
 				}
 			}
-			&:hover {				
+			&:hover {
 				&:not(.has-post-thumbnail) .grid-item-inner {
 					background-color: $color__dark;
 				}
@@ -759,7 +759,7 @@ $color__nothumb: $color__lightblue;
 	&.list-style-v9 {
 		position: relative;
 		.posts-list__item.grid-item {
-			margin: 0;			
+			margin: 0;
 			&:not(.has-post-thumbnail) .grid-item-inner {
 				background-color: $color__darkgray2;
 			}
