@@ -9,45 +9,56 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'posts-list__item creative-item invert-hover' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'posts-list__item creative-item' ); ?>>
 
-	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="creative-item__thumbnail" <?php rx_theme_post_overlay_thumbnail( 'rx-theme-thumb-m' ); ?>></div>
-	<?php endif; ?>
+	<?php
+		if ( has_post_thumbnail() ) {
+			global $wp_query;
 
-	<header class="entry-header">
-		<?php
-			rx_theme_posted_in();
-			rx_theme_posted_on( array(
-				'prefix' => __( 'Posted', 'rx-theme' )
-			) );
-		?>
-		<h4 class="entry-title"><?php
-			rx_theme_sticky_label();
-			the_title( '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a>' );
-		?></h4>
-	</header><!-- .entry-header -->
+			if ( $wp_query->current_post % 3 == 0 ) {
+				?><div class="creative-item__thumbnail" <?php rx_theme_post_overlay_thumbnail( 'rx-theme-thumb-l' ); ?>></div><?php
+			} else {
+				rx_theme_post_thumbnail( 'rx-theme-thumb-m-2' );
+			}
+		}
+	?>
 
-	<?php rx_theme_post_excerpt(); ?>
+	<div class="creative-item__content">
 
-	<footer class="entry-footer">
-		<div class="entry-meta">
-			<div>
-				<?php
-					rx_theme_posted_by();
+		<header class="entry-header">
+			<div class="entry-meta"><?php
+				rx_theme_posted_by();
+				rx_theme_posted_in( array(
+					'prefix' => __( 'In', 'rx-theme' ),
+				) );
+				rx_theme_posted_on( array(
+					'prefix' => __( 'Posted', 'rx-theme' )
+				) );
+			?></div>
+			<h3 class="entry-title"><?php
+				rx_theme_sticky_label();
+				the_title( '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a>' );
+			?></h3>
+		</header><!-- .entry-header -->
+
+		<?php rx_theme_post_excerpt(); ?>
+
+		<footer class="entry-footer">
+			<div class="entry-meta"><?php
+				rx_theme_post_tags( array(
+					'prefix' => __( 'Tags:', 'rx-theme' )
+				) );
+				?><div><?php
+					rx_theme_post_link();
 					rx_theme_post_comments( array(
-						'prefix' => '<i class="fa fa-comment" aria-hidden="true"></i>'
+						'prefix' => '<i class="fa fa-comment" aria-hidden="true"></i>',
+						'class'  => 'comments-button'
 					) );
-					rx_theme_post_tags( array(
-						'prefix' => __( 'Tags:', 'rx-theme' )
-					) );
-				?>
+				?></div>
 			</div>
-			<?php
-				rx_theme_post_link();
-			?>
-		</div>
-		<?php rx_theme_edit_link(); ?>
-	</footer><!-- .entry-footer -->
+			<?php rx_theme_edit_link(); ?>
+		</footer><!-- .entry-footer -->
+
+	</div>
 
 </article><!-- #post-<?php the_ID(); ?> -->

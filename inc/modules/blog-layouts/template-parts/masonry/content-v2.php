@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying style-v2 posts
+ * Template part for displaying style-v6 posts
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -8,7 +8,6 @@
  */
 
 ?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'posts-list__item masonry-item' ); ?>>
 	<?php rx_theme_post_thumbnail( 'rx-theme-thumb-masonry' ); ?>
 	<div class="masonry-item-wrap">
@@ -30,7 +29,6 @@
 				the_title( '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a>' );
 			?></h4>
 		</header><!-- .entry-header -->
-
 		<?php rx_theme_post_excerpt(); ?>
 
 		<footer class="entry-footer">

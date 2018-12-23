@@ -9,63 +9,43 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'posts-list__item creative-item invert-hover' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'posts-list__item creative-item' ); ?>>
 
-	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="creative-item__thumbnail" <?php rx_theme_post_overlay_thumbnail(); ?>></div>
-	<?php endif; ?>
+	<?php rx_theme_post_thumbnail( 'rx-theme-thumb-m-2' ); ?>
 
-	<div class="container">
+	<div class="creative-item__content">
 
-		<?php if ( rx_theme()->customizer->get_value( 'blog_post_categories' ) ) : ?>
-			<div class="creative-item__before-content"><?php
+		<header class="entry-header">
+			<h2 class="entry-title"><?php
+				rx_theme_sticky_label();
+				the_title( '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a>' );
+			?></h2>
+		</header><!-- .entry-header -->
+
+		<?php rx_theme_post_excerpt(); ?>
+
+		<footer class="entry-footer">
+			<div class="entry-meta"><?php
+				rx_theme_posted_by();
 				rx_theme_posted_in( array(
-					'prefix'    => '',
-					'delimiter' => '',
-					'before'    => '<div class="cat-links">',
-					'after'     => '</div>'
+					'prefix' => __( 'In', 'rx-theme' ),
 				) );
-			?></div>
-		<?php endif; ?>
-
-		<div class="creative-item__content">
-			<header class="entry-header">
-				<h3 class="entry-title"><?php
-					rx_theme_sticky_label();
-					the_title( '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a>' );
-				?></h3>
-			</header><!-- .entry-header -->
-
-			<?php rx_theme_post_excerpt(); ?>
-
-			<footer class="entry-footer">
-				<div class="entry-meta">
-					<div>
-						<?php
-							rx_theme_posted_by();
-							rx_theme_posted_on( array(
-								'prefix' => __( 'Posted', 'rx-theme' )
-							) );
-							rx_theme_post_tags( array(
-								'prefix' => __( 'Tags:', 'rx-theme' )
-							) );
-						?>
-					</div>
-					<?php
-						rx_theme_post_comments( array(
-							'postfix' => __( 'Comment(s)', 'rx-theme' )
-						) );
-					?>
-				</div>
-				<?php rx_theme_edit_link(); ?>
-			</footer><!-- .entry-footer -->
-		</div>
-
-		<?php if ( 'none' !== rx_theme()->customizer->get_value( 'blog_read_more_type' ) ) : ?>
-			<div class="creative-item__after-content"><?php
-				rx_theme_post_link();
-			?></div>
-		<?php endif; ?>
+				rx_theme_posted_on( array(
+					'prefix' => __( 'Posted', 'rx-theme' )
+				) );
+				rx_theme_post_tags( array(
+					'prefix' => __( 'Tags:', 'rx-theme' )
+				) );
+				?><div><?php
+					rx_theme_post_link();
+					rx_theme_post_comments( array(
+						'prefix' => '<i class="fa fa-comment" aria-hidden="true"></i>',
+						'class'  => 'comments-button'
+					) );
+				?></div>
+			</div>
+			<?php rx_theme_edit_link(); ?>
+		</footer><!-- .entry-footer -->
 
 	</div>
 

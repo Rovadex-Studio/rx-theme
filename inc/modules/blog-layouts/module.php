@@ -26,22 +26,22 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 		 * Sidebar list.
 		 */
 		private $sidebar_list = array (
-			'default'          => array( 'default','v2','v3','v4','v5','v6','v8','v10' ),
-			'creative'         => array( 'v3','v5','v8' ),
-			'grid'             => array( 'v3','v10' ),
-			'masonry'          => array( 'v3','v5','v6','v7','v10' ),
+			'default'          => array( 'default','v2','v3' ),
+			'grid'             => array( 'v3' ),
+			'masonry'          => array( 'default', 'v3' ),
 			'vertical-justify' => array(),
+			'creative'         => array( 'v2' ),
 		);
 
 		/**
 		 * Fullwidth list.
 		 */
 		private $fullwidth_list = array (
-			'default'          => array( 'v9' ),
-			'grid'             => array( 'v4','v5','v9' ),
-			'masonry'          => array( 'v4','v9' ),
-			'vertical-justify' => array( 'v4','v5','v6','v9','v10' ),
-			'creative'         => array( 'default','v2' )
+			'default'          => array( 'v2' ),
+			'grid'             => array( 'v2' ),
+			'masonry'          => array(),
+			'vertical-justify' => array( 'default','v2' ),
+			'creative'         => array( 'default','v2', 'v3' ),
 		);
 
 		/**
@@ -194,13 +194,6 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 						'default' => esc_html__( 'Style 1', 'rx-theme' ),
 						'v2'      => esc_html__( 'Style 2', 'rx-theme' ),
 						'v3'      => esc_html__( 'Style 3', 'rx-theme' ),
-						'v4'      => esc_html__( 'Style 4', 'rx-theme' ),
-						'v5'      => esc_html__( 'Style 5', 'rx-theme' ),
-						'v6'      => esc_html__( 'Style 6', 'rx-theme' ),
-						'v7'      => esc_html__( 'Style 7', 'rx-theme' ),
-						'v8'      => esc_html__( 'Style 8', 'rx-theme' ),
-						'v9'      => esc_html__( 'Style 9', 'rx-theme' ),
-						'v10'     => esc_html__( 'Style 10', 'rx-theme' ),
 					),
 					'type' => 'control',
 				),
