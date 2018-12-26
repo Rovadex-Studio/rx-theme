@@ -10,19 +10,25 @@
 do_action( 'rx-theme/mobile-panel/mobile-panel-before' );
 
 $controls_list = [
-	'search' => [
-		'label' => esc_html__( 'Search', 'rx-theme' ),
-		'icon'  => 'fa fa-search',
+	'home' => [
+		'label' => false,
+		'icon'  => 'fa fa-home',
+		'link'  => get_home_url(),
 	],
 	'mobile-menu' => [
-		'label' => esc_html__( 'Menu', 'rx-theme' ),
+		'label' => false,
 		'icon'  => 'fa fa-bars',
-	],
-	'sidebar' => [
-		'label' => esc_html__( 'More', 'rx-theme' ),
-		'icon'  => 'fa fa-ellipsis-h',
+		'link'  => false,
 	],
 ];
+
+if ( is_active_sidebar( 'sidebar' ) && 'none' !== rx_theme()->sidebar_position ) {
+	$controls_list['sidebar'] = [
+		'label' => false,
+		'icon'  => 'fa fa-ellipsis-h',
+		'link'  => false,
+	];
+}
 
 $controls_list = apply_filters( 'rx-theme/mobile-panel/mobile-panel-controls', $controls_list );
 
@@ -32,14 +38,22 @@ $controls_list = apply_filters( 'rx-theme/mobile-panel/mobile-panel-controls', $
 
 			if ( ! empty( $controls_list ) ) {
 				foreach ( $controls_list as $control_slug => $control_data ) {
-					$label = $control_data['label'];
-					$icon = $control_data['icon'];
+					$label = ! empty( $control_data['label'] ) ? sprintf( '<span>%s</span>', $control_data['label'] ) : '';
+					$icon  = $control_data['icon'];
+					$link  = $control_data['link'];
 					$classes = sprintf( 'rx-mobile-panel__control--%s', $control_slug );
 
-					?><div class="rx-mobile-panel__control <?php echo $classes; ?>" data-control-type="<?php echo $control_slug; ?>">
-						<i class="<?php echo $icon; ?>"></i>
-						<span><?php echo $label; ?></span>
-					</div><?php
+					$button = sprintf( '<i class="%s"></i>%s', $icon, $label );
+
+					if ( ! empty( $link ) ) {
+						$button = sprintf( '<a href="%s">%s</a>', $link, $button );
+
+						$classes .= ' extenal-link';
+					}
+
+					?><div class="rx-mobile-panel__control <?php echo $classes; ?>" data-control-type="<?php echo $control_slug; ?>"><?php
+						echo $button;
+					?></div><?php
 				}
 			}
 

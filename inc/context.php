@@ -164,7 +164,7 @@ function rx_theme_get_layout_classes( $layout = 'content', $classes = array() ) 
 	$sidebar_position = rx_theme()->sidebar_position;
 	$sidebar_width    = rx_theme()->customizer->get_value( 'sidebar_width' );
 
-	if ( 'none' === $sidebar_position || !is_active_sidebar( 'sidebar' ) ) {
+	if ( 'none' === $sidebar_position || ! is_active_sidebar( 'sidebar' ) ) {
 		$sidebar_position = is_singular( 'post' ) ? 'single-post-fullwidth' : 'fullwidth';
 		$sidebar_width = 0;
 	}

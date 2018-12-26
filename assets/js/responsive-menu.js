@@ -5,7 +5,7 @@
 
 		this.defaultSettings = {
 			enabled: false,
-			threshold: 767, // Minimal menu width, when this plugin activates
+			threshold: 768, // Minimal menu width, when this plugin activates
 			mouseLeaveDelay: 500,
 			openSubType: 'hover', // hover, click
 			mainMenuSelector: '.menu',
@@ -13,6 +13,7 @@
 			moreMenuContent:  '&middot;&middot;&middot;',
 			templates: {
 				mobileMenuToogleButton: '<button class="mobile-menu-toggle-button"><i class="menu-toggle__icon"></i></button>',
+				hasChildItemMarker: '<span class="has-child-marker"></span>'
 			}
 		}
 
@@ -62,6 +63,8 @@
 				this.rebuildItems();
 			}
 
+			$( '.menu-item-has-children > a', this.$instance ).append( this.settings.templates.hasChildItemMarker );
+
 			this.subMenuHandler();
 
 			this.watch();
@@ -81,18 +84,14 @@
 				timer;
 
 			if ( self.mobileAndTabletcheck() ) {
-				this.$instance.on( 'touchstart', '.menu-item > a', touchStartItem );
-				this.$instance.on( 'touchend', '.menu-item > a', touchEndItem );
+				this.$instance.on( 'touchstart', '.menu-item > a', touchStartLinkItem );
+				this.$instance.on( 'touchend', '.menu-item > a', touchEndLinkItem );
+				this.$instance.on( 'touchstart', '.menu-item > a .has-child-marker', touchStartMarker );
+				this.$instance.on( 'touchend', '.menu-item > a .has-child-marker', touchEndMarker );
 				this.$document.on( 'touchend', function( event ) {
 					self.$instance.find( '.menu-item' ).removeClass( 'menu-hover' );
-
-					if ( $( 'body' ).hasClass( 'mobile-menu-visible' ) ) {
-						//$( 'body' ).removeClass( 'mobile-menu-visible' );
-						//self.$element.removeClass( 'mobile-menu-active-state' );
-					}
 				} );
 			} else {
-
 				this.$instance.on( 'mouseenter', '.menu-item > a', mouseEnterHandler );
 				this.$instance.on( 'mouseleave', '.menu-item > a', mouseLeaveHandler );
 
@@ -101,64 +100,52 @@
 				this.$instance.on( 'mouseleave', mouseLeaveInstanceHandler );
 			}
 
-			function touchStartItem( event ) {
+			function touchStartLinkItem( event ) {
 				var $currentTarget = $( event.currentTarget ),
 					$this          = $currentTarget.closest( '.menu-item' );
 
 				$this.data( 'offset', $this.offset().top );
 			}
 
-			function touchEndItem( event ) {
-				var $this,
-					$siblingsItems,
-					$link,
-					link,
-					$currentTarget,
-					subMenu,
-					offset;
-
+			function touchEndLinkItem( event ) {
 				event.preventDefault();
 				event.stopPropagation();
 
-				$currentTarget = $( event.currentTarget );
-				$this          = $currentTarget.closest( '.menu-item' );
-				$siblingsItems = $this.siblings( '.menu-item.menu-item-has-children' );
-				$link          = $( '> a', $this );
-				link           = $link.attr( 'href' );
-				subMenu        = $( '.sub-menu:first', $this );
-				offset         = $this.data( 'offset' );
+				var $currentTarget = $( event.currentTarget ),
+					$this          = $currentTarget.closest( '.menu-item' ),
+					$link          = $( '> a', $this ),
+					link           = $link.attr( 'href' ),
+					offset         = $this.data( 'offset' );
 
 				if ( offset !== $this.offset().top ) {
 					return false;
 				}
 
-				if ( $siblingsItems[0] ) {
-					$siblingsItems.removeClass( 'menu-hover' );
-					$( '.menu-item-has-children', $siblingsItems ).removeClass( 'menu-hover' );
-				}
+				window.location = $link.attr( 'href' );
+			}
 
-				if ( ! $( '.sub-menu', $this )[0] ) {
-					window.location = $link.attr( 'href' );
+			function touchStartMarker( event ) {
+				var $currentTarget = $( event.currentTarget ),
+					$this          = $currentTarget.closest( '.menu-item' );
 
-					$( 'body' ).removeClass( 'mobile-menu-visible' );
+				$this.data( 'offset', $this.offset().top );
+			}
 
-					self.$window.trigger( {
-						type: 'rx-theme/responsive-menu/mobile/hide-event',
-						data: {
-							event: event,
-						}
-					} );
+			function touchEndMarker( event ) {
+				event.preventDefault();
+				event.stopPropagation();
 
+				var $currentTarget = $( event.currentTarget ),
+					$this          = $currentTarget.closest( '.menu-item' ),
+					offset         = $this.data( 'offset' );
+
+				if ( offset !== $this.offset().top ) {
 					return false;
 				}
 
 				if ( $this.hasClass( 'menu-hover' ) ) {
 					$this.removeClass( 'menu-hover' );
-
-					return false;
-				}
-
-				if ( subMenu[0] ) {
+				} else {
 					$this.addClass( 'menu-hover' );
 				}
 			}

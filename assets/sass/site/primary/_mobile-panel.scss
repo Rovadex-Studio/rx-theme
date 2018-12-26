@@ -14,7 +14,7 @@
 	}
 
 	&__inner {
-		padding: 10px;
+		padding: 0 10px;
 
 		@include media-breakpoint-down(xs) {
 			display: block;
@@ -24,20 +24,21 @@
 
 	&__controls {
 		display: flex;
-		flex-flow: row nowrap;
-		justify-content: flex-end;
+		flex-flow: row wrap;
+		justify-content: center;
 		align-items: center;
 	}
 
 	&__control {
-		padding: 5px 15px;
-		margin: 0 6px;
+		padding: 10px;
+		margin: 5px;
 		display: flex;
+		flex-flow: row nowrap;
 		justify-content: center;
 		align-items: center;
 		border-radius: $border__radius;
-
 		background-color: $color__light;
+		cursor: pointer;
 
 		i {
 			font-size: 25px;
@@ -48,6 +49,10 @@
 			font-size: 18px;
 			color: #a1a2a4;
 			margin-left: 7px;
+
+			@media (max-width: 480px) {
+				display: none;
+			}
 		}
 
 		&.active {

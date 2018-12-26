@@ -40,14 +40,7 @@
 		},
 
 		responsiveMenuInit: function() {
-			$( '.main-navigation' ).RxMenu( {
-				/*enabled: rollUp,
-				mouseLeaveDelay: +jetMenuMouseleaveDelay,
-				megaWidthType: jetMenuMegaWidthType,
-				megaWidthSelector: jetMenuMegaWidthSelector,
-				openSubType: jetMenuMegaOpenSubType,
-				threshold: +jetMenuMobileBreakpoint*/
-			} );
+			$( '.main-navigation' ).RxMenu();
 		},
 
 		magnificPopupInit: function() {
@@ -111,8 +104,6 @@
 
 				controlsData[ type ] = controlData;
 			} );
-
-			console.log(controlsData);
 
 			$controls.on( 'click.rxTheme', function( event ) {
 				var $this = $( this ),
