@@ -422,7 +422,8 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			 */
 			$scripts_depends = 	apply_filters( 'rx-theme/assets-depends/script', array(
 				'jquery',
-				'responsive-menu'
+				'responsive-menu',
+				'superfish'
 			) );
 
 			if ( $this->is_blog || is_singular( 'post' ) ) {
