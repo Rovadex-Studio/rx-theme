@@ -19,6 +19,7 @@
 			this.magnificPopupInit();
 			this.swiperInit();
 			this.mobilePanelInit();
+			this.superfishInit();
 		},
 
 		page_preloader_init: function(self) {
@@ -208,7 +209,13 @@
 
 				timeout = setTimeout( delayed, threshold );
 			};
-		}
+		},
+
+		superfishInit: function() {
+			if( $('ul.sf-menu')[0] ){
+				$('ul.sf-menu').superfish();
+			}
+		},
 	};
 
 	Rx_Theme_JS.init();
