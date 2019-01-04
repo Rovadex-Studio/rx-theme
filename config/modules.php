@@ -14,7 +14,6 @@ if ( ! function_exists( 'rx_theme_get_allowed_modules' ) ) {
 	function rx_theme_get_allowed_modules() {
 		return apply_filters( 'rx-theme/allowed-modules', array(
 			'blog-layouts'    => array(),
-			//'crocoblock'      => array(),
 			'woo'             => array(
 				'woo-breadcrumbs' => array(),
 				'woo-page-title'  => array(),
