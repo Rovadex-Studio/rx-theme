@@ -375,14 +375,6 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 				true
 			);
 
-			wp_register_script(
-				'superfish',
-				get_theme_file_uri( 'assets/js/superfish.min.js' ),
-				array(),
-				'1.7.10',
-				true
-			);
-
 			// register style
 			wp_register_style(
 				'font-awesome',
@@ -423,7 +415,6 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			$scripts_depends = 	apply_filters( 'rx-theme/assets-depends/script', array(
 				'jquery',
 				'responsive-menu',
-				'superfish'
 			) );
 
 			if ( $this->is_blog || is_singular( 'post' ) ) {

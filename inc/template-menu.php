@@ -23,7 +23,7 @@ function rx_theme_main_menu() {
 				'theme_location'   => 'main',
 				'container'        => '',
 				'menu_id'          => 'main-menu',
-				'menu_class'       => 'menu slicknav-menu sf-menu',
+				'menu_class'       => 'menu slicknav-menu',
 				'fallback_cb'      => 'rx_theme_set_nav_menu',
 				'fallback_message' => esc_html__( 'Set main menu', 'rx-theme' ),
 			) );

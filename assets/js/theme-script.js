@@ -19,7 +19,6 @@
 			this.magnificPopupInit();
 			this.swiperInit();
 			this.mobilePanelInit();
-			this.superfishInit();
 		},
 
 		page_preloader_init: function(self) {
@@ -41,7 +40,7 @@
 		},
 
 		responsiveMenuInit: function() {
-			$( '.main-navigation' ).RxMenu();
+			$( '.main-navigation, .menu-main-container' ).RxMenu();
 		},
 
 		magnificPopupInit: function() {
@@ -209,12 +208,6 @@
 
 				timeout = setTimeout( delayed, threshold );
 			};
-		},
-
-		superfishInit: function() {
-			if( $('ul.sf-menu')[0] ){
-				$('ul.sf-menu').superfish();
-			}
 		},
 	};
 

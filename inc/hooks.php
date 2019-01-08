@@ -61,8 +61,9 @@ function rx_theme_assistant_body_classes( $classes ) {
 	$blog_layout = rx_theme()->customizer->get_value( 'blog_layout_type' );
 	$sb_position = rx_theme()->sidebar_position;
 	$sidebar     = rx_theme()->customizer->get_value( 'sidebar_width' );
+	$post_name   = ! empty( $post->post_name ) ? $post->post_name : '';
 
-	array_push( $options_based_classes, 'layout-' . $layout, 'blog-' . $blog_layout, $post->post_name );
+	array_push( $options_based_classes, 'layout-' . $layout, 'blog-' . $blog_layout, $post_name );
 	if( 'none' !== $sb_position ) {
 		array_push( $options_based_classes, 'sidebar_enabled', 'position-' . $sb_position, 'sidebar-' . str_replace( '/', '-', $sidebar ) );
 	}
