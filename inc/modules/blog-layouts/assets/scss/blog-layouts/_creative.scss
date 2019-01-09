@@ -78,6 +78,8 @@
 			&:nth-child(odd) {
 				.post-thumbnail {
 					right: 0;
+					display: flex;
+					justify-content: flex-start;
 				}
 				.creative-item__content {
 					margin-right: auto
@@ -86,6 +88,8 @@
 			&:nth-child(even) {
 				.post-thumbnail {
 					left: 0;
+					display: flex;
+					justify-content: flex-end;
 				}
 				.creative-item__content {
 					margin-left: auto
@@ -244,7 +248,7 @@
 		height: 100%;
 		background-color: $color__background-hr;
 	}
-	.creative-item {
+	.creative-itemcreative-item {
 		&:before {
 			content: '';
 			position: absolute;

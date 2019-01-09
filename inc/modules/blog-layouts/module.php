@@ -30,7 +30,7 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 			'grid'             => array( 'v3' ),
 			'masonry'          => array( 'default', 'v3' ),
 			'vertical-justify' => array(),
-			'creative'         => array( 'v2' ),
+			'creative'         => array(),
 		);
 
 		/**
@@ -41,7 +41,7 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 			'grid'             => array( 'v2' ),
 			'masonry'          => array(),
 			'vertical-justify' => array( 'default','v2' ),
-			'creative'         => array( 'default','v2', 'v3' ),
+			'creative'         => array( 'default' ),
 		);
 
 		/**
