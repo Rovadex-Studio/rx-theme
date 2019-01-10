@@ -1,4 +1,4 @@
-.main-navigation {
+.main-navigation, .menu-main-container {
 	position: relative;
 	flex: 1 1 auto;
 
@@ -175,7 +175,7 @@
 .mobile-layout {
 	padding-bottom: 60px;
 
-	.main-navigation {
+	.main-navigation, .menu-main-container {
 		display: flex;
 		justify-content: flex-start;
 		position: fixed;
@@ -193,13 +193,13 @@
 		transition: opacity 0.3s ease;
 	}
 
-	.main-navigation-inner {
+	.main-navigation-inner, .menu-main-container > .menu {
 		width: 100%;
 		overflow-y: scroll;
 	}
 
 	&.mobile-menu-visible {
-		.main-navigation {
+		.main-navigation , .menu-main-container{
 			opacity: 1;
 			pointer-events: all;
 			transition: opacity .5s cubic-bezier(.35,.19,.45,.91);

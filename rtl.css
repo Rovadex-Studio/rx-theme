@@ -11,7 +11,7 @@ https://codex.wordpress.org/Right-to-Left_Language_Support
 
 /* main-navigation */
 
-.main-navigation .menu>li {
+.main-navigation .menu>li , .menu-main-container .menu>li{
 	margin-left: 0;
 	margin-right: 12px;
 }

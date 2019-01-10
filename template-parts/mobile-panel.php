@@ -51,8 +51,8 @@ $controls_list = apply_filters( 'rx-theme/mobile-panel/mobile-panel-controls', $
 						$classes .= ' extenal-link';
 					}
 
-					?><div class="rx-mobile-panel__control <?php echo $classes; ?>" data-control-type="<?php echo $control_slug; ?>"><?php
-						echo $button;
+					?><div class="rx-mobile-panel__control <?php echo esc_attr( $classes ); ?>" data-control-type="<?php echo esc_attr( $control_slug ); ?>"><?php
+						printf( '%s', $button );
 					?></div><?php
 				}
 			}
