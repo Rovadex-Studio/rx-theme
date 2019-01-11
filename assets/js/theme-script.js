@@ -40,7 +40,7 @@
 		},
 
 		responsiveMenuInit: function() {
-			$( '.main-navigation, .menu-main-container' ).RxMenu();
+			$( '.main-navigation' ).RxMenu();
 		},
 
 		magnificPopupInit: function() {

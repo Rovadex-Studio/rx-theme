@@ -1,4 +1,4 @@
-.main-navigation, .menu-main-container {
+.main-navigation {
 	.sub-menu {
 		li.wpml-ls-item {
 			margin: 3px 10px;
@@ -10,7 +10,7 @@
 	}
 }
 
-.main-navigation.mobile-menu, .menu-main-container.mobile-menu{
+.main-navigation.mobile-menu{
 	.menu {
 		li.wpml-ls-item {
 			display: block;

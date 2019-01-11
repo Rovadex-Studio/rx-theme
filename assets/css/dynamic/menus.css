@@ -1,6 +1,5 @@
 /* #Main Menu */
 .main-navigation {
-.menu-main-container {
 	font-style: $menu_font_style;
 	font-weight: $menu_font_weight;
 	font-size: $menu_font_size{px};
@@ -10,7 +9,6 @@
 }
 
 .main-navigation a,
-.menu-main-container a,
 .menu-item-has-children:before {
 	color: $secondary_text_color;
 }
@@ -19,13 +17,7 @@
 .main-navigation .current_page_item>a,
 .main-navigation .current-menu-item>a,
 .main-navigation .current_page_ancestor>a,
-.main-navigation .current-menu-ancestor>a
-
-.menu-main-container a:hover,
-.menu-main-container .current_page_item>a,
-.menu-main-container .current-menu-item>a,
-.menu-main-container .current_page_ancestor>a,
-.menu-main-container .current-menu-ancestor>a {
+.main-navigation .current-menu-ancestor>a{
 	color: $link_hover_color;
 }
 

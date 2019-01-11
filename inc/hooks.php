@@ -140,7 +140,7 @@ function rx_theme_modify_comment_form( $args ) {
  * @return array
  */
 function rx_theme_modify_nav_menu( $args ) {
-	$args['items_wrap'] = '<div class="main-navigation-inner"><ul id="%1$s" class="%2$s">%3$s</ul></div>';
+	$args['items_wrap'] = '<div class="main-navigation"><div class="main-navigation-inner"><ul id="%1$s" class="%2$s">%3$s</ul></div></div>';
 
 	return $args;
 }
