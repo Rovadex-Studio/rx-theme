@@ -1585,7 +1585,7 @@ function rx_theme_is_sticky_icon( $control ) {
  * @return void
  */
 function rx_theme_customizer_change_core_controls( $wp_customize ) {
-	$wp_customize->get_control( 'site_icon' )->section      = 'rx_theme_favicon';
+	$wp_customize->get_control( 'site_icon' )->section      = 'rx-theme_favicon';
 	$wp_customize->get_control( 'background_color' )->label = esc_html__( 'Body Background Color', 'rx-theme' );
 }
 
