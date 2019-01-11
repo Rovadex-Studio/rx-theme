@@ -59,12 +59,12 @@ $config = array(
 			'wpgdprc_integrations_contact-form-7_error_message',
 		),
 		'tables' => array(
-			'nextend2_image_storage',
-			'nextend2_section_storage',
-			'nextend2_smartslider3_generators',
-			'nextend2_smartslider3_sliders',
-			'nextend2_smartslider3_sliders_xref',
-			'nextend2_smartslider3_slides',
+			'revslider_css',
+			'revslider_layer_animations',
+			'revslider_navigations',
+			'revslider_sliders',
+			'revslider_slides',
+			'revslider_static_slides',
 		),
 	),
 );
