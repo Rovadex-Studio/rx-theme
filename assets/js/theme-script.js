@@ -208,7 +208,7 @@
 
 				timeout = setTimeout( delayed, threshold );
 			};
-		}
+		},
 	};
 
 	Rx_Theme_JS.init();

@@ -20,6 +20,8 @@ add_filter( 'image_size_names_choose', 'rx_theme_image_size_names_choose' );
 // Modify a comment form.
 add_filter( 'comment_form_defaults', 'rx_theme_modify_comment_form' );
 
+// Modify a nav menu.
+add_filter( 'widget_nav_menu_args', 'rx_theme_modify_nav_menu', 10, 4 );
 
 /**
  * Adds the meta viewport to the header.
@@ -61,8 +63,9 @@ function rx_theme_assistant_body_classes( $classes ) {
 	$blog_layout = rx_theme()->customizer->get_value( 'blog_layout_type' );
 	$sb_position = rx_theme()->sidebar_position;
 	$sidebar     = rx_theme()->customizer->get_value( 'sidebar_width' );
+	$post_name   = ! empty( $post->post_name ) ? $post->post_name : '';
 
-	array_push( $options_based_classes, 'layout-' . $layout, 'blog-' . $blog_layout, $post->post_name );
+	array_push( $options_based_classes, 'layout-' . $layout, 'blog-' . $blog_layout, $post_name );
 	if( 'none' !== $sb_position ) {
 		array_push( $options_based_classes, 'sidebar_enabled', 'position-' . $sb_position, 'sidebar-' . str_replace( '/', '-', $sidebar ) );
 	}
@@ -126,6 +129,18 @@ function rx_theme_modify_comment_form( $args ) {
 	$args['fields']['url'] = '<p class="comment-form-url"><input id="url" class="comment-form__field" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' placeholder="' . esc_attr__( 'Website', 'rx-theme' ) . '" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>';
 
 	$args['comment_field'] = '<p class="comment-form-comment"><textarea id="comment" class="comment-form__field" name="comment" placeholder="' . esc_attr__( 'Comments *', 'rx-theme' ) . '" cols="45" rows="7" aria-required="true" required="required"></textarea></p>';
+
+	return $args;
+}
+
+/**
+ * Adds an extra div around the menu.
+ *
+ * @param  array $args Argumnts for nav menu.
+ * @return array
+ */
+function rx_theme_modify_nav_menu( $args ) {
+	$args['items_wrap'] = '<div class="main-navigation"><div class="main-navigation-inner"><ul id="%1$s" class="%2$s">%3$s</ul></div></div>';
 
 	return $args;
 }

@@ -414,7 +414,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			 */
 			$scripts_depends = 	apply_filters( 'rx-theme/assets-depends/script', array(
 				'jquery',
-				'responsive-menu'
+				'responsive-menu',
 			) );
 
 			if ( $this->is_blog || is_singular( 'post' ) ) {
@@ -490,7 +490,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 				$handler = array( jet_theme_core()->locations, 'do_location' );
 			} elseif ( function_exists( 'elementor_theme_do_location' ) ) {
 				$handler = 'elementor_theme_do_location';
-			} elseif ( class_exists( 'Header_Footer_Elementor' ) ){
+			} elseif ( class_exists( 'Header_Footer_Elementor' ) && class_exists( 'Rx_Theme_Assistant_Header_Footer_Plugin_Ext' ) ){
 				$handler = array( 'Rx_Theme_Assistant_Header_Footer_Plugin_Ext', 'rx_theme_assistant_return_template' );
 			}
 
