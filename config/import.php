@@ -57,14 +57,8 @@ $config = array(
 			'wpgdprc_integrations_wordpress',
 			'wpgdprc_integrations_contact-form-7_form_text',
 			'wpgdprc_integrations_contact-form-7_error_message',
+			'cptui_post_types',
 		),
-		'tables' => array(
-			'nextend2_image_storage',
-			'nextend2_section_storage',
-			'nextend2_smartslider3_generators',
-			'nextend2_smartslider3_sliders',
-			'nextend2_smartslider3_sliders_xref',
-			'nextend2_smartslider3_slides',
-		),
+		'tables' => array(),
 	),
 );
