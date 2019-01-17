@@ -10,23 +10,35 @@
  * @package Rx Theme
  */
 
+$author_block_enabled = rx_theme()->customizer->get_value( 'single_author_block' );
+$primary_colum_class = $author_block_enabled ? 'col-xs-12 col-md-8' : 'col-xs-12';
+
 get_header();
-	?><div class="site-content__wrap"><?php
-		get_template_part( 'template-parts/single-post/headers/header-v3', get_post_format() );
-		?><div class="container">
+	?><div class="site-content__wrap">
+		<div class="container">
 			<div class="row">
-				<div id="primary" <?php rx_theme_primary_content_class(); ?>>
+				<?php if ( $author_block_enabled ) : ?>
+					<div id="author-block" class="col-xs-12 col-md-3"><?php
+						get_template_part( 'template-parts/single-post/author-bio' );
+						rx_theme_posted_on( array(
+							'prefix'  => __( 'Posted', 'rx-theme' ),
+							'before' => '<div class="posted-on">',
+							'after'  => '</div>',
+						) );
+					?></div>
+				<?php endif; ?>
+				<div id="primary" class="col-xs-12 col-md-9">
 					<main id="main" class="site-main">
 						<?php while ( have_posts() ) : the_post();
 
 							?><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>><?php
 
+								get_template_part( 'template-parts/single-post/headers/header-v3', get_post_format() );
 								get_template_part( 'template-parts/single-post/content', get_post_format() );
 								get_template_part( 'template-parts/single-post/footer' );
 
 							?></article><?php
 
-								get_template_part( 'template-parts/single-post/author-bio' );
 								get_template_part( 'template-parts/single-post/post_navigation' );
 								rx_theme_related_posts();
 								get_template_part( 'template-parts/single-post/comments' );
@@ -34,7 +46,6 @@ get_header();
 						endwhile; // End of the loop. ?>
 					</main><!-- #main -->
 				</div><!-- #primary -->
-				<?php get_sidebar(); // Loads the sidebar.php template.  ?>
 			</div>
 		</div>
 	</div><?php

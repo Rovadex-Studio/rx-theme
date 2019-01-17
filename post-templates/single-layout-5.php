@@ -3,7 +3,7 @@
  * Template Name: Post Layout 05
  * Template Post Type: post
  *
- * The template for displaying layout 5 single posts.
+ * The template for displaying layout 05 single posts.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *

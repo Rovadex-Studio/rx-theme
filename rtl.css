@@ -110,9 +110,9 @@ ol {
 # Single post
 --------------------------------------------------------------*/
 
-/* v3 */
+/* v2 */
 
-.post-template-single-layout-3 .single-header-3 .post-author__avatar {
+.post-template-single-layout-2 .single-header-2 .post-author__avatar {
 	margin-left: 20px;
 	margin-right: 0;
 }
@@ -120,20 +120,13 @@ ol {
 /* v5 */
 
 .post-template-single-layout-5 .single-header-5 .post-author__avatar {
-	margin-right: 15px;
-	margin-left: 0;
-}
-
-/* v10 */
-
-.post-template-single-layout-10 .single-header-10 .post-author__avatar {
 	margin-left: 12px;
 	margin-right: 0;
 }
 
-.post-template-single-layout-10 .single-header-10 .entry-header .post-author,
-.post-template-single-layout-10 .single-header-10 .entry-header .cat-links,
-.post-template-single-layout-10 .single-header-10 .entry-header .posted-on {
+.post-template-single-layout-5 .single-header-5 .entry-header .post-author,
+.post-template-single-layout-5 .single-header-5 .entry-header .cat-links,
+.post-template-single-layout-5 .single-header-5 .entry-header .posted-on {
 	padding: 0 0 15px 18px;
 }
 

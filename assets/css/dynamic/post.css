@@ -168,26 +168,21 @@
 .single-post blockquote {
 	border-color: $accent_color;
 }
-.single-post:not(.post-template-single-layout-4):not(.post-template-single-layout-7) .tags-links a:hover {
+.single-post .tags-links a:hover {
 	color: $invert_text_color;
 	border-color: $accent_color;
 	background-color: $accent_color;
 }
 
-.single-header-2 .post-author .byline {
-	font-style: $h4_font_style;
-	font-weight: $h4_font_weight;
-	font-size: $h4_font_size{px};
-	line-height: $h4_line_height;
-	font-family: @font_family( $h4_font_family );
-	letter-spacing: $h4_letter_spacing{px};
-}
-
-.single-header-10 .entry-header {
+.single-header-4 {
 	background-color: $accent_color;
 }
 
-.single-header-10.invert a:hover {
+.single-header-5 .entry-header {
+	background-color: $accent_color;
+}
+
+.single-header-5.invert a:hover {
 	color: @alpha($invert_text_color, 50%);
 }
 
