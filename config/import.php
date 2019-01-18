@@ -58,7 +58,11 @@ $config = array(
 			'wpgdprc_integrations_contact-form-7_form_text',
 			'wpgdprc_integrations_contact-form-7_error_message',
 			'cptui_post_types',
+			'rx-theme-assistant-settings',
 		),
-		'tables' => array(),
+		'tables' => array(
+			'wp_postmeta',
+			'wp_wpgdprc_consents'
+		),
 	),
 );
