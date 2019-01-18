@@ -63,6 +63,12 @@ $config = array(
 		'tables' => array(
 			'wp_postmeta',
 			'wp_wpgdprc_consents'
+			'revslider_css',
+			'revslider_layer_animations',
+			'revslider_navigations',
+			'revslider_sliders',
+			'revslider_slides',
+			'revslider_static_slides',
 		),
 	),
 );
