@@ -199,7 +199,7 @@
 	}
 
 	&.mobile-menu-visible {
-		.main-navigation{
+		.site-header .main-navigation{
 			opacity: 1;
 			pointer-events: all;
 			transition: opacity .5s cubic-bezier(.35,.19,.45,.91);

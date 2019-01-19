@@ -17,7 +17,7 @@ $plugins = array(
 	'jet-data-importer' => array(
 		'name'   => esc_html__( 'Jet Data Importer', 'rx-theme' ),
 		'source' => 'remote', // 'local', 'remote', 'wordpress' (default).
-		'path'   => 'http://plugins.rovadex.com/jet-data-importer.zip',
+		'path'   => 'https://plugins.rovadex.com/jet-data-importer.zip',
 		'access' => 'base',
 	),
 
@@ -26,23 +26,13 @@ $plugins = array(
 		'access' => 'base',
 	),
 
-	'jetwidgets-for-elementor' => array(
-		'name'   => esc_html__( 'JetWidgets For Elementor', 'rx-theme' ),
-		'access' => 'base',
-	),
-
 	'header-footer-elementor' => array(
 		'name'   => esc_html__( 'Header Footer Elementor', 'rx-theme' ),
 		'access' => 'base',
 	),
 
-	'block-builder' => array(
-		'name'   => esc_html__( 'Elementor Blocks for Gutenberg', 'rx-theme' ),
-		'access' => 'base',
-	),
-
-	'smart-slider-3' => array(
-		'name'   => esc_html__( 'Smart Slider 3', 'rx-theme' ),
+	'jetwidgets-for-elementor' => array(
+		'name'   => esc_html__( 'JetWidgets For Elementor', 'rx-theme' ),
 		'access' => 'base',
 	),
 
@@ -53,15 +43,37 @@ $plugins = array(
 		'access' => 'base',
 	),
 
-	'cherry-ld-mods-switcher' => array(
-		'name'   => esc_html__( 'Cherry ld mods switcher', 'rx-theme' ),
-		'source' => 'remote', // 'local', 'remote', 'wordpress' (default).
-		'path'   => 'http://plugins.rovadex.com/cherry-ld-mods-switcher.zip',
+	'revslider' => array(
+		'name'   => esc_html__( 'Slider Revolution', 'rx-theme' ),
+		'source' => 'local', // 'local', 'remote', 'wordpress' (default).
+		'path'   => get_theme_file_uri( 'assets/plugins/revslider.zip' ),
 		'access' => 'base',
 	),
 
 	'contact-form-7' => array(
 		'name'   => esc_html__( 'Contact Form 7', 'rx-theme' ),
+		'access' => 'base',
+	),
+
+	'advanced-custom-fields' => array(
+		'name'   => esc_html__( 'Advanced Custom Fields', 'rx-theme' ),
+		'access' => 'base',
+	),
+
+	'custom-post-type-ui' => array(
+		'name'   => esc_html__( 'Custom Post Type UI', 'rx-theme' ),
+		'access' => 'base',
+	),
+
+	'cherry-ld-mods-switcher' => array(
+		'name'   => esc_html__( 'Cherry ld mods switcher', 'rx-theme' ),
+		'source' => 'remote', // 'local', 'remote', 'wordpress' (default).
+		'path'   => 'https://plugins.rovadex.com/cherry-ld-mods-switcher.zip',
+		'access' => 'base',
+	),
+
+	'block-builder' => array(
+		'name'   => esc_html__( 'Elementor Blocks for Gutenberg', 'rx-theme' ),
 		'access' => 'base',
 	),
 
@@ -91,28 +103,33 @@ $plugins = array(
  *
  * @var array
  */
+$theme = wp_get_theme();
+$theme_slag = get_template();
 $skins = array(
 	'base' => array(
 		'jet-data-importer',
 		'elementor',
 		'jetwidgets-for-elementor',
-		'smart-slider-3',
-		'mailchimp-for-wp',
+		'revslider',
+		'advanced-custom-fields',
+		'custom-post-type-ui',
 		'rx-theme-assistant',
 		'contact-form-7',
 	),
 	'advanced' => array(
 		'default' => array(
 			'full'  => array(
+				'cherry-ld-mods-switcher',
 				'wp-gdpr-compliance',
 				'gutenberg',
+				'block-builder',
 			),
 			'lite'            => false,
-			'demo'            => 'http://rx-theme.rovadex.com/',
+			'demo'            => 'https://' . $theme_slag . '.rovadex.com/',
 			'thumb'           => get_theme_file_uri( 'screenshot.png' ),
-			'name'            => esc_html__( 'Rx Theme', 'rx-theme' ),
+			'name'            => $theme->get( 'Name' ),
 			'additional_info' => array(
-				'title'       => esc_html__( 'Rx Theme Theme v.1.0.0', 'rx-theme' ),
+				'title'       => sprintf( '%1$s %2$s %3$s', $theme->get( 'Name' ), esc_html__( 'Theme', 'rx-theme' ), $theme->get( 'Version' ) ),
 				'description' => esc_html__( 'An ideal solution particularly regards to plumber and water service as well as it enables you to build a wide variety of business websites.', 'rx-theme' ),
 				'social_links' => array(
 					'facebook' => array(
@@ -126,7 +143,7 @@ $skins = array(
 						'title'       => esc_html__( 'Documentation', 'rx-theme' ),
 						'description' => esc_html__( 'Detailed documentation which explains in easy way how to setup and customize our theme. Your site customisations will be easy and fast!', 'rx-theme' ),
 						'link_text'   => esc_html__( 'Read', 'rx-theme' ),
-						'link'        => 'https://documentation.rovadex.com/rx-theme',
+						'link'        => 'https://documentation.rovadex.com/' . $theme_slag,
 					),
 					'support' => array(
 						'thumb'       => 'https://plugins.rovadex.com/rx-theme-wizard/support-thumb.png',

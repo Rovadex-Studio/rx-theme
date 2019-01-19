@@ -6,15 +6,17 @@
  *
  * @package Storycle
  */
+$theme = wp_get_theme();
+$theme_slag = get_template();
 $config = array(
 	'xml' => false,
 	'advanced_import' => array(
 		'default' => array(
-			'label'    => esc_html__( 'Rx Theme', 'rx-theme' ),
-			'full'     => 'http://demo-content.rovadex.com/rx-theme/default/default.xml',
+			'label'    => $theme->get( 'Name' ),
+			'full'     => 'https://demo-content.rovadex.com/' . $theme_slag . '/default/default.xml',
 			'lite'     => false,
 			'thumb'    => get_theme_file_uri( 'screenshot.png' ),
-			'demo_url' => 'http://rx-theme.rovadex.com/',
+			'demo_url' => 'https://' . $theme_slag . '.rovadex.com/',
 		),
 	),
 	'import' => array(
@@ -27,7 +29,7 @@ $config = array(
 		'home' => array(
 			'label'  => esc_html__( 'View your site', 'rx-theme' ),
 			'type'   => 'primary',
-			'target' => '_self',
+			'target' => '_blank',
 			'icon'   => 'dashicons-welcome-view-site',
 			'desc'   => esc_html__( 'Take a look at your site', 'rx-theme' ),
 			'url'    => home_url( '/' ),
@@ -50,6 +52,13 @@ $config = array(
 			'elementor_container_width',
 			'elementor_css_print_method',
 			'elementor_global_image_lightbox',
+			'elementor_page_title_selector',
+			'elementor_default_generic_fonts',
+			'elementor_space_between_widgets',
+			'elementor_stretched_section_container',
+			'elementor_viewport_lg',
+			'elementor_viewport_md',
+			'elementor_global_image_lightbox',
 			'mc4wp',
 			'mc4wp_mailchimp_list_ids',
 			'theme_mods_rx-theme',
@@ -62,7 +71,7 @@ $config = array(
 		),
 		'tables' => array(
 			'wp_postmeta',
-			'wp_wpgdprc_consents'
+			'wp_wpgdprc_consents',
 			'revslider_css',
 			'revslider_layer_animations',
 			'revslider_navigations',

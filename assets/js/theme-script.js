@@ -40,7 +40,7 @@
 		},
 
 		responsiveMenuInit: function() {
-			$( '.main-navigation' ).RxMenu();
+			$( '.site-header .main-navigation' ).RxMenu( { 'threshold' : Rx_Theme_JS.threshold } );
 		},
 
 		magnificPopupInit: function() {
