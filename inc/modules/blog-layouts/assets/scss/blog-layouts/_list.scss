@@ -9,33 +9,18 @@
 }
 
 .posts-list--default {
-	&.list-style-default {
-		.default-item+.default-item {
-			margin-top: 50px;
-			padding-top: 40px;
-			border-top: 1px solid $color__background-hr;
-		}
-	}
-
-	&.list-style-v2 {
-		.default-item+.default-item {
-			margin-top: 30px;
-		}
-	}
-
-	&.list-style-v3 {
-		.default-item+.default-item {
-			margin-top: 50px;
-		}
+	.default-item+.default-item {
+		margin-top: 50px;
+		padding-top: 40px;
+		border-top: 1px solid $color__background-hr;
 	}
 }
 
 /*-------------------
 ### Default Styles
 ---------------------*/
-
 .default-item {
-	.list-style-default & {
+	.posts-list--default & {
 		body:not(.sidebar_enabled) & {
 			max-width: 770px;
 			margin-left: auto;
@@ -56,168 +41,6 @@
 						@include space-between-content;
 					}
 				}
-			}
-		}
-	}
-}
-
-/*-------------------
-### V2 Styles
----------------------*/
-
-.default-item {
-
-	.list-style-v2 & {
-		@include media-breakpoint-up(sm) {
-			display: flex;
-			justify-content: space-between;
-		}
-		.post-thumbnail,
-		&.has-post-thumbnail .default-item__content {
-			@include media-breakpoint-up(sm) {
-				width: 50%;
-			}
-		}
-		.post-thumbnail {
-			margin: 7px 0 30px;
-			@include media-breakpoint-up(sm) {
-				margin: 7px $grid-gutter-width 0 0;
-			}
-		}
-		.entry {
-			&-meta {
-				margin-bottom: 22px;
-			}
-			&-content {
-				@include media-breakpoint-up(sm) {
-					@include font-size(18/16);
-				}
-			}
-			&-footer {
-				.entry-meta {
-					margin-bottom: 0;
-					.tags-links+div:not(:empty) {
-						margin-top: 28px;
-					}
-					>div {
-						@include grid-indent(10px, 'margin');
-					}
-				}
-			}
-		}
-	}
-}
-
-/*-------------------
-### V2 Styles
----------------------*/
-
-.default-item {
-	.list-style-v2 & {
-		padding: 20px;
-		@include border-radius;
-		border: 1px solid $color__background-hr;
-		align-items: stretch;
-		@include media-breakpoint-up(sm) {
-			padding: 28px 40px 40px;
-		}
-		&:nth-child(odd) {
-			.default-item__thumbnail {
-				@include media-breakpoint-up(sm) {
-					margin-right: 40px;
-				}
-			}
-		}
-		&:nth-child(even) {
-			&.has-post-thumbnail {
-				flex-direction: row-reverse;
-			}
-
-			.default-item__thumbnail {
-				@include media-breakpoint-up(sm) {
-					margin-left: 40px;
-				}
-			}
-		}
-		&__thumbnail {
-			margin-bottom: 30px;
-			max-height: 450px;
-			min-height: 200px;
-			background-size: cover;
-			background-position: center;
-			@include media-breakpoint-up(sm) {
-				width: 50%;
-				margin-top: 10px;
-				margin-bottom: 0;
-			}
-		}
-	}
-}
-
-/*-------------------
-### V3 Styles
----------------------*/
-
-.default-item {
-	.list-style-v3 & {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-
-		padding: 20px;
-		min-height: 430px;
-		@include media-breakpoint-up(sm) {
-			padding: 30px;
-		}
-
-		&:before {
-			content: '';
-			@include overlay-position;
-			background-color: $color__darkgray2;
-			z-index: -2;
-		}
-
-		.cat-links {
-			margin-top: 4px;
-		}
-		.entry {
-			&-header {
-				@include media-breakpoint-up(sm) {
-					width: 60%;
-				}
-				.entry-meta {
-					margin-bottom: 5px;
-				}
-			}
-			&-title {
-				margin-bottom: 10px;
-			}
-			&-content {
-				@include media-breakpoint-up(sm) {
-					width: 75%;
-				}
-			}
-			&-footer {
-				.entry-meta {
-					@include space-between-content;
-				}
-			}
-		}
-		&__content {
-			margin-top: 50px;
-		}
-		&__thumbnail {
-			@include border-radius;
-			@include overlay-position;
-			background-size: cover;
-			background-position: center;
-			z-index: -1;
-			&:before {
-				content: '';
-				@include overlay-position;
-				top: 25%;
-				background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 100%);
 			}
 		}
 	}

@@ -60,7 +60,7 @@
 	}
 }
 
-.posts-list--creative.list-style-default {
+.posts-list--creative {
 	@include media-breakpoint-up(md) {
 		margin-left: 6%;
 		margin-right: 6%;
@@ -71,7 +71,7 @@
 }
 
 .creative-item {
-	.list-style-default & {
+	.posts-list--creative & {
 		position: relative;
 		overflow: hidden;
 		&.has-post-thumbnail {
@@ -148,97 +148,9 @@
 	}
 }
 
-
-.posts-list--creative.list-style-v2 {
-	.creative-item+.creative-item {
-		margin-top: 90px;
-	}
-}
-
-.creative-item {
-	.list-style-v2 & {
-		&.has-post-thumbnail {
-			position: relative;
-			&:nth-child(3n+1) {
-				display: flex;
-				flex-direction: column;
-				justify-content: flex-end;
-				min-height: 450px;
-				@include media-breakpoint-up(sm) {
-					min-height: 620px;
-				}
-				.creative-item__content {
-					margin-top: 100px;
-					margin-left: auto;
-					padding: 25px 0 0 30px;
-					background-color: $color__white;
-					@include media-breakpoint-down(xs) {
-						width: 85%;
-					}
-					@include media-breakpoint-up(sm) {
-						padding: 55px 0 0 60px;
-					}
-				}
-			}
-			.post-thumbnail {
-				img {
-					border-radius: 0;
-				}
-			}
-			@include media-breakpoint-up(sm) {
-				&:nth-child(3n+2),
-				&:nth-child(3n+3) {
-					display: flex;
-				}
-				&:nth-child(3n+2) {
-					flex-direction: row-reverse;
-					.post-thumbnail {
-						margin-left: 60px;
-					}
-				}
-				&:nth-child(3n+3) {
-					.post-thumbnail {
-						margin-right: 60px;
-					}
-				}
-				.post-thumbnail {
-					flex-shrink: 0;
-					width: 45%;
-				}
-				.creative-item__content {
-					width: 55%;
-				}
-			}
-			@include media-breakpoint-down(xs) {
-				.post-thumbnail {
-					margin-bottom: 30px;
-				}
-			}
-		}
-		.entry {
-			&-header {
-				.entry-meta:not(:empty) {
-					margin-bottom: 17px;
-				}
-			}
-			&-footer {
-				.entry-meta {
-					.tags-links+div:not(:empty) {
-						margin-top: 20px;
-					}
-					>div {
-						@include space-between-content;
-						align-items: center;
-					}
-				}
-			}
-		}
-	}
-}
-
-
-.posts-list--creative.list-style-v3 {
+.posts-list--timeline {
 	position: relative;
+
 	&:before {
 		content: '';
 		position: absolute;
@@ -315,7 +227,7 @@
 }
 
 .creative-item {
-	.list-style-v3 & {
+	.posts-list--timeline & {
 		.posted-on {
 			margin: 0;
 		}
@@ -351,7 +263,6 @@
 /*--------------------------------------------------------------
 ### Posts List Formats
 --------------------------------------------------------------*/
-
 .creative-item.format-post {
 	.byline,
 	.posted-on,

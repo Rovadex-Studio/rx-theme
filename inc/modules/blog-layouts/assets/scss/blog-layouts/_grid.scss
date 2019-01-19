@@ -5,14 +5,9 @@
 	transition: $transition;
 }
 $color__nothumb: $color__lightblue;
-.posts-list.posts-list--grid {
-	/*-----------------------
-	### Grid layouts styles
-	------------------------*/
+.posts-list {
 
-	/* 3grids */
-	&.list-style-default,
-	&.list-style-v2 {
+	&.posts-list--grid {
 		display: flex;
 		flex-wrap: wrap;
 		margin-left: -$grid-gutter-width/2;
@@ -35,45 +30,51 @@ $color__nothumb: $color__lightblue;
 			}
 		}
 	}
-	/* 2grids */
-	&.list-style-v3 {
-		display: flex;
-		flex-wrap: wrap;
-		margin-left: -$grid-gutter-width/2;
-		margin-right: -$grid-gutter-width/2;
+
+	&.posts-list--grid {
 		.grid-item {
-			padding-left: $grid-gutter-width/2;
-			padding-right: $grid-gutter-width/2;
-			max-width: calc(100%);
-			width: calc(100% );
-			flex: 0 0 calc(100%);
-			@include media-breakpoint-up(sm) {
-				max-width: calc(100% / 2);
-				width: calc(100% / 2);
-				flex: 0 0 calc(100% / 2);
+			margin-bottom: 34px;
+			.post-thumbnail {
+				margin-bottom: 0;
+			}
+			&:not(.has-post-thumbnail) .grid-item-inner {
+				margin: 0;
+				padding: 0;
+			}
+			&-inner {
+				position: relative;
+				margin: -30px 20px 0 20px;
+				background-color: $color__white;
+				padding: 20px;
+				@include media-breakpoint-up(sm) {
+					margin: -40px 0 0 40px;
+					padding: 25px 25px 25px 30px;
+				}
+				@include media-breakpoint-up(lg) {
+					margin: -49px 0 0 62px;
+					padding: 35px 25px 25px 38px;
+				}
+				.entry-header {
+					.entry-meta {
+						margin-bottom: 23px;
+					}
+					.entry-title {
+						margin: 0 0 24px;
+					}
+				}
+				.entry-content {
+					margin-bottom: 27px;
+				}
+				.space-between-content {
+					justify-content: flex-start;
+					.comments-link {
+						padding: 10px 5px 9px;
+						background-color: transparent;
+					}
+				}
 			}
 		}
 	}
-
-	&.list-style-v3 {
-		display: flex;
-		flex-wrap: wrap;
-		margin-left: -$grid-gutter-width/2;
-		margin-right: -$grid-gutter-width/2;
-		.grid-item {
-			padding-left: $grid-gutter-width/2;
-			padding-right: $grid-gutter-width/2;
-			max-width: calc(100%);
-			width: calc(100% );
-			flex: 0 0 calc(100%);
-			@include media-breakpoint-up(sm) {
-				max-width: calc(100% / 2);
-				width: calc(100% / 2);
-				flex: 0 0 calc(100% / 2);
-			}
-		}
-	}
-
 
 	/*------------------ layouts Styles -------------------*/
 	.grid-item {
@@ -119,225 +120,4 @@ $color__nothumb: $color__lightblue;
 		}
 	}
 
-	/*-------------------
-	### V7, V6
-	---------------------*/
-	&.list-style-v2 {
-		position: relative;
-		.posts-list__item.grid-item {
-			margin-bottom: $grid-gutter-width;
-			.grid-item__thumbnail {
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background-size: cover;
-				background-position: center;
-				z-index: -1;
-			}
-			&:not(.has-post-thumbnail) .grid-item-inner {
-				background-color: $color__darkgray2;
-			}
-			.grid-item-inner {
-				position: relative;
-				overflow: hidden;
-				background-color: rgba(0,0,0, 0.1);
-				@include transition(all 0.25s ease);
-				@include border-radius();
-				&:after {
-					position: absolute;
-					content: '';
-					top: 40%;
-					right: 0;
-					bottom: 0;
-					left: 0;
-					background: -moz-linear-gradient(top, rgba(122,188,255,0) 0%, rgba(104,158,213,0) 15%, rgba(33,36,41,0.66) 76%, rgba(33,36,41,0.89) 97%, rgba(33,36,41,0.9) 98%);
-					background: -webkit-linear-gradient(top, rgba(122,188,255,0) 0%,rgba(104,158,213,0) 15%,rgba(33,36,41,0.66) 76%,rgba(33,36,41,0.89) 97%,rgba(33,36,41,0.9) 98%);
-					background: linear-gradient(to bottom, rgba(122,188,255,0) 0%,rgba(104,158,213,0) 15%,rgba(33,36,41,0.66) 76%,rgba(33,36,41,0.89) 97%,rgba(33,36,41,0.9) 98%);
-					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007abcff', endColorstr='#e6212429',GradientType=0 );
-				}
-			}
-			.post-thumbnail {
-				margin: 0;
-				img {
-					width: 100%;
-					border-radius: 0;
-				}
-			}
-			.grid-item-wrap {
-				position: absolute;
-				text-align: left;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				padding: 30px 28px 0;
-				@include media-breakpoint-down(sm) {
-					padding: 15px;
-				}
-				overflow: hidden;
-				display: flex;
-				flex-direction: column;
-				flex-wrap: nowrap;
-				justify-content: flex-end;
-				align-content: flex-start;
-				align-items: flex-start;
-				z-index: 1;
-				@include transition(all 0.42s cubic-bezier(0.680, 0.125, 0.000, 0.995));
-				transition-delay: 0.22s;
-				.cat-links {
-					position: absolute;
-					top: 30px;
-					left: 30px;
-					@include media-breakpoint-down(sm) {
-						top: 15px;
-						left: 15px;
-					}
-					overflow: hidden;
-					li {
-						float: left;
-						margin-right: 4px;
-						margin-bottom: 4px;
-					}
-					a {
-						display: inline-block;
-						padding: 4px 9px;
-						@include border-radius();
-					}
-				}
-				.entry-footer {
-					position: absolute;
-					bottom: 30px;
-					left: 30px;
-					right: 30px;
-					@include media-breakpoint-down(sm) {
-						position: absolute;
-						right: 15px;
-						left: 15px;
-						bottom: 15px;
-					}
-					.btn, .comments-link {
-						transform: translateY(160px);
-						@include transition(all 0.4s cubic-bezier(0.680, 0.125, 0.000, 0.995));
-					}
-					.comments-link {
-						@include border-radius();
-						padding: 8px 10px;
-						border: 1px solid $color__light;
-						background-color: transparent;
-						line-height: 1.4;
-						transition-delay: 0.06s;
-					}
-					.btn {
-						border: 1px solid $color__light;
-						background-color: transparent;
-						line-height: 1;
-						transition-delay: 0.18s;
-					}
-				}
-				&__animated {
-					width: 100%;
-					line-height: 0px;
-					opacity: 0;
-					@include transition(all 0.42s cubic-bezier(0.680, 0.125, 0.000, 0.995));
-					transition-delay: 0.22s;
-				}
-			}
-			&:hover {
-				&:not(.has-post-thumbnail) .grid-item-inner {
-					background-color: $color__dark;
-				}
-				.grid-item-inner {
-					background-color: rgba(0,0,0, 0.5);
-					@include transition(all 0.25s ease);
-				}
-				.grid-item-wrap {
-					padding-bottom: 75px;
-					@include media-breakpoint-down(sm) {
-						padding-bottom: 60px;
-					}
-					@include transition(all 0.25s cubic-bezier(0.165, 0.840, 0.440, 1.000));
-					&__animated {
-						line-height: 22px;
-						opacity: 1;
-						.entry-footer {
-							.btn, .comments-link {
-								transform: translateY(0);
-								@include transition(all 0.4s cubic-bezier(0.165, 0.840, 0.440, 1.000));
-							}
-							.comments-link {
-								line-height: 1.4;
-								transition-delay: 0.16s;
-							}
-							.btn {
-								line-height: 1;
-								transition-delay: 0.06s;
-							}
-						}
-						@include transition(all 0.35s cubic-bezier(0.265, 0.840, 0.440, 1.000));
-					}
-				}
-			}
-		}
-	}
-	&.list-style-v2 {
-		.grid-item-inner {
-			min-height: 380px;
-			@include media-breakpoint-up(md) {
-				min-height: 500px;
-			}
-		}
-		.posts-list__item.grid-item .grid-item-wrap .entry-footer {
-			bottom: 32px;
-		}
-	}
-
-	/*-------------------
-	### V10Styles
-	---------------------*/
-	&.list-style-v3 {
-		.grid-item {
-			margin-bottom: 34px;
-			.post-thumbnail {
-				margin-bottom: 0;
-			}
-			&:not(.has-post-thumbnail) .grid-item-inner {
-				margin: 0;
-				padding: 0;
-			}
-			&-inner {
-				position: relative;
-				margin: -30px 20px 0 20px;
-				background-color: $color__white;
-				padding: 20px;
-				@include media-breakpoint-up(sm) {
-					margin: -40px 0 0 40px;
-					padding: 25px 25px 25px 30px;
-				}
-				@include media-breakpoint-up(lg) {
-					margin: -49px 0 0 62px;
-					padding: 35px 25px 25px 38px;
-				}
-				.entry-header {
-					.entry-meta {
-						margin-bottom: 23px;
-					}
-					.entry-title {
-						margin: 0 0 24px;
-					}
-				}
-				.entry-content {
-					margin-bottom: 27px;
-				}
-				.space-between-content {
-					justify-content: flex-start;
-					.comments-link {
-						padding: 10px 5px 9px;
-						background-color: transparent;
-					}
-				}
-			}
-		}
-	}
 }

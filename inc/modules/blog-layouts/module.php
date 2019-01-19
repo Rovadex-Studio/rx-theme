@@ -18,31 +18,18 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 		 * properties.
 		 */
 		private $layout_type;
-		private $layout_style;
 		private $sidebar_enabled = true;
 		private $fullwidth_enabled = true;
 
 		/**
 		 * Sidebar list.
 		 */
-		private $sidebar_list = array (
-			'default'          => array( 'default','v2','v3' ),
-			'grid'             => array( 'v3' ),
-			'masonry'          => array( 'default', 'v3' ),
-			'vertical-justify' => array(),
-			'creative'         => array(),
-		);
+		private $sidebar_list = array( 'default', 'masonry' );
 
 		/**
 		 * Fullwidth list.
 		 */
-		private $fullwidth_list = array (
-			'default'          => array( 'v2' ),
-			'grid'             => array( 'v2' ),
-			'masonry'          => array(),
-			'vertical-justify' => array( 'default','v2' ),
-			'creative'         => array( 'default' ),
-		);
+		private $fullwidth_list = array( 'grid', 'creative' );
 
 		/**
 		 * Module ID
@@ -66,7 +53,6 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 			add_filter( 'rx-theme/customizer/options', array( $this, 'customizer_options' ) );
 			add_filter( 'rx-theme/customizer/blog-sidebar-enabled', array( $this, 'customizer_blog_sidebar_enabled' ) );
 			add_filter( 'rx-theme/posts/template-part-slug', array( $this, 'apply_layout_template' ) );
-			add_filter( 'rx-theme/posts/post-style', array( $this, 'apply_style_template' ) );
 			add_filter( 'rx-theme/posts/list-class', array( $this, 'add_list_class' ) );
 			add_filter( 'rx-theme/site-content/container-enabled', array( $this, 'disable_site_content_container' ) );
 
@@ -79,21 +65,19 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 		 */
 		public function module_init_properties() {
 
-			$this->layout_type  = rx_theme()->customizer->get_value( 'blog_layout_type' );
-			$this->layout_style = rx_theme()->customizer->get_value( 'blog_style' );
+			$this->layout_type = rx_theme()->customizer->get_value( 'blog_layout_type' );
 
-			if ( isset( $this->sidebar_list[$this->layout_type] ) && $this->is_blog_archive() ) {
-				$this->sidebar_enabled = in_array( $this->layout_style, $this->sidebar_list[$this->layout_type] );
+			if ( $this->is_blog_archive() ) {
+				$this->sidebar_enabled = in_array( $this->layout_type, $this->sidebar_list );
 			}
 
-			if( ! empty( $this->fullwidth_list[$this->layout_type] ) && $this->is_blog_archive() ) {
-				$this->fullwidth_enabled = ! in_array( $this->layout_style, $this->fullwidth_list[$this->layout_type] );
+			if ( $this->is_blog_archive() ) {
+				$this->fullwidth_enabled = ! in_array( $this->layout_type, $this->fullwidth_list );
 			}
 
 			if ( ! $this->sidebar_enabled ) {
 				rx_theme()->sidebar_position = 'none';
 			}
-
 		}
 
 		/**
@@ -103,44 +87,33 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 		 */
 		public function apply_layout_template( $layout ) {
 
-			$blog_post_template = 'template-parts/grid/content';
+			$blog_post_template = 'template-parts/layout/list';
 
 			if ( 'default' === $this->layout_type ) {
-				$blog_post_template = 'template-parts/default/content';
+				$blog_post_template = 'template-parts/layout/list';
 			}
 
-			if ( 'creative' === $this->layout_type ) {
-				$blog_post_template = 'template-parts/creative/content';
-			}
-
-			if ( 'vertical-justify' === $this->layout_type ) {
-				$blog_post_template = 'template-parts/vertical-justify/content';
+			if ( 'grid' === $this->layout_type ) {
+				$blog_post_template = 'template-parts/layout/grid';
 			}
 
 			if ( 'masonry' === $this->layout_type ) {
-				$blog_post_template = 'template-parts/masonry/content';
+				$blog_post_template = 'template-parts/layout/masonry';
+			}
+
+			if ( 'vertical-justify' === $this->layout_type ) {
+				$blog_post_template = 'template-parts/layout/vertical-justify';
+			}
+
+			if ( 'creative' === $this->layout_type ) {
+				$blog_post_template = 'template-parts/layout/creative';
+			}
+
+			if ( 'timeline' === $this->layout_type ) {
+				$blog_post_template = 'template-parts/layout/timeline';
 			}
 
 			return 'inc/modules/blog-layouts/' . $blog_post_template;
-
-		}
-
-		/**
-		 * Apply style template
-		 *
-		 * @param  string $style Current style template suuffix
-		 *
-		 * @return [type]        [description]
-		 */
-		public function apply_style_template( $style ) {
-
-			$blog_layout_style = $this->layout_style;
-
-			if( 'default' === $this->layout_style ) {
-				$blog_layout_style = false;
-			}
-
-			return $blog_layout_style;
 
 		}
 
@@ -154,10 +127,8 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 		public function add_list_class( $list_class ) {
 
 			$list_class .= ' posts-list--' . sanitize_html_class( ! is_search() ? $this->layout_type : 'default' );
-			$list_class .= ' list-style-' . sanitize_html_class( $this->layout_style );
 
 			return $list_class;
-
 		}
 
 		/**
@@ -181,23 +152,7 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 						'masonry'          => esc_html__( 'Masonry', 'rx-theme' ),
 						'vertical-justify' => esc_html__( 'Vertical Justify', 'rx-theme' ),
 						'creative'         => esc_html__( 'Creative', 'rx-theme' ),
-					),
-					'type' => 'control',
-				),
-				'blog_style' => array(
-					'title'    => esc_html__( 'Style', 'rx-theme' ),
-					'section'  => 'blog',
-					'priority' => 2,
-					'default'  => 'default',
-					'field'    => 'select',
-					'choices'  => array(
-						'default' => esc_html__( 'Style 1', 'rx-theme' ),
-						'v2'      => esc_html__( 'Style 2', 'rx-theme' ),
-						'v3'      => esc_html__( 'Style 3', 'rx-theme' ),
-						'v4'      => esc_html__( 'Style 4', 'rx-theme' ),
-						'v5'      => esc_html__( 'Style 5', 'rx-theme' ),
-						'v6'      => esc_html__( 'Style 6', 'rx-theme' ),
-						'v7'      => esc_html__( 'Style 7', 'rx-theme' ),
+						'timeline'         => esc_html__( 'Timeline', 'rx-theme' ),
 					),
 					'type' => 'control',
 				),
@@ -230,9 +185,7 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 		 * @return boolean
 		 */
 		public function disable_site_content_container() {
-
 			return $this->fullwidth_enabled;
-
 		}
 
 		/**
@@ -241,7 +194,6 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 		 * @return boolean
 		 */
 		public function customizer_blog_sidebar_enabled() {
-
 			return $this->sidebar_enabled;
 
 		}
