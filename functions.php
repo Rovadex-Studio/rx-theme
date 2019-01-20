@@ -47,6 +47,15 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 		public $version;
 
 		/**
+		 * Framework component
+		 *
+		 * @since  1.0.0
+		 * @access public
+		 * @var    object
+		 */
+		public $framework;
+
+		/**
 		 * Sets up needed actions/filters for the theme to initialize.
 		 *
 		 * @since 1.0.0
@@ -62,6 +71,12 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 
 			// Initialization of customizer.
 			add_action( 'after_setup_theme', array( $this, 'rx_theme_customizer' ) );
+
+			// Initialization of postmeta module.
+			add_action( 'after_setup_theme', array( $this, 'rx_theme_post_meta' ) );
+
+			// Initialization of post format.
+			add_action( 'init', array( $this, 'rx_theme_post_format' ) );
 
 			// Initialization of breadcrumbs module
 			add_action( 'wp_head', array( $this, 'rx_theme_breadcrumbs' ) );
@@ -119,15 +134,16 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 
 			require get_theme_file_path( 'framework/loader.php' );
 
-			new Rx_Theme_CX_Loader(
+			$this->framework = new Rx_Theme_CX_Loader(
 				array(
 					get_theme_file_path( 'framework/modules/customizer/cherry-x-customizer.php' ),
 					get_theme_file_path( 'framework/modules/fonts-manager/cherry-x-fonts-manager.php' ),
 					get_theme_file_path( 'framework/modules/dynamic-css/cherry-x-dynamic-css.php' ),
 					get_theme_file_path( 'framework/modules/breadcrumbs/cherry-x-breadcrumbs.php' ),
+					get_theme_file_path( 'framework/modules/post-meta/cherry-x-post-meta.php' ),
+					get_theme_file_path( 'framework/modules/interface-builder/cherry-x-interface-builder.php' ),
 				)
 			);
-
 		}
 
 		/**
@@ -154,6 +170,28 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 		}
 
 		/**
+		 * Run initialization of post meta module.
+		 *
+		 * @since 1.0.0
+		 */
+		public function rx_theme_post_meta() {
+
+			require_once get_theme_file_path( 'inc/post-meta.php' );
+
+			rx_theme_post_meta()->init();
+		}
+
+		/**
+		 * Run initialization of post format.
+		 *
+		 * @since 1.0.0
+		 */
+		public function rx_theme_post_format() {
+
+			rx_theme_post_format()->init();
+		}
+
+		/**
 		 * Run init init properties.
 		 *
 		 * @since 1.0.0
@@ -172,6 +210,14 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 				$this->sidebar_position = rx_theme()->customizer->get_value( 'single_sidebar_position' );
 			}
 
+		}
+
+		/**
+		 * [is_blog description]
+		 * @return boolean [description]
+		 */
+		public function is_blog() {
+			return is_home() || ( is_archive() && ! is_tax() && ! is_post_type_archive() ) ? true : false;
 		}
 
 		/**
@@ -276,7 +322,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			require_once get_theme_file_path( 'inc/context.php' );
 			require_once get_theme_file_path( 'inc/hooks.php' );
 			require_once get_theme_file_path( 'inc/register-plugins.php' );
-
+			require_once get_theme_file_path( 'inc/post-format.php' );
 		}
 
 		/**
@@ -355,7 +401,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 				'jquery-swiper',
 				get_theme_file_uri( 'assets/lib/swiper/swiper.jquery.min.js' ),
 				array( 'jquery' ),
-				'3.4.0',
+				'4.4.6',
 				true
 			);
 
@@ -394,7 +440,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 				'jquery-swiper',
 				get_theme_file_uri( 'assets/lib/swiper/swiper.min.css' ),
 				array(),
-				'3.4.0'
+				'4.4.6'
 			);
 
 		}
@@ -417,7 +463,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 				'responsive-menu',
 			) );
 
-			if ( $this->is_blog || is_singular( 'post' ) ) {
+			if ( $this->is_blog() || is_singular( 'post' ) ) {
 				array_push( $scripts_depends, 'magnific-popup', 'jquery-swiper' );
 			}
 
@@ -453,8 +499,8 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 				'font-awesome',
 			) );
 
-			if ( $this->is_blog || is_singular( 'post' ) ) {
-				array_push($styles_depends, 'magnific-popup', 'jquery-swiper');
+			if ( $this->is_blog() || is_singular( 'post' ) ) {
+				array_push($styles_depends, 'magnific-popup', 'jquery-swiper' );
 			}
 
 			wp_enqueue_style(

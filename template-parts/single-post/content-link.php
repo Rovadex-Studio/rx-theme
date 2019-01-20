@@ -9,7 +9,7 @@
 
 ?>
 
-<?php do_action( 'rx_theme_assistant_post_format_link' ); ?>
+<?php do_action( 'rx_theme_post_format_link' ); ?>
 
 <div class="entry-content">
 	<?php the_content(); ?>

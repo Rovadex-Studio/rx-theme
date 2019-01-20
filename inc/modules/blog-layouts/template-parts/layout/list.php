@@ -6,7 +6,6 @@
  *
  * @package Rx Theme
  */
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('posts-list__item default-item'); ?>>
@@ -30,6 +29,8 @@
 	</header><!-- .entry-header -->
 
 	<?php rx_theme_post_thumbnail( 'rx-theme-thumb-l' ); ?>
+
+	<?php rx_theme_post_format_context( get_post_format() ); ?>
 
 	<?php rx_theme_post_excerpt(); ?>
 

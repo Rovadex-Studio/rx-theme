@@ -9,7 +9,7 @@
 
 ?>
 
-<?php do_action( 'rx_theme_assistant_post_format_audio' ); ?>
+<?php do_action( 'rx_theme_post_format_audio' ); ?>
 
 <div class="entry-content">
 	<?php the_content(); ?>

@@ -195,7 +195,6 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 		 */
 		public function customizer_blog_sidebar_enabled() {
 			return $this->sidebar_enabled;
-
 		}
 
 		/**
