@@ -444,7 +444,7 @@ if ( ! function_exists( 'rx_theme_post_format_context' ) ) :
 
 				break;
 
-			case 'video':
+			case 'audio':
 				do_action( 'rx_theme_post_format_audio' );
 
 				break;
