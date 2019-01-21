@@ -23,6 +23,9 @@ add_filter( 'comment_form_defaults', 'rx_theme_modify_comment_form' );
 // Modify a nav menu.
 add_filter( 'widget_nav_menu_args', 'rx_theme_modify_nav_menu', 10, 4 );
 
+// Render macros in widget text.
+add_filter( 'widget_text', 'rx_theme_widget_text_parse_content', 10, 1 );
+
 /**
  * Adds the meta viewport to the header.
  *
@@ -143,4 +146,16 @@ function rx_theme_modify_nav_menu( $args ) {
 	$args['items_wrap'] = '<div class="main-navigation"><div class="main-navigation-inner"><ul id="%1$s" class="%2$s">%3$s</ul></div></div>';
 
 	return $args;
+}
+
+/**
+ * Render macros in widget text
+ *
+ * @since  1.0.0
+ * @return string widget content.
+ */
+function rx_theme_widget_text_parse_content( $content ) {
+	$content = rx_theme_render_macros( $content );
+
+	return $content;
 }
