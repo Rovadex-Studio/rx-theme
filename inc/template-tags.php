@@ -419,50 +419,6 @@ if ( ! function_exists( 'rx_theme_edit_link' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'rx_theme_post_format_context' ) ) :
-	/**
-	 * [rx_theme_post_format_context description]
-	 * @param  string $image_size [description]
-	 * @param  array  $args       [description]
-	 * @return [type]             [description]
-	 */
-	function rx_theme_post_format_context( $post_format = 'standard' ) {
-
-		switch ( $post_format ) {
-			case 'image':
-				do_action( 'rx_theme_post_format_image', array( 'size' => 'rx-theme-thumb-l' ) );
-
-				break;
-
-			case 'gallery':
-				do_action( 'rx_theme_post_format_gallery', array( 'size' => 'rx-theme-thumb-l' ) );
-
-				break;
-
-			case 'video':
-				do_action( 'rx_theme_post_format_video' );
-
-				break;
-
-			case 'audio':
-				do_action( 'rx_theme_post_format_audio' );
-
-				break;
-
-			case 'link':
-				do_action( 'rx_theme_post_format_link' );
-
-				break;
-
-			case 'quote':
-				do_action( 'rx_theme_post_format_quote' );
-
-				break;
-		}
-
-	}
-endif;
-
 if ( ! function_exists( 'rx_theme_post_thumbnail' ) ) :
 /**
  * Displays an optional post thumbnail.
