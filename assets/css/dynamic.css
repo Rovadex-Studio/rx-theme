@@ -96,6 +96,11 @@ h5 a:hover,
 h6 a:hover { color: $link_color; }
 a:hover { color: $link_hover_color; }
 
-blockquote {
+blockquote,
+.post_format-post-format-link .entry-content,
+.post_format-post-format-aside .entry-content,
+.post_format-post-format-audio .entry-content,
+.post_format-post-format-status .entry-content {
 	color: $accent_color;
+	border-color: $accent_color;
 }

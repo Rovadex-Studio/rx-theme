@@ -28,11 +28,16 @@ q {
 blockquote {
 	position: relative;
 	margin: 35px 0;
-	padding: 0 0 0 60px;
+	padding: 50px 8%;
 	@include font-size(18/16);
+	@include border-radius;
+	border-width: 1px;
+	border-style: solid;
 	font-weight: 400;
 	line-height: 1.45;
 	font-style: italic;
+	text-align: center;
+	background-color: $color__light;
 	@include media-breakpoint-up(sm) {
 		@include font-size(22/16);
 	}
@@ -49,6 +54,7 @@ blockquote {
 		display: block;
 		margin-top: 5px;
 		font-style: normal;
+		@include font-size(0.875);
 		&:before {
 			content: "- ";
 		}
@@ -56,10 +62,14 @@ blockquote {
 	&:before {
 		content: "\f10d";
 		@include font-awesome-icon;
-		position: absolute;
 		font-size: 30px;
 		top: 0;
 		left: 10px;
+		margin: 0 auto 17px;
+		text-align: center;
+		width: 62px;
+		height: 62px;
+		line-height: 62px;
 	}
 }
 

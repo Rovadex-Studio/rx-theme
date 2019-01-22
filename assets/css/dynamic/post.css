@@ -198,9 +198,6 @@
 }
 
 /* Single Post */
-.single-post blockquote {
-	border-color: $accent_color;
-}
 .single-post .tags-links a:hover {
 	color: $invert_text_color;
 	border-color: $accent_color;

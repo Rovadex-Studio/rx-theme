@@ -43,9 +43,7 @@ if ( ! function_exists( 'rx_theme_post_excerpt' ) ) :
 				case 'quote':
 				break;
 
-				case 'image':
 				case 'audio':
-				case 'gallery':
 					$excerpt = do_shortcode( $excerpt );
 				break;
 
@@ -58,6 +56,8 @@ if ( ! function_exists( 'rx_theme_post_excerpt' ) ) :
 					$excerpt = preg_replace( '/<a\s[\S\s]*\>!--more<\/a>/', '', $excerpt) ;
 				break;
 
+				case 'image':
+				case 'gallery':
 				default:
 					$excerpt = strip_shortcodes( $excerpt );
 					$excerpt = str_replace( ']]>', ']]&gt;', $excerpt );

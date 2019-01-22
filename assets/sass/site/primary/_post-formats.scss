@@ -68,60 +68,73 @@
 	}
 }
 
-/* Link Post Format */
 
-.post_format-post-format-link {
-	.post-format-link {
-		@include font-size(20/16);
-		font-weight: 400;
-		&:before {
-			transform: translateY(1px);
-			content: '\f0c1';
-			margin-right: 8px;
-			@include font-awesome-icon;
-		}
-		&-wrapper {
+.posts-list__item{
+	/* Link, Status, Aside Post Format */
+	&.post_format-post-format-link,
+	&.post_format-post-format-status,
+	&.post_format-post-format-aside {
+		.entry-content {
+			@include font-size(20/16);
+			font-weight: 400;
+			@include border-radius;
+			border-width: 1px;
+			border-style: solid;
 			margin-bottom: 24px;
 			padding: 35px 40px;
-			@include border-radius;
 			background-color: $color__light;
 		}
 	}
-}
 
-/* Link Post Format */
-
-.post_format-post-format-quote {
-	.post-format-quote {
-		padding: 50px 8%;
-		@include border-radius;
-		text-align: center;
-		&:before {
-			position: static;
-			margin: 0 auto 17px;
-			display: block;
-			text-align: center;
-			width: 62px;
-			height: 62px;
-			line-height: 62px;
-			border-radius: 28px;
+	/* Link Post Format */
+	&.post_format-post-format-link {
+		.entry-content {
+			&:before {
+				transform: translateY(1px);
+				content: '\f0c1';
+				margin-right: 8px;
+				@include font-awesome-icon;
+			}
 		}
-		cite {
-			margin-top: 15px;
+	}
+
+	/* Status Post Format */
+	&.post_format-post-format-status {
+		.entry-content {
+			&:before {
+				transform: translateY(1px);
+				content: '\f00c';
+				margin-right: 8px;
+				@include font-awesome-icon;
+			}
+		}
+	}
+
+	/* Link Post Format */
+	&.post_format-post-format-quote {
+		blockquote{
+			margin: 0;
+		}
+		.entry-content {
+			margin-bottom: 24px;
 		}
 	}
 }
-
-/* Link Post Format */
-
+/* Audio Post Format */
 .post_format-post-format-audio {
-	.mejs-audio {
+	.entry-content {
+		@include font-size(20/16);
+		font-weight: 400;
+		@include border-radius;
+		border-width: 1px;
+		border-style: solid;
 		margin-bottom: 24px;
+		padding: 35px 40px;
+		background-color: $color__light;
 	}
 }
 
-/* Link Post Format */
-
+/* Video Post Format */
 .post_format-post-format-video {
 	.wp-video {
 		margin-bottom: 24px;

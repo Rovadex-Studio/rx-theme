@@ -64,19 +64,6 @@
 		background-size: cover;
 		background-position: center;
 	}
-	blockquote:not(.post-format-quote) {
-		border-top: 3px solid $color__background-hr;
-		border-bottom: 3px solid $color__background-hr;
-		text-align: center;
-		padding: 30px 10%;
-		&:before,
-		&:after {
-			content: none;
-		}
-		cite {
-			margin-top: 20px;
-		}
-	}
 }
 
 /*--------------------------------------------------------------
@@ -84,7 +71,6 @@
 --------------------------------------------------------------*/
 
 .post-template {
-
 
 	//single-layout-2
 	&-single-layout-2 {

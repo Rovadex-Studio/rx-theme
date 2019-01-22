@@ -6,13 +6,6 @@ dfn, cite, em, i {
 	font-style: italic;
 }
 
-blockquote {
-	@include font-size(1.25);
-	cite {
-		@include font-size(0.875);
-	}
-}
-
 address {
 	margin: 0 0 1.5em;
 }
