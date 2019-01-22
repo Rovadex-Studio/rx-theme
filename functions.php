@@ -72,12 +72,6 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			// Initialization of customizer.
 			add_action( 'after_setup_theme', array( $this, 'rx_theme_customizer' ) );
 
-			// Initialization of postmeta module.
-			add_action( 'after_setup_theme', array( $this, 'rx_theme_post_meta' ) );
-
-			// Initialization of post format.
-			add_action( 'init', array( $this, 'rx_theme_post_format' ) );
-
 			// Initialization of breadcrumbs module
 			add_action( 'wp_head', array( $this, 'rx_theme_breadcrumbs' ) );
 
@@ -140,8 +134,6 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 					get_theme_file_path( 'framework/modules/fonts-manager/cherry-x-fonts-manager.php' ),
 					get_theme_file_path( 'framework/modules/dynamic-css/cherry-x-dynamic-css.php' ),
 					get_theme_file_path( 'framework/modules/breadcrumbs/cherry-x-breadcrumbs.php' ),
-					get_theme_file_path( 'framework/modules/post-meta/cherry-x-post-meta.php' ),
-					get_theme_file_path( 'framework/modules/interface-builder/cherry-x-interface-builder.php' ),
 				)
 			);
 		}
@@ -167,28 +159,6 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 
 			$this->breadcrumbs = new CX_Breadcrumbs( rx_theme_get_breadcrumbs_options() );
 
-		}
-
-		/**
-		 * Run initialization of post meta module.
-		 *
-		 * @since 1.0.0
-		 */
-		public function rx_theme_post_meta() {
-
-			require_once get_theme_file_path( 'inc/post-meta.php' );
-
-			rx_theme_post_meta()->init();
-		}
-
-		/**
-		 * Run initialization of post format.
-		 *
-		 * @since 1.0.0
-		 */
-		public function rx_theme_post_format() {
-
-			rx_theme_post_format()->init();
 		}
 
 		/**
@@ -322,7 +292,6 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			require_once get_theme_file_path( 'inc/context.php' );
 			require_once get_theme_file_path( 'inc/hooks.php' );
 			require_once get_theme_file_path( 'inc/register-plugins.php' );
-			require_once get_theme_file_path( 'inc/post-format.php' );
 		}
 
 		/**
