@@ -12,6 +12,12 @@ if ( ! function_exists( 'rx_theme_post_excerpt' ) ) :
 	 * Prints HTML with excerpt.
 	 */
 	function rx_theme_post_excerpt( $args = array() ) {
+		$post_excerpt_enable = rx_theme()->customizer->get_value( 'blog_post_excerpt' );
+
+		if ( ! $post_excerpt_enable ) {
+			return;
+		}
+
 		$default_args = array(
 			'before' => '<div class="entry-content">',
 			'after'  => '</div>',
@@ -19,21 +25,45 @@ if ( ! function_exists( 'rx_theme_post_excerpt' ) ) :
 		);
 		$args = wp_parse_args( $args, $default_args );
 
-		$post_excerpt_enable = rx_theme()->customizer->get_value( 'blog_post_excerpt' );
-
-		if ( ! $post_excerpt_enable ) {
-			return;
-		}
-
 		$words_count = rx_theme()->customizer->get_value( 'blog_post_excerpt_words_count' );
 
-		if ( has_excerpt() ) {
-			$excerpt = wp_trim_words( get_the_excerpt(), $words_count, '...' );
+		if ( has_excerpt()) {
+			$excerpt = '<p>' . wp_trim_words( get_the_excerpt(), $words_count, '...' ) . '</p>';
 		} else {
-			$excerpt = get_the_content();
-			$excerpt = strip_shortcodes( $excerpt );
-			$excerpt = str_replace( ']]>', ']]&gt;', $excerpt );
-			$excerpt = wp_trim_words( $excerpt, $words_count, '...' );
+			$excerpt = get_the_content( '!--more' );
+			$post_format = strpos( $excerpt, '!--more' ) ? 'tag_more' : get_post_format() ;
+
+			$blog_type = rx_theme()->customizer->get_value( 'blog_layout_type' );
+			$post_format = ( 'default' === $blog_type ) ? $post_format : '' ;
+
+			switch ( $post_format ) {
+				case 'link':
+				case 'aside':
+				case 'status':
+				case 'quote':
+				break;
+
+				case 'image':
+				case 'audio':
+				case 'gallery':
+					$excerpt = do_shortcode( $excerpt );
+				break;
+
+				case 'video':
+					$excerpt = apply_filters( 'the_content', $excerpt );
+					$excerpt = str_replace( ']]>', ']]&gt;', $excerpt );
+				break;
+
+				case 'tag_more':
+					$excerpt = preg_replace( '/<a\s[\S\s]*\>!--more<\/a>/', '', $excerpt) ;
+				break;
+
+				default:
+					$excerpt = strip_shortcodes( $excerpt );
+					$excerpt = str_replace( ']]>', ']]&gt;', $excerpt );
+					$excerpt = wp_trim_words( $excerpt, $words_count, '...' );
+				break;
+			}
 
 			if ( ! $excerpt ) {
 				return;
@@ -42,11 +72,11 @@ if ( ! function_exists( 'rx_theme_post_excerpt' ) ) :
 
 		$excerpt_output = apply_filters(
 			'rx-theme/post/excerpt-output',
-			$args['before'] .'<p>'. $excerpt .'</p>'. $args['after']
+			$args['before'] . $excerpt . $args['after']
 		);
 
 		if ( $args['echo'] ) {
-			echo wp_kses_post( $excerpt_output );
+			echo $excerpt_output;
 		} else {
 			return $excerpt_output;
 		}
@@ -416,50 +446,6 @@ if ( ! function_exists( 'rx_theme_edit_link' ) ) :
 			'<span class="edit-link">',
 			'</span>'
 		);
-	}
-endif;
-
-if ( ! function_exists( 'rx_theme_post_format_context' ) ) :
-	/**
-	 * [rx_theme_post_format_context description]
-	 * @param  string $image_size [description]
-	 * @param  array  $args       [description]
-	 * @return [type]             [description]
-	 */
-	function rx_theme_post_format_context( $post_format = 'standard' ) {
-
-		switch ( $post_format ) {
-			case 'image':
-				do_action( 'rx_theme_post_format_image', array( 'size' => 'rx-theme-thumb-l' ) );
-
-				break;
-
-			case 'gallery':
-				do_action( 'rx_theme_post_format_gallery', array( 'size' => 'rx-theme-thumb-l' ) );
-
-				break;
-
-			case 'video':
-				do_action( 'rx_theme_post_format_video' );
-
-				break;
-
-			case 'audio':
-				do_action( 'rx_theme_post_format_audio' );
-
-				break;
-
-			case 'link':
-				do_action( 'rx_theme_post_format_link' );
-
-				break;
-
-			case 'quote':
-				do_action( 'rx_theme_post_format_quote' );
-
-				break;
-		}
-
 	}
 endif;
 
