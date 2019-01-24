@@ -76,7 +76,7 @@ if ( ! function_exists( 'rx_theme_post_excerpt' ) ) :
 		);
 
 		if ( $args['echo'] ) {
-			echo $excerpt_output;
+			printf( '%s', $excerpt_output );
 		} else {
 			return $excerpt_output;
 		}

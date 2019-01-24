@@ -491,7 +491,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 		}
 
 		/**
-		 * Do Elementor or Jet Theme Core location
+		 * Do Elementor or Header & Footer location
 		 *
 		 * @return bool
 		 */
@@ -501,9 +501,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			$done    = false;
 
 			// Choose handler
-			if ( function_exists( 'jet_theme_core' ) ) {
-				$handler = array( jet_theme_core()->locations, 'do_location' );
-			} elseif ( function_exists( 'elementor_theme_do_location' ) ) {
+			if ( function_exists( 'elementor_theme_do_location' ) ) {
 				$handler = 'elementor_theme_do_location';
 			} elseif ( class_exists( 'Header_Footer_Elementor' ) && class_exists( 'Rx_Theme_Assistant_Header_Footer_Plugin_Ext' ) ){
 				$handler = array( 'Rx_Theme_Assistant_Header_Footer_Plugin_Ext', 'rx_theme_assistant_return_template' );
@@ -541,8 +539,8 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 		 */
 		public function elementor_locations( $elementor_theme_manager ) {
 
-			// Do nothing if Jet Theme Core is active.
-			if ( function_exists( 'jet_theme_core' ) ) {
+			// Do nothing if Header & Footer Elementor is active.
+			if ( class_exists( 'Header_Footer_Elementor' ) ) {
 				return;
 			}
 
