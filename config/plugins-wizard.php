@@ -39,29 +39,19 @@ $plugins = array(
 	'rx-theme-assistant' => array(
 		'name'   => esc_html__( 'Rx Theme Assistant', 'rx-theme' ),
 		'source' => 'remote', // 'local', 'remote', 'wordpress' (default).
-		'path'   => 'https://github.com/Rovadex-Studio/rx-theme-assistant/archive/master.zip',
+		'path'   => 'http://plugins.rovadex.com/rx-theme-assistant.zip',
 		'access' => 'base',
 	),
 
 	'revslider' => array(
 		'name'   => esc_html__( 'Slider Revolution', 'rx-theme' ),
-		'source' => 'local', // 'local', 'remote', 'wordpress' (default).
+		'source' => 'remote', // 'local', 'remote', 'wordpress' (default).
 		'path'   => get_theme_file_uri( 'assets/plugins/revslider.zip' ),
 		'access' => 'base',
 	),
 
 	'contact-form-7' => array(
 		'name'   => esc_html__( 'Contact Form 7', 'rx-theme' ),
-		'access' => 'base',
-	),
-
-	'advanced-custom-fields' => array(
-		'name'   => esc_html__( 'Advanced Custom Fields', 'rx-theme' ),
-		'access' => 'base',
-	),
-
-	'custom-post-type-ui' => array(
-		'name'   => esc_html__( 'Custom Post Type UI', 'rx-theme' ),
 		'access' => 'base',
 	),
 
@@ -74,6 +64,16 @@ $plugins = array(
 
 	'block-builder' => array(
 		'name'   => esc_html__( 'Elementor Blocks for Gutenberg', 'rx-theme' ),
+		'access' => 'base',
+	),
+
+	'advanced-custom-fields' => array(
+		'name'   => esc_html__( 'Advanced Custom Fields', 'rx-theme' ),
+		'access' => 'base',
+	),
+
+	'custom-post-type-ui' => array(
+		'name'   => esc_html__( 'Custom Post Type UI', 'rx-theme' ),
 		'access' => 'base',
 	),
 
