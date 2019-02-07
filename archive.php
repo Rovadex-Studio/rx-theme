@@ -13,13 +13,6 @@ get_header();
 
 	<div <?php rx_theme_content_class() ?>>
 
-		<header class="page-header">
-			<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-			?>
-		</header><!-- .page-header -->
-
 		<div class="row">
 
 			<?php do_action( 'rx-theme/site/primary-before', 'archive' ); ?>

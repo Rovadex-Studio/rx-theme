@@ -16,7 +16,6 @@ if ( ! function_exists( 'rx_theme_get_allowed_modules' ) ) {
 			'blog-layouts'    => array(),
 			'woo'             => array(
 				'woo-breadcrumbs' => array(),
-				'woo-page-title'  => array(),
 			),
 		) );
 	}

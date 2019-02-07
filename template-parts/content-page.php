@@ -10,9 +10,6 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="page-header">
-		<?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
-	</header><!-- .page-header -->
 
 	<?php rx_theme_post_thumbnail(); ?>
 

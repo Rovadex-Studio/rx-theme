@@ -716,3 +716,40 @@ function rx_theme_sticky_label() {
 	printf( '<div class="sticky-label type-%2$s">%1$s</div>', $content, $sticky_type );
 }
 endif;
+
+if ( ! function_exists( 'rx_theme_the_title' ) ) {
+	/**
+	 * Prints HTML page title.
+	 * @since  1.0.0
+	 * @return void
+	 */
+
+	function rx_theme_the_title( $args = array() ) {
+
+		switch ( true ) {
+			case is_woocommerce():
+				remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
+				remove_action( 'woocommerce_archive_description', 'woocommerce_product_archive_description', 10 );
+				add_filter( 'woocommerce_show_page_title', '__return_false' );
+
+				printf( '<h1 class="page-title">%s</h1>', woocommerce_page_title( false ) );
+			break;
+			case is_search():
+				printf( '<h1 class="page-title">%s %s</h1>', esc_html__( 'Search Results for:', 'fitmax' ), '<span>' . get_search_query() . '</span>' );
+			break;
+
+			case is_archive():
+				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				the_archive_description( '<div class="archive-description">', '</div>' );
+			break;
+
+			case is_404():
+					printf( '<h1 class="page-title">%s</h1>', esc_html__( 'Oops! That page can&rsquo;t be found.', 'fitmax' ) );
+			break;
+
+			default:
+					printf( '<h1 class="page-title">%s</h1>', single_post_title( '', false) );
+			break;
+		}
+	}
+}

@@ -27,5 +27,15 @@
 	<header id="masthead" <?php echo rx_theme_get_container_classes( 'site-header' ); ?>>
 		<?php rx_theme()->do_location( 'header', 'template-parts/header' ); ?>
 	</header><!-- #masthead -->
-	<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
+	<?php
+		if( is_single() && get_page_template_slug( get_queried_object_id() ) ){
+			return;
+		}
+	?>
+	<div class="page-header site-header__wrap">
+		<div class="container">
+			<?php rx_theme_the_title(); ?>
+			<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
+		</div>
+	</div><!-- .page-header -->
 	<div id="content" <?php echo rx_theme_get_container_classes( 'site-content' ); ?>>
