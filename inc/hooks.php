@@ -26,8 +26,6 @@ add_filter( 'widget_nav_menu_args', 'rx_theme_modify_nav_menu', 10, 4 );
 // Render macros in widget text.
 add_filter( 'widget_text', 'rx_theme_widget_text_parse_content', 10, 1 );
 
-// Add svg in types to uploads.
-add_filter('upload_mimes', 'rx_theme_add_file_types_to_uploads', 1, 1 );
 /**
  * Adds the meta viewport to the header.
  *
@@ -161,15 +159,4 @@ function rx_theme_widget_text_parse_content( $content ) {
 	$content = rx_theme_render_macros( $content );
 
 	return $content;
-}
-
-/**
- * Add svg in types to uploads.
- *
- * @since  1.0.0
- * @return array mime types.
- */
-function rx_theme_add_file_types_to_uploads( $mime_types ){
-	$mime_types['svg'] = 'image/svg+xml';
-	return $mime_types;
 }
