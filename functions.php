@@ -251,6 +251,15 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			//Enable builded custom headers and footers
 			add_theme_support( 'header-footer-elementor' );
 
+			//Add gutenberg blocks support
+			add_theme_support( 'wp-block-styles' );
+
+			//Add gutenberg blocks align
+			add_theme_support( 'align-wide' );
+
+			//Add gutenberg editor styles
+			add_theme_support( 'editor-styles' );
+
 		}
 
 		/**

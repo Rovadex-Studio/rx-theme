@@ -735,7 +735,7 @@ if ( ! function_exists( 'rx_theme_the_title' ) ) {
 				printf( '<h1 class="page-title">%s</h1>', woocommerce_page_title( false ) );
 			break;
 			case is_search():
-				printf( '<h1 class="page-title">%s %s</h1>', esc_html__( 'Search Results for:', 'fitmax' ), '<span>' . get_search_query() . '</span>' );
+				printf( '<h1 class="page-title">%s %s</h1>', esc_html__( 'Search Results for:', 'rx-theme' ), '<span>' . get_search_query() . '</span>' );
 			break;
 
 			case is_archive():
@@ -744,7 +744,7 @@ if ( ! function_exists( 'rx_theme_the_title' ) ) {
 			break;
 
 			case is_404():
-					printf( '<h1 class="page-title">%s</h1>', esc_html__( 'Oops! That page can&rsquo;t be found.', 'fitmax' ) );
+					printf( '<h1 class="page-title">%s</h1>', esc_html__( 'Oops! That page can&rsquo;t be found.', 'rx-theme' ) );
 			break;
 
 			default:
