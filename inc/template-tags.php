@@ -727,7 +727,7 @@ if ( ! function_exists( 'rx_theme_the_title' ) ) {
 	function rx_theme_the_title( $args = array() ) {
 
 		switch ( true ) {
-			case is_woocommerce():
+			case function_exists( 'is_woocommerce' ) && is_woocommerce():
 				remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
 				remove_action( 'woocommerce_archive_description', 'woocommerce_product_archive_description', 10 );
 				add_filter( 'woocommerce_show_page_title', '__return_false' );
