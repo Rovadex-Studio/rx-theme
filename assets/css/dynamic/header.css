@@ -1,5 +1,5 @@
 /* #Header */
-.site-header__wrap {
+.page-header {
 	background-color: $header_bg_color;
 	background-repeat: $header_bg_repeat;
 	background-position: $header_bg_position_x top;

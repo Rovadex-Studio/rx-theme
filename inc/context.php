@@ -79,9 +79,9 @@ function rx_theme_breadcrumbs_class( $classes = null ) {
 		true
 	);
 
-	if ( $site_breadcrumbs_container ) {
-		$classes .= ' container';
-	}
+	// if ( $site_breadcrumbs_container ) {
+	// 	$classes .= ' container';
+	// }
 
 	echo 'class="' . apply_filters( 'rx-theme/site-breadcrumbs/content-classes', $classes ) . '"';
 }

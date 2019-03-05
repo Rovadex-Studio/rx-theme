@@ -28,3 +28,13 @@
 		display: block;
 	}
 }
+
+.site-header__wrap,
+.top-panel{
+	.space-between-content>*{
+		margin: 0;
+	}
+	.space-between-content{
+		margin: 0;
+	}
+}
