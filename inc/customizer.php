@@ -208,6 +208,13 @@ function rx_theme_get_customizer_options() {
 				'field'   => 'hex_color',
 				'type'    => 'control',
 			),
+			'body_background_color' => array(
+				'title'   => esc_html__( 'Background Color', 'rx-theme' ),
+				'section' => 'color_scheme',
+				'default' => '#FFF',
+				'field'   => 'hex_color',
+				'type'    => 'control',
+			),
 			'h1_color' => array(
 				'title'   => esc_html__( 'H1 color', 'rx-theme' ),
 				'section' => 'color_scheme',

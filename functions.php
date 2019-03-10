@@ -242,9 +242,6 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 				'gallery', 'image', 'link', 'quote', 'video', 'audio',
 			) );
 
-			// Enable custom background.
-			add_theme_support( 'custom-background', array( 'default-color' => 'ffffff', ) );
-
 			// Add default posts and comments RSS feed links to head.
 			add_theme_support( 'automatic-feed-links' );
 
