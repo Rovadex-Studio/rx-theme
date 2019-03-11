@@ -1,3 +1,8 @@
+/* Body Style */
+body{
+	background: $body_background_color;
+}
+
 /* Page preloader */
 .page-preloader {
 	border-top-color: $accent_color;
