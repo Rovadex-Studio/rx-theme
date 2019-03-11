@@ -1,3 +1,6 @@
+body{
+	background-color: $color__background-screen;
+}
 .site {
 	@include hyphens(auto);
 	overflow: hidden;
@@ -20,8 +23,8 @@
 	}
 	&-content {
 		body:not(.page-template-fullwidth-content) & {
-			margin-top: 30px;
-			margin-bottom: 30px;
+			margin-top: 50px;
+			margin-bottom: 50px;
 		}
 	}
 	&-main {

@@ -14,7 +14,7 @@
 		}
 		&-content {
 			@include media-breakpoint-up(sm) {
-				@include font-size(18/16);
+				@include font-size(16/16);
 			}
 		}
 		&-footer {

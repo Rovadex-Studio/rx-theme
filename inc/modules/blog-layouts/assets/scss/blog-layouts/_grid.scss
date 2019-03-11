@@ -1,6 +1,10 @@
 /*--------------------------------------------------------------
 ### Grid Posts List
 --------------------------------------------------------------*/
+.blog-grid .site-content__wrap .row{
+	margin-left: 0;
+	margin-right: 0;
+}
 @mixin transition($transition...) {
 	transition: $transition;
 }

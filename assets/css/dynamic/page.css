@@ -23,3 +23,6 @@
 @media (min-width: 1200px) {
 	.page-title { font-size: $h2_font_size{px}; }
 }
+body{
+	background: $body_background_color;
+}

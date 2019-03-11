@@ -250,6 +250,13 @@ function rx_theme_get_customizer_options() {
 				'field'   => 'hex_color',
 				'type'    => 'control',
 			),
+			'body_background_color' => array(
+				'title'   => esc_html__( 'Backgraund Color', 'rx-theme' ),
+				'section' => 'color_sheme',
+				'default' => '#ffffff',
+				'field'   => 'hex_color',
+				'type'    => 'control',
+			),
 
 			/** `Typography Settings` panel */
 			'typography' => array(
