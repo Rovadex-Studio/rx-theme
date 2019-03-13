@@ -396,6 +396,14 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 				true
 			);
 
+			wp_register_script(
+				'nice-select',
+				get_theme_file_uri( 'assets/lib/nice-select/js/jquery.nice-select.min.js' ),
+				array(),
+				'1.0.0',
+				true
+			);
+
 			// register style
 			wp_register_style(
 				'font-awesome',
@@ -418,6 +426,13 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 				'4.4.6'
 			);
 
+			wp_register_style(
+				'nice-select',
+				get_theme_file_uri( 'assets/lib/nice-select/css/nice-select.css' ),
+				array(),
+				'1.0.0'
+			);
+
 		}
 
 		/**
@@ -436,6 +451,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			$scripts_depends = 	apply_filters( 'rx-theme/assets-depends/script', array(
 				'jquery',
 				'responsive-menu',
+				'nice-select',
 			) );
 
 			if ( $this->is_blog() || is_singular( 'post' ) ) {
@@ -472,6 +488,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			 */
 			$styles_depends = apply_filters( 'rx-theme/assets-depends/styles', array(
 				'font-awesome',
+				'nice-select',
 			) );
 
 			if ( $this->is_blog() || is_singular( 'post' ) ) {
