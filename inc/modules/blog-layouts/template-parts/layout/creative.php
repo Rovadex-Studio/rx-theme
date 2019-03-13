@@ -11,15 +11,15 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'posts-list__item creative-item' ); ?>>
 
-	<?php rx_theme_post_thumbnail( 'rx-theme-thumb-m-2' ); ?>
+	<?php rx_theme_post_thumbnail( 'rx-theme-thumb-l' ); ?>
 
 	<div class="creative-item__content">
 
 		<header class="entry-header">
-			<h2 class="entry-title"><?php
+			<h3 class="entry-title"><?php
 				rx_theme_sticky_label();
 				the_title( '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a>' );
-			?></h2>
+			?></h3>
 		</header><!-- .entry-header -->
 
 		<?php rx_theme_post_excerpt(); ?>
