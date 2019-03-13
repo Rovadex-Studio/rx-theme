@@ -19,10 +19,10 @@
 			this.magnificPopupInit();
 			this.swiperInit();
 			this.mobilePanelInit();
+			this.niceSelectInit();
 		},
 
 		page_preloader_init: function(self) {
-
 			if ($('.page-preloader-cover')[0]) {
 				$('.page-preloader-cover').delay(500).fadeTo(500, 0, function() {
 					$(this).remove();
@@ -163,6 +163,17 @@
 			Rx_Theme_JS.$window.on( 'resize.RxTheme orientationchange.RxTheme', Rx_Theme_JS.debounce( 50, Rx_Theme_JS.watcher.bind( this ) ) ).trigger( 'resize.RxTheme' );
 		},
 
+		niceSelectInit: function() {
+			if( typeof( elementor ) !== 'undefined' ){
+				$( window ).on( 'elementor/frontend/init', function() {
+					elementorFrontend.hooks.addAction( 'frontend/element_ready/widget', function( $scope ) {
+						$( 'select' ).niceSelect();
+					} );
+				} )
+			}else{
+				$( 'select' ).niceSelect();
+			}
+		},
 		/**
 		 * Resize Event Watcher callback.
 		 *
