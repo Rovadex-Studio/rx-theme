@@ -19,7 +19,7 @@
 			this.magnificPopupInit();
 			this.swiperInit();
 			this.mobilePanelInit();
-			this.niceSelectInit();
+			this.select2();
 		},
 
 		page_preloader_init: function(self) {
@@ -163,17 +163,21 @@
 			Rx_Theme_JS.$window.on( 'resize.RxTheme orientationchange.RxTheme', Rx_Theme_JS.debounce( 50, Rx_Theme_JS.watcher.bind( this ) ) ).trigger( 'resize.RxTheme' );
 		},
 
-		niceSelectInit: function() {
-			var selector = 'select:not(:[style="display: none;"])';
+		select2: function() {
+			var selector = 'select:not([data-type="colorpicker"])';
 
 			if( typeof( elementor ) !== 'undefined' ){
 				$( window ).on( 'elementor/frontend/init', function() {
 					elementorFrontend.hooks.addAction( 'frontend/element_ready/widget', function( $scope ) {
-						$( selector ).niceSelect();
+						$( selector ).select2({
+							minimumResultsForSearch: -1
+						});
 					} );
 				} )
 			}else{
-				$( selector ).niceSelect();
+				$( selector ).select2({
+					minimumResultsForSearch: -1
+				});
 			}
 		},
 		/**

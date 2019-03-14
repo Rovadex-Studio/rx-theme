@@ -397,10 +397,10 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			);
 
 			wp_register_script(
-				'nice-select',
-				get_theme_file_uri( 'assets/lib/nice-select/js/jquery.nice-select.min.js' ),
+				'select2',
+				get_theme_file_uri( 'assets/lib/select2/js/select2.min.js' ),
 				array(),
-				'1.0.0',
+				'4.0.6',
 				true
 			);
 
@@ -427,10 +427,10 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			);
 
 			wp_register_style(
-				'nice-select',
-				get_theme_file_uri( 'assets/lib/nice-select/css/nice-select.css' ),
+				'select2',
+				get_theme_file_uri( 'assets/lib/select2/css/select2.min.css' ),
 				array(),
-				'1.0.0'
+				'4.0.6'
 			);
 
 		}
@@ -451,7 +451,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			$scripts_depends = 	apply_filters( 'rx-theme/assets-depends/script', array(
 				'jquery',
 				'responsive-menu',
-				'nice-select',
+				'select2',
 			) );
 
 			if ( $this->is_blog() || is_singular( 'post' ) ) {
@@ -488,7 +488,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			 */
 			$styles_depends = apply_filters( 'rx-theme/assets-depends/styles', array(
 				'font-awesome',
-				'nice-select',
+				'select2',
 			) );
 
 			if ( $this->is_blog() || is_singular( 'post' ) ) {
