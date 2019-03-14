@@ -21,7 +21,7 @@ get_header();
 					<div id="author-block" class="col-xs-12 col-md-3"><?php
 						get_template_part( 'template-parts/single-post/author-bio' );
 						rx_theme_posted_on( array(
-							'prefix'  => __( 'Posted', 'rx-theme' ),
+							'prefix'  => esc_html__( 'Posted', 'rx-theme' ),
 							'before' => '<div class="posted-on">',
 							'after'  => '</div>',
 						) );

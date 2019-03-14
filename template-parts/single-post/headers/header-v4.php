@@ -21,17 +21,17 @@ $author_block_class = $is_author_block_enabled ? 'with_author_block' : '';
 					<?php the_title( '<h1 class="entry-title h2-style">', '</h1>' ); ?>
 					<div class="entry-meta"><?php
 						rx_theme_posted_in( array(
-							'prefix'  => __( 'In', 'rx-theme' ),
+							'prefix'  => esc_html__( 'In', 'rx-theme' ),
 						) );
 						rx_theme_posted_on( array(
-							'prefix'  => '<i class="fa fa-clock-o" aria-hidden="true"></i> ' . __( 'Posted', 'rx-theme' ),
+							'prefix'  => '<i class="fa fa-clock-o" aria-hidden="true"></i> ' . esc_html__( 'Posted', 'rx-theme' ),
 						) );
 						rx_theme_post_tags ( array(
 							'prefix'    => '<i class="fa fa-tag" aria-hidden="true"></i>',
 						) );
 						rx_theme_post_comments( array(
 							'prefix'    => '<i class="fa fa-comment-o" aria-hidden="true"></i>',
-							'postfix' => __( 'Comment(s)', 'rx-theme' )
+							'postfix' => esc_html__( 'Comment(s)', 'rx-theme' )
 						) );
 					?></div><!-- .entry-meta -->
 				</header><!-- .entry-header -->

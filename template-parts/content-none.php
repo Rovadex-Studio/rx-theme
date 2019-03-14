@@ -18,7 +18,7 @@
 				printf(
 					wp_kses(
 						/* translators: 1: link to WP admin new post page. */
-						__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'rx-theme' ),
+						sprintf( esc_html__( 'Ready to publish your first post? %1$sGet started here%2$s.', 'rx-theme' ), '<a href="%1$s">', '</a>' ) ,
 						array(
 							'a' => array(
 								'href' => array(),

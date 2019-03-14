@@ -12,7 +12,7 @@
 <footer class="entry-footer">
 	<div class="entry-meta"><?php
 		rx_theme_post_tags ( array(
-			'prefix'    => __( 'Tags:', 'rx-theme' ),
+			'prefix'    => esc_html__( 'Tags:', 'rx-theme' ),
 			'delimiter' => ''
 		) );
 	?></div>

@@ -147,7 +147,7 @@ if ( ! function_exists( 'rx_theme_posted_by' ) ) :
 		if ( 'post' === get_post_type() ) {
 
 			$default_args = array(
-				'prefix' => __( 'By', 'rx-theme' ),
+				'prefix' => esc_html__( 'By', 'rx-theme' ),
 				'before' => '<span class="byline">',
 				'after'  => '</span>',
 				'echo'   => true
@@ -434,7 +434,7 @@ if ( ! function_exists( 'rx_theme_edit_link' ) ) :
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'rx-theme' ),
+					sprintf( esc_html__( 'Edit %s', 'rx-theme' ), '<span class="screen-reader-text">%s</span>' ),
 					array(
 						'span' => array(
 							'class' => array(),

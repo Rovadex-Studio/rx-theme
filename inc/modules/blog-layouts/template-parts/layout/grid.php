@@ -17,11 +17,11 @@
 				<?php
 				rx_theme_posted_by();
 				rx_theme_posted_in( array(
-					'prefix' => __( 'In', 'rx-theme' ),
+					'prefix' => esc_html__( 'In', 'rx-theme' ),
 					'delimiter' => ', '
 				) );
 				rx_theme_posted_on( array(
-					'prefix' => __( 'Posted', 'rx-theme' ),
+					'prefix' => esc_html__( 'Posted', 'rx-theme' ),
 				) );
 				?>
 			</div><!-- .entry-meta -->

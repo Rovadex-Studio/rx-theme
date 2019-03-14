@@ -33,10 +33,10 @@ $has_post_thumbnail_class = $has_post_thumbnail ? 'has-post-thumbnail' : '';
 							<?php endif; ?>
 							<?php
 								rx_theme_posted_in( array(
-									'prefix'  => __( 'In', 'rx-theme' ),
+									'prefix'  => esc_html__( 'In', 'rx-theme' ),
 								) );
 								rx_theme_posted_on( array(
-									'prefix'  => __( 'Posted', 'rx-theme' ),
+									'prefix'  => esc_html__( 'Posted', 'rx-theme' ),
 								) );
 						?></div><!-- .entry-meta -->
 						<div class="entry-meta"><?php

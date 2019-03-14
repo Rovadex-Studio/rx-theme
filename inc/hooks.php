@@ -100,7 +100,7 @@ function rx_theme_enqueue_misc( $depends ) {
  * @return array
  */
 function rx_theme_image_size_names_choose( $image_sizes ) {
-	$image_sizes['post-thumbnail'] = __( 'Post Thumbnail', 'rx-theme' );
+	$image_sizes['post-thumbnail'] = esc_html__( 'Post Thumbnail', 'rx-theme' );
 
 	return $image_sizes;
 }

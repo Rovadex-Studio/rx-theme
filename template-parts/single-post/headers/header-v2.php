@@ -44,7 +44,7 @@ $has_post_thumbnail_class = $has_post_thumbnail ? 'invert' : '';
 									'after'   => '</div>'
 								) );
 								rx_theme_posted_on( array(
-									'prefix'  => __( 'Posted', 'rx-theme' ),
+									'prefix'  => esc_html__( 'Posted', 'rx-theme' ),
 									'before'  => '<div class="posted-on">',
 									'after'   => '</div>',
 								) );

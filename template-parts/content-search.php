@@ -14,10 +14,10 @@
 		<div class="entry-meta"><?php
 			rx_theme_posted_by();
 			rx_theme_posted_in( array(
-				'prefix' => __( 'In', 'rx-theme' ),
+				'prefix' => esc_html__( 'In', 'rx-theme' ),
 			) );
 			rx_theme_posted_on( array(
-				'prefix' => __( 'Posted', 'rx-theme' )
+				'prefix' => esc_html__( 'Posted', 'rx-theme' )
 			) );
 		?></div><!-- .entry-meta -->
 		<?php the_title( '<h4 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' ); ?>

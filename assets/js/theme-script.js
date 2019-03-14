@@ -164,14 +164,16 @@
 		},
 
 		niceSelectInit: function() {
+			var selector = 'select:not(:[style="display: none;"])';
+
 			if( typeof( elementor ) !== 'undefined' ){
 				$( window ).on( 'elementor/frontend/init', function() {
 					elementorFrontend.hooks.addAction( 'frontend/element_ready/widget', function( $scope ) {
-						$( 'select' ).niceSelect();
+						$( selector ).niceSelect();
 					} );
 				} )
 			}else{
-				$( 'select' ).niceSelect();
+				$( selector ).niceSelect();
 			}
 		},
 		/**

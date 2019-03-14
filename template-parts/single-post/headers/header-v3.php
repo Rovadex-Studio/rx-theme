@@ -23,11 +23,11 @@ $author_block_enabled = rx_theme()->customizer->get_value( 'single_author_block'
 				if ( ! $author_block_enabled ) {
 					rx_theme_posted_by();
 					rx_theme_posted_on( array(
-						'prefix'  => __( 'Posted', 'rx-theme' ),
+						'prefix'  => esc_html__( 'Posted', 'rx-theme' ),
 					) );
 				}
 				rx_theme_post_comments( array(
-					'postfix' => __( 'Comment(s)', 'rx-theme' ),
+					'postfix' => esc_html__( 'Comment(s)', 'rx-theme' ),
 				) );
 			?>
 		</div><!-- .entry-meta -->
