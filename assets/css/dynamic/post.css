@@ -153,6 +153,7 @@
 .posts-list--timeline .creative-item__post-date a {
 	color: $link_color;
 }
+.posts-list--timeline .entry-title a:hover,
 .posts-list--timeline .creative-item__post-date a:hover {
 	color: $link_hover_color;
 }

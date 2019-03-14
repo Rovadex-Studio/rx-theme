@@ -10,7 +10,7 @@
 ?>
 
 <header class="entry-header">
-	<?php the_title( '<h1 class="entry-title h2-style">', '</h1>' ); ?>
+	<?php the_title( '<h2 class="entry-title h2-style">', '</h2>' ); ?>
 	<div class="entry-meta">
 		<?php
 			rx_theme_posted_by();

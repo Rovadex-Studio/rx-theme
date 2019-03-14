@@ -29,7 +29,7 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 		/**
 		 * Fullwidth list.
 		 */
-		private $fullwidth_list = array( 'grid', 'creative' );
+		private $fullwidth_list = array( 'grid' );
 
 		/**
 		 * Module ID

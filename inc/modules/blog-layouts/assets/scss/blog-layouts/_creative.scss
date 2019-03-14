@@ -16,6 +16,7 @@
 	.tags-links,
 	.comments-link {
 		margin-right: 15px;
+		margin-top: 0;
 	}
 	.post-categories {
 		margin-top: 5px;
@@ -61,10 +62,6 @@
 }
 
 .posts-list--creative {
-	@include media-breakpoint-up(md) {
-		margin-left: 6%;
-		margin-right: 6%;
-	}
 	.creative-item+.creative-item {
 		margin-top: 100px;
 	}
@@ -117,7 +114,7 @@
 		}
 		.entry {
 			&-title {
-				margin-bottom: 35px;
+				margin-bottom: 15px;
 			}
 			&-content {
 				margin-bottom: 15px;
@@ -136,7 +133,7 @@
 			flex-direction: column;
 			justify-content: space-between;
 			width: 90%;
-			min-height: 470px;
+			min-height: 400px;
 			padding: 25px 30px;
 			border: 1px solid $color__background-hr;
 			background-color: $color__white;
@@ -239,7 +236,7 @@
 			}
 			&-content {
 				@include media-breakpoint-up(sm) {
-					@include font-size(18/16);
+					@include font-size(16/16);
 				}
 			}
 			&-footer {
