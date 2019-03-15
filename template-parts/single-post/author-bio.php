@@ -10,7 +10,7 @@
 
 $is_enabled = rx_theme()->customizer->get_value( 'single_author_block' );
 
-if ( ! $is_enabled ) {
+if ( ! $is_enabled || ! rx_theme_get_author_meta(array( 'field' => 'description', 'echo' => false ) ) ) {
 	return;
 }
 
