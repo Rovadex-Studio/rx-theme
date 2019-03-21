@@ -24,8 +24,6 @@ function rx_theme_main_menu() {
 				'container'        => '',
 				'menu_id'          => 'main-menu',
 				'menu_class'       => 'menu slicknav-menu',
-				'fallback_cb'      => 'rx_theme_set_nav_menu',
-				'fallback_message' => esc_html__( 'Set main menu', 'rx-theme' ),
 			) );
 
 			wp_nav_menu( $args );
@@ -51,7 +49,6 @@ function rx_theme_footer_menu() { ?>
 			'menu_class'       => 'footer-menu__items',
 			'depth'            => 1,
 			'fallback_cb'      => '__return_empty_string',
-			'fallback_message' => esc_html__( 'Set footer menu', 'rx-theme' ),
 		) );
 
 		wp_nav_menu( $args );
@@ -91,28 +88,7 @@ function rx_theme_get_social_list( $context, $type = 'icon' ) {
 		'link_before'      => ( 'icon' == $type ) ? '<span class="screen-reader-text">' : '',
 		'link_after'       => ( 'icon' == $type ) ? '</span>' : '',
 		'echo'             => false,
-		'fallback_cb'      => 'rx_theme_set_nav_menu',
-		'fallback_message' => esc_html__( 'Set social menu', 'rx-theme' ),
 	), $context, $type );
 
 	return wp_nav_menu( $args );
-}
-
-/**
- * Set callback function for nav menu.
- *
- * @param  array $args Nav menu arguments.
- * @return void
- */
-function rx_theme_set_nav_menu( $args ) {
-
-	if ( ! current_user_can( 'edit_theme_options' ) ) {
-		return null;
-	}
-
-	$format = '<div class="set-menu %3$s"><a href="%2$s" target="_blank" class="set-menu_link">%1$s</a></div>';
-	$label  = $args['fallback_message'];
-	$url    = esc_url( admin_url( 'nav-menus.php' ) );
-
-	printf( $format, $label, $url, $args['container_class'] );
 }
