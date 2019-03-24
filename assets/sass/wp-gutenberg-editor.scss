@@ -1,0 +1,82 @@
+
+/*--------------------------------------------------------------
+### Main column width
+--------------------------------------------------------------*/
+.wp-block {
+	max-width: 900px;
+}
+
+/*--------------------------------------------------------------
+### Gutenberg editor style controls
+--------------------------------------------------------------*/
+.editor-styles-wrapper{
+	.components-button{
+		align-items: center;
+		cursor: pointer;
+		overflow: hidden;
+		background: #fff;
+		color: #555d66;
+		width: 36px;
+		padding: 0;
+		margin: 0;
+		font-size: 13px;
+		text-decoration: none;
+		&.block-editor-block-switcher__toggle{
+			width: auto;
+			display: block;
+			margin: 0;
+			padding: 3px;
+		}
+		&.components-toolbar__control{
+			display: flex;
+			border-radius: 4px;
+			border: 0;
+			color: #555d66;
+			align-items: flex-end;
+			display: inline-flex;
+			margin: 0;
+			outline: none;
+			padding: 3px;
+			position: relative;
+		}
+		&.block-editor-inserter__toggle{
+			display: inline-block;
+			background: #fff;
+			border-radius: 50%;
+			color: #007cba;
+			height: 36px;
+			margin-top: -4px;
+			width: 36px;
+		}
+		&[aria-disabled=true]{
+			cursor: default;
+			pointer-events: none;
+			opacity: .3;
+		}
+	}
+	.block-editor-block-mover__control{
+		color: rgba(10,24,41,.7);
+		justify-content: center;
+		height: 24px;
+		width: 28px;
+		background: none;
+		box-shadow: none;
+		.is-dark-theme &{
+			color: #fff;
+		}
+	}
+	a.components-external-link{
+		color: #7e8993;
+		margin-right: 10px;
+		overflow: hidden;
+		position: relative;
+		text-decoration: underline;
+		white-space: nowrap;
+		width: 100%;
+	}
+	.block-editor-block-list__block.is-hovered>.block-editor-block-list__block-edit:before{
+		.is-dark-theme &{
+			box-shadow: -3px 0 0 0 #e2e4e7;
+		}
+	}
+}

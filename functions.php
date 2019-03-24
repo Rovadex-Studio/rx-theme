@@ -56,6 +56,15 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 		public $framework;
 
 		/**
+		 * A reference to an instance of this class CX_Dynamic_CSS
+		 *
+		 * @since  1.0.0
+		 * @access public
+		 * @var    object
+		 */
+		public $dynamic_css;
+
+		/**
 		 * Sets up needed actions/filters for the theme to initialize.
 		 *
 		 * @since 1.0.0
@@ -257,6 +266,9 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			//Add gutenberg editor styles
 			add_theme_support( 'editor-styles' );
 
+			//Add gutenberg editor ditor style
+			add_theme_support( 'dark-editor-style' );
+
 		}
 
 		/**
@@ -265,6 +277,12 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 		 * @since 1.0.0
 		 */
 		public function includes() {
+
+
+			/**
+			 * Class add gutenberg editor styles
+			*/
+			require_once get_theme_file_path( 'inc/classes/class-gutenberg-editor-styles.php' );
 
 			/**
 			 * Configurations.
