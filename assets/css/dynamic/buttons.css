@@ -1,6 +1,5 @@
 /* #Button Appearance Styles (regular scheme) */
 .btn,
-button,
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
@@ -15,7 +14,6 @@ input[type='submit'] {
 	background-color: $accent_color;
 }
 .btn:hover,
-button:hover,
 input[type='button']:hover,
 input[type='reset']:hover,
 input[type='submit']:hover,

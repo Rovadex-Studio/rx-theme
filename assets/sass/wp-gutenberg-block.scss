@@ -35,3 +35,33 @@
 # Forms
 --------------------------------------------------------------*/
 @import "forms/forms";
+
+/*--------------------------------------------------------------
+### Main column width
+--------------------------------------------------------------*/
+.wp-block {
+	max-width: 1000px;
+}
+
+/*--------------------------------------------------------------
+### Gutenberg editor style controls
+--------------------------------------------------------------*/
+a.components-external-link{
+	color: #0073aa;
+	margin-right: 10px;
+	overflow: hidden;
+	position: relative;
+	text-decoration: underline;
+	white-space: nowrap;
+	width: 100%;
+	&:hover{
+		color: #0073aa;
+	}
+}
+
+.wp-block-code .block-editor-plain-text {
+	color: #fff;
+}
+.wp-block-quote__citation a:before{
+	content: "— ";
+}

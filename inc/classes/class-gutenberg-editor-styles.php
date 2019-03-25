@@ -39,6 +39,7 @@ if ( ! class_exists( 'Rx_Theme_Gutenberg_Editor_Styles' ) ) {
 
 			if ( $feature ) {
 				add_filter( 'block_editor_settings', array( $this, 'gutenberg_extend_editor_styles' ) );
+
 				// Enqueue admin scripts.
 				add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_styles' ) );
 				add_editor_style(
@@ -55,18 +56,15 @@ if ( ! class_exists( 'Rx_Theme_Gutenberg_Editor_Styles' ) ) {
 		 * @since 1.0.0
 		 */
 		public function admin_enqueue_styles() {
+			// Enqueue frontend fonts
+			rx_theme()->customizer->fonts_manager->prepare_fonts();
+
 			// register style
 			wp_enqueue_style(
 				'font-awesome',
 				get_theme_file_uri( 'assets/lib/font-awesome/font-awesome.min.css' ),
 				array(),
 				'4.7.0'
-			);
-			wp_enqueue_style(
-				'rx-theme-gutenberg-editor',
-				get_theme_file_uri( 'assets/css/wp-gutenberg-editor.css' ),
-				array(),
-				'1.0.0'
 			);
 		}
 

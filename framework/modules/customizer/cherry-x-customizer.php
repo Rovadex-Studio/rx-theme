@@ -88,7 +88,7 @@ if ( ! class_exists( 'CX_Customizer' ) ) {
 		 *
 		 * @var object
 		 */
-		protected $fonts_manager = null;
+		public $fonts_manager = null;
 
 		/**
 		 * Fonts options list
