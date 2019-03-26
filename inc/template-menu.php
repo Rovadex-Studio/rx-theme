@@ -20,9 +20,11 @@ function rx_theme_main_menu() {
 		<div class="main-navigation-inner">
 		<?php
 			$args = apply_filters( 'rx-theme/menu/main-menu-args', array(
+				'theme_location'   => 'main',
 				'container'        => '',
 				'menu_id'          => 'main-menu',
 				'menu_class'       => 'menu slicknav-menu',
+				'fallback_cb'      => '__return_empty_string',
 			) );
 
 			wp_nav_menu( $args );
@@ -86,6 +88,7 @@ function rx_theme_get_social_list( $context, $type = 'icon' ) {
 		'depth'            => 1,
 		'link_before'      => ( 'icon' == $type ) ? '<span class="screen-reader-text">' : '',
 		'link_after'       => ( 'icon' == $type ) ? '</span>' : '',
+		'fallback_cb'      => '__return_empty_string',
 		'echo'             => false,
 	), $context, $type );
 
