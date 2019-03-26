@@ -20,7 +20,6 @@ function rx_theme_main_menu() {
 		<div class="main-navigation-inner">
 		<?php
 			$args = apply_filters( 'rx-theme/menu/main-menu-args', array(
-				'theme_location'   => 'main',
 				'container'        => '',
 				'menu_id'          => 'main-menu',
 				'menu_class'       => 'menu slicknav-menu',
