@@ -86,7 +86,7 @@ function rx_theme_get_social_list( $context, $type = 'icon' ) {
 		'menu_id'          => "social-list-{$instance}",
 		'menu_class'       => 'social-list__items inline-list',
 		'depth'            => 1,
-		'link_before'      => ( 'icon' == $type ) ? '<span class="screen-reader-text">' : '',
+		'link_before'      => ( 'icon' == $type ) ? '<span>' : '',
 		'link_after'       => ( 'icon' == $type ) ? '</span>' : '',
 		'fallback_cb'      => '__return_empty_string',
 		'echo'             => false,
