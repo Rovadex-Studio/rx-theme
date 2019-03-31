@@ -11,22 +11,38 @@ do_action( 'rx-theme/mobile-panel/mobile-panel-before' );
 
 $controls_list = [
 	'home' => [
-		'label' => false,
-		'icon'  => 'fa fa-home',
-		'link'  => get_home_url(),
+		'label'  => false,
+		'icon'   => 'fa fa-home',
+		'link'   => get_home_url(),
+		'before' => '',
+		'after'  => '',
 	],
 	'mobile-menu' => [
 		'label' => false,
 		'icon'  => 'fa fa-bars',
 		'link'  => false,
+		'before' => '',
+		'after'  => '',
 	],
 ];
+
+if ( class_exists( 'WooCommerce' ) ) {
+	$controls_list['woo-card'] = [
+		'label' => false,
+		'icon'  => 'fa fa-shopping-cart',
+		'link'  => WC_Cart::get_checkout_url(),
+		'before' => '',
+		'after'  => rx_theme_mobile_panel_woo_after_content(),
+	];
+}
 
 if ( is_active_sidebar( 'sidebar' ) && 'none' !== rx_theme()->sidebar_position ) {
 	$controls_list['sidebar'] = [
 		'label' => false,
 		'icon'  => 'fa fa-ellipsis-h',
 		'link'  => false,
+		'before' => '',
+		'after'  => '',
 	];
 }
 
@@ -38,12 +54,14 @@ $controls_list = apply_filters( 'rx-theme/mobile-panel/mobile-panel-controls', $
 
 			if ( ! empty( $controls_list ) ) {
 				foreach ( $controls_list as $control_slug => $control_data ) {
-					$label = ! empty( $control_data['label'] ) ? sprintf( '<span>%s</span>', $control_data['label'] ) : '';
-					$icon  = $control_data['icon'];
-					$link  = $control_data['link'];
+					$label   = ! empty( $control_data['label'] ) ? sprintf( '<span>%s</span>', $control_data['label'] ) : '';
+					$icon    = $control_data['icon'];
+					$link    = $control_data['link'];
+					$before  = $control_data['before'];
+					$after   = $control_data['after'];
 					$classes = sprintf( 'rx-mobile-panel__control--%s', $control_slug );
 
-					$button = sprintf( '<i class="%s"></i>%s', $icon, $label );
+					$button = sprintf( '<i class="%1$s"></i>%2$s', $icon, $label );
 
 					if ( ! empty( $link ) ) {
 						$button = sprintf( '<a href="%s">%s</a>', $link, $button );
@@ -52,7 +70,7 @@ $controls_list = apply_filters( 'rx-theme/mobile-panel/mobile-panel-controls', $
 					}
 
 					?><div class="rx-mobile-panel__control <?php echo esc_attr( $classes ); ?>" data-control-type="<?php echo esc_attr( $control_slug ); ?>"><?php
-						printf( '%s', $button );
+						printf( '%2$s<div class="rx-mobile-panel__control-inner">%1$s</div>%3$s', $button, $before, $after );
 					?></div><?php
 				}
 			}

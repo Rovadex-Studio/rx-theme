@@ -30,6 +30,7 @@
 	}
 
 	&__control {
+		position: relative;
 		padding: 10px;
 		margin: 5px;
 		display: flex;
@@ -73,6 +74,23 @@
 
 		&:last-child {
 			margin-right: 0;
+		}
+
+		&--woo-card {
+			.woo-card-count {
+				position: absolute;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background-color: #a1a2a4;
+				color: white;
+				font-size: 10px;
+				top: -10px;
+				right: -10px;
+			}
 		}
 	}
 }

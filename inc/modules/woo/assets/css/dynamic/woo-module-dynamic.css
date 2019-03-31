@@ -249,6 +249,7 @@ table.woocommerce-table--order-downloads.shop_table tbody tr td.download-file .b
 table.woocommerce-table--order-downloads.shop_table tbody tr td.download-file .button:hover {
 	color: $primary_text_color;
 }
+
 /*     WooCommerce widgets       */
 .elementor-widget-wp-widget-woocommerce_price_filter .ui-slider-handle,
 .widget_price_filter .ui-slider-handle,
