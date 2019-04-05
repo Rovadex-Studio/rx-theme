@@ -4,20 +4,20 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php rx_theme_post_thumbnail(); ?>
+	<?php rvdx_theme_post_thumbnail(); ?>
 
 	<div class="page-content">
 		<?php
 			the_content();
 			wp_link_pages( array(
-				'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'rx-theme' ),
+				'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'rvdx-theme' ),
 				'after'       => '</div>',
 				'link_before' => '<span>',
 				'link_after'  => '</span>',
@@ -32,7 +32,7 @@
 					sprintf(
 						wp_kses(
 							/* translators: %s: Name of current post. Only visible to screen readers */
-							sprintf( esc_html__( 'Edit %s', 'rx-theme' ), '<span class="screen-reader-text">%s</span>' ),
+							sprintf( esc_html__( 'Edit %s', 'rvdx-theme' ), '<span class="screen-reader-text">%s</span>' ),
 							array(
 								'span' => array(
 									'class' => array(),

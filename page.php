@@ -9,21 +9,21 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 get_header();
 
-	do_action( 'rx-theme/site/site-content-before', 'page' ); ?>
+	do_action( 'rvdx-theme/site/site-content-before', 'page' ); ?>
 
-	<div <?php rx_theme_content_class() ?>>
+	<div <?php rvdx_theme_content_class() ?>>
 		<div class="row">
 
-			<?php do_action( 'rx-theme/site/primary-before', 'page' ); ?>
+			<?php do_action( 'rvdx-theme/site/primary-before', 'page' ); ?>
 
-			<div id="primary" <?php rx_theme_primary_content_class(); ?>>
+			<div id="primary" <?php rvdx_theme_primary_content_class(); ?>>
 
-				<?php do_action( 'rx-theme/site/main-before', 'page' ); ?>
+				<?php do_action( 'rvdx-theme/site/main-before', 'page' ); ?>
 
 				<main id="main" class="site-main"><?php
 					while ( have_posts() ) : the_post();
@@ -38,16 +38,16 @@ get_header();
 					endwhile; // End of the loop.
 				?></main><!-- #main -->
 
-				<?php do_action( 'rx-theme/site/main-after', 'page' ); ?>
+				<?php do_action( 'rvdx-theme/site/main-after', 'page' ); ?>
 
 			</div><!-- #primary -->
 
-			<?php do_action( 'rx-theme/site/primary-after', 'page' ); ?>
+			<?php do_action( 'rvdx-theme/site/primary-after', 'page' ); ?>
 
 			<?php get_sidebar(); // Loads the sidebar.php template.  ?>
 		</div>
 	</div>
 
-	<?php do_action( 'rx-theme/site/site-content-after', 'page' );
+	<?php do_action( 'rvdx-theme/site/site-content-after', 'page' );
 
 get_footer();

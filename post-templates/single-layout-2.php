@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 get_header();
@@ -15,7 +15,7 @@ get_header();
 		get_template_part( 'template-parts/single-post/headers/header-v2', get_post_format() );
 		?><div class="container">
 			<div class="row">
-				<div id="primary" <?php rx_theme_primary_content_class(); ?>>
+				<div id="primary" <?php rvdx_theme_primary_content_class(); ?>>
 					<main id="main" class="site-main">
 						<?php while ( have_posts() ) : the_post();
 
@@ -28,7 +28,7 @@ get_header();
 
 								get_template_part( 'template-parts/single-post/author-bio' );
 								get_template_part( 'template-parts/single-post/post_navigation' );
-								rx_theme_related_posts();
+								rvdx_theme_related_posts();
 								get_template_part( 'template-parts/single-post/comments' );
 
 						endwhile; // End of the loop. ?>

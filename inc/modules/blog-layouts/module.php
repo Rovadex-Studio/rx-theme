@@ -8,12 +8,12 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
+if ( ! class_exists( 'Rvdx_Theme_Blog_Layouts_Module' ) ) {
 
 	/**
-	 * Define Rx_Theme_Blog_Layouts_Module class
+	 * Define Rvdx_Theme_Blog_Layouts_Module class
 	 */
-	class Rx_Theme_Blog_Layouts_Module extends Rx_Theme_Module_Base {
+	class Rvdx_Theme_Blog_Layouts_Module extends Rvdx_Theme_Module_Base {
 		/**
 		 * properties.
 		 */
@@ -50,11 +50,11 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 		public function filters() {
 
 			add_action( 'wp_head', array( $this, 'module_init_properties' ) );
-			add_filter( 'rx-theme/customizer/options', array( $this, 'customizer_options' ) );
-			add_filter( 'rx-theme/customizer/blog-sidebar-enabled', array( $this, 'customizer_blog_sidebar_enabled' ) );
-			add_filter( 'rx-theme/posts/template-part-slug', array( $this, 'apply_layout_template' ) );
-			add_filter( 'rx-theme/posts/list-class', array( $this, 'add_list_class' ) );
-			add_filter( 'rx-theme/site-content/container-enabled', array( $this, 'disable_site_content_container' ) );
+			add_filter( 'rvdx-theme/customizer/options', array( $this, 'customizer_options' ) );
+			add_filter( 'rvdx-theme/customizer/blog-sidebar-enabled', array( $this, 'customizer_blog_sidebar_enabled' ) );
+			add_filter( 'rvdx-theme/posts/template-part-slug', array( $this, 'apply_layout_template' ) );
+			add_filter( 'rvdx-theme/posts/list-class', array( $this, 'add_list_class' ) );
+			add_filter( 'rvdx-theme/site-content/container-enabled', array( $this, 'disable_site_content_container' ) );
 
 		}
 
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 		 */
 		public function module_init_properties() {
 
-			$this->layout_type = rx_theme()->customizer->get_value( 'blog_layout_type' );
+			$this->layout_type = rvdx_theme()->customizer->get_value( 'blog_layout_type' );
 
 			if ( $this->is_blog_archive() ) {
 				$this->sidebar_enabled = in_array( $this->layout_type, $this->sidebar_list );
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 			}
 
 			if ( ! $this->sidebar_enabled ) {
-				rx_theme()->sidebar_position = 'none';
+				rvdx_theme()->sidebar_position = 'none';
 			}
 		}
 
@@ -141,18 +141,18 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 
 			$new_options = array(
 				'blog_layout_type' => array(
-					'title'    => esc_html__( 'Layout', 'rx-theme' ),
+					'title'    => esc_html__( 'Layout', 'rvdx-theme' ),
 					'priority' => 1,
 					'section'  => 'blog',
 					'default'  => 'default',
 					'field'    => 'select',
 					'choices'  => array(
-						'default'          => esc_html__( 'Listing', 'rx-theme' ),
-						'grid'             => esc_html__( 'Grid', 'rx-theme' ),
-						'masonry'          => esc_html__( 'Masonry', 'rx-theme' ),
-						'vertical-justify' => esc_html__( 'Vertical Justify', 'rx-theme' ),
-						'creative'         => esc_html__( 'Creative', 'rx-theme' ),
-						'timeline'         => esc_html__( 'Timeline', 'rx-theme' ),
+						'default'          => esc_html__( 'Listing', 'rvdx-theme' ),
+						'grid'             => esc_html__( 'Grid', 'rvdx-theme' ),
+						'masonry'          => esc_html__( 'Masonry', 'rvdx-theme' ),
+						'vertical-justify' => esc_html__( 'Vertical Justify', 'rvdx-theme' ),
+						'creative'         => esc_html__( 'Creative', 'rvdx-theme' ),
+						'timeline'         => esc_html__( 'Timeline', 'rvdx-theme' ),
 					),
 					'type' => 'control',
 				),
@@ -208,7 +208,7 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 				'blog-layouts-module',
 				get_theme_file_uri( 'inc/modules/blog-layouts/assets/css/blog-layouts-module.css' ),
 				false,
-				rx_theme()->version()
+				rvdx_theme()->version()
 			);
 
 			if ( is_rtl() ) {
@@ -216,7 +216,7 @@ if ( ! class_exists( 'Rx_Theme_Blog_Layouts_Module' ) ) {
 					'blog-layouts-module-rtl',
 					get_theme_file_uri( 'inc/modules/blog-layouts/assets/css/rtl.css' ),
 					false,
-					rx_theme()->version()
+					rvdx_theme()->version()
 				);
 			}
 

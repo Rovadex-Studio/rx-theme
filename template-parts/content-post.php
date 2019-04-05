@@ -13,5 +13,5 @@
 
 get_template_part( 'template-parts/single-post/author-bio' );
 get_template_part( 'template-parts/single-post/post_navigation' );
-rx_theme_related_posts();
+rvdx_theme_related_posts();
 get_template_part( 'template-parts/single-post/comments' );

@@ -2,7 +2,7 @@
 /**
  * Related Posts Template Functions.
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 /**
@@ -11,13 +11,13 @@
  * @since  1.0.0
  * @return array
  */
-function rx_theme_related_posts() {
+function rvdx_theme_related_posts() {
 
 	if ( ! is_singular( 'post' ) ) {
 		return;
 	}
 
-	$visible = rx_theme()->customizer->get_value( 'related_posts_visible' );
+	$visible = rvdx_theme()->customizer->get_value( 'related_posts_visible' );
 
 	if ( false === $visible ) {
 		return;
@@ -33,7 +33,7 @@ function rx_theme_related_posts() {
 	}
 
 	$post_terms  = array();
-	$post_number = rx_theme()->customizer->get_value( 'related_posts_count' );
+	$post_number = rvdx_theme()->customizer->get_value( 'related_posts_count' );
 
 	$post_terms = wp_list_pluck( $terms, 'term_id' );
 
@@ -63,7 +63,7 @@ function rx_theme_related_posts() {
 	);
 
 	foreach ( $settings as $setting_key => $setting_value ) {
-		$settings[ $setting_key ] = rx_theme()->customizer->get_value( $setting_value );
+		$settings[ $setting_key ] = rvdx_theme()->customizer->get_value( $setting_value );
 	}
 
 	$settings['grid_count'] = ( int ) 12 / $settings[ 'layout_columns' ];
@@ -81,7 +81,7 @@ function rx_theme_related_posts() {
 
 			setup_postdata( $post );
 
-			$image = ( $settings['image_visible'] ) ? rx_theme_post_thumbnail( 'rx-theme-thumb-s', array( 'echo' => false ) ) : '';
+			$image = ( $settings['image_visible'] ) ? rvdx_theme_post_thumbnail( 'rvdx-theme-thumb-s', array( 'echo' => false ) ) : '';
 
 			$title = ( $settings['title_visible'] ) ? sprintf(
 				'<h6 class="entry-title"><a href="%s" rel="bookmark">%s</a></h6>',
@@ -91,9 +91,9 @@ function rx_theme_related_posts() {
 
 			$excerpt = ( $settings['excerpt_visible'] ) ? get_the_excerpt() : '';
 
-			$author = ( $settings['author_visible'] ) ? rx_theme_posted_by( array( 'echo' => false ) ) : '';
+			$author = ( $settings['author_visible'] ) ? rvdx_theme_posted_by( array( 'echo' => false ) ) : '';
 
-			$date = ( $settings['date_visible'] ) ? rx_theme_posted_on( array( 'echo' => false ) ) : '';
+			$date = ( $settings['date_visible'] ) ? rvdx_theme_posted_on( array( 'echo' => false ) ) : '';
 
 			require( $holder_view_dir );
 		}

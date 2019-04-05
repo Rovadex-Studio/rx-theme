@@ -4,15 +4,15 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 ?>
 
 <footer class="entry-footer">
 	<div class="entry-meta"><?php
-		rx_theme_post_tags ( array(
-			'prefix'    => esc_html__( 'Tags:', 'rx-theme' ),
+		rvdx_theme_post_tags ( array(
+			'prefix'    => esc_html__( 'Tags:', 'rvdx-theme' ),
 			'delimiter' => ''
 		) );
 	?></div>

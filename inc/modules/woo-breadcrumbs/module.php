@@ -8,12 +8,12 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( ! class_exists( 'Rx_Theme_Woo_Breadcrumbs_Module' ) ) {
+if ( ! class_exists( 'Rvdx_Theme_Woo_Breadcrumbs_Module' ) ) {
 
 	/**
-	 * Define Rx_Theme_Woo_Breadcrumbs_Module class
+	 * Define Rvdx_Theme_Woo_Breadcrumbs_Module class
 	 */
-	class Rx_Theme_Woo_Breadcrumbs_Module extends Rx_Theme_Module_Base {
+	class Rvdx_Theme_Woo_Breadcrumbs_Module extends Rvdx_Theme_Module_Base {
 
 		/**
 		 * Module ID
@@ -63,7 +63,7 @@ if ( ! class_exists( 'Rx_Theme_Woo_Breadcrumbs_Module' ) ) {
 				return $is_custom_breadcrumbs;
 			}
 
-			$wc_breadcrumbs = new Rx_Theme_WC_Breadcrumbs( $args );
+			$wc_breadcrumbs = new Rvdx_Theme_WC_Breadcrumbs( $args );
 
 			return array( 'items' => $wc_breadcrumbs->items, 'page_title' => $wc_breadcrumbs->page_title );
 

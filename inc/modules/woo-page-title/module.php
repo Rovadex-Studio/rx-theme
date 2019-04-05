@@ -8,12 +8,12 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( ! class_exists( 'Rx_Theme_Woo_Page_Title_Module' ) ) {
+if ( ! class_exists( 'Rvdx_Theme_Woo_Page_Title_Module' ) ) {
 
 	/**
-	 * Define Rx_Theme_Woo_Page_Title_Module class
+	 * Define Rvdx_Theme_Woo_Page_Title_Module class
 	 */
-	class Rx_Theme_Woo_Page_Title_Module extends Rx_Theme_Module_Base {
+	class Rvdx_Theme_Woo_Page_Title_Module extends Rvdx_Theme_Module_Base {
 
 		/**
 		 * Module ID

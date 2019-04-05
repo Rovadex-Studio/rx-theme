@@ -9,20 +9,20 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 get_header();
 
-	do_action( 'rx-theme/site/site-content-before', 'index' ); ?>
+	do_action( 'rvdx-theme/site/site-content-before', 'index' ); ?>
 
-	<div <?php rx_theme_content_class() ?>>
+	<div <?php rvdx_theme_content_class() ?>>
 		<div class="row">
 
-			<?php do_action( 'rx-theme/site/primary-before', 'index' ); ?>
+			<?php do_action( 'rvdx-theme/site/primary-before', 'index' ); ?>
 
-			<div id="primary" <?php rx_theme_primary_content_class(); ?>>
+			<div id="primary" <?php rvdx_theme_primary_content_class(); ?>>
 
-				<?php do_action( 'rx-theme/site/main-before', 'index' ); ?>
+				<?php do_action( 'rvdx-theme/site/main-before', 'index' ); ?>
 
 				<main id="main" class="site-main"><?php
 					if ( have_posts() ) :
@@ -34,7 +34,7 @@ get_header();
 
 						<?php endif;
 
-						rx_theme()->do_location( 'archive', 'template-parts/posts-loop' );
+						rvdx_theme()->do_location( 'archive', 'template-parts/posts-loop' );
 
 					else :
 
@@ -43,11 +43,11 @@ get_header();
 					endif;
 				?></main><!-- #main -->
 
-				<?php do_action( 'rx-theme/site/main-after', 'index' ); ?>
+				<?php do_action( 'rvdx-theme/site/main-after', 'index' ); ?>
 
 			</div><!-- #primary -->
 
-			<?php do_action( 'rx-theme/site/primary-after', 'index' ); ?>
+			<?php do_action( 'rvdx-theme/site/primary-after', 'index' ); ?>
 
 			<?php
 				get_sidebar(); // Loads the sidebar.php template.
@@ -55,6 +55,6 @@ get_header();
 		</div>
 	</div>
 
-	<?php do_action( 'rx-theme/site/site-content-after', 'index' );
+	<?php do_action( 'rvdx-theme/site/site-content-after', 'index' );
 
 get_footer();

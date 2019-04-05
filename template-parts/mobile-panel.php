@@ -4,10 +4,10 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
-do_action( 'rx-theme/mobile-panel/mobile-panel-before' );
+do_action( 'rvdx-theme/mobile-panel/mobile-panel-before' );
 
 $controls_list = [
 	'home' => [
@@ -30,13 +30,13 @@ if ( class_exists( 'WooCommerce' ) ) {
 	$controls_list['woo-card'] = [
 		'label' => false,
 		'icon'  => 'fa fa-shopping-cart',
-		'link'  => WC_Cart::get_checkout_url(),
+		'link'  => wc_get_cart_url(),
 		'before' => '',
-		'after'  => rx_theme_mobile_panel_woo_after_content(),
+		'after'  => rvdx_theme_mobile_panel_woo_after_content(),
 	];
 }
 
-if ( is_active_sidebar( 'sidebar' ) && 'none' !== rx_theme()->sidebar_position ) {
+if ( is_active_sidebar( 'sidebar' ) && 'none' !== rvdx_theme()->sidebar_position ) {
 	$controls_list['sidebar'] = [
 		'label' => false,
 		'icon'  => 'fa fa-ellipsis-h',
@@ -46,11 +46,11 @@ if ( is_active_sidebar( 'sidebar' ) && 'none' !== rx_theme()->sidebar_position )
 	];
 }
 
-$controls_list = apply_filters( 'rx-theme/mobile-panel/mobile-panel-controls', $controls_list );
+$controls_list = apply_filters( 'rvdx-theme/mobile-panel/mobile-panel-controls', $controls_list );
 
-?><div class="rx-mobile-panel">
-	<div class="rx-mobile-panel__inner">
-		<div class="rx-mobile-panel__controls"><?php
+?><div class="rvdx-mobile-panel">
+	<div class="rvdx-mobile-panel__inner">
+		<div class="rvdx-mobile-panel__controls"><?php
 
 			if ( ! empty( $controls_list ) ) {
 				foreach ( $controls_list as $control_slug => $control_data ) {
@@ -59,7 +59,7 @@ $controls_list = apply_filters( 'rx-theme/mobile-panel/mobile-panel-controls', $
 					$link    = $control_data['link'];
 					$before  = $control_data['before'];
 					$after   = $control_data['after'];
-					$classes = sprintf( 'rx-mobile-panel__control--%s', $control_slug );
+					$classes = sprintf( 'rvdx-mobile-panel__control--%s', $control_slug );
 
 					$button = sprintf( '<i class="%1$s"></i>%2$s', $icon, $label );
 
@@ -69,8 +69,8 @@ $controls_list = apply_filters( 'rx-theme/mobile-panel/mobile-panel-controls', $
 						$classes .= ' extenal-link';
 					}
 
-					?><div class="rx-mobile-panel__control <?php echo esc_attr( $classes ); ?>" data-control-type="<?php echo esc_attr( $control_slug ); ?>"><?php
-						printf( '%2$s<div class="rx-mobile-panel__control-inner">%1$s</div>%3$s', $button, $before, $after );
+					?><div class="rvdx-mobile-panel__control <?php echo esc_attr( $classes ); ?>" data-control-type="<?php echo esc_attr( $control_slug ); ?>"><?php
+						printf( '%2$s<div class="rvdx-mobile-panel__control-inner">%1$s</div>%3$s', $button, $before, $after );
 					?></div><?php
 				}
 			}
@@ -79,4 +79,4 @@ $controls_list = apply_filters( 'rx-theme/mobile-panel/mobile-panel-controls', $
 	</div>
 </div><?php
 
-do_action( 'rx-theme/mobile-panel/mobile-panel-after' ); ?>
+do_action( 'rvdx-theme/mobile-panel/mobile-panel-after' ); ?>

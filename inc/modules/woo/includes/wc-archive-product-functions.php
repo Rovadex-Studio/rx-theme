@@ -2,19 +2,19 @@
 /**
  * WooCommerce archive product hooks.
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
-add_action( 'woocommerce_before_shop_loop', 'rx_theme_wc_loop_products_panel_open', 15 );
-add_action( 'woocommerce_before_shop_loop', 'rx_theme_wc_loop_products_panel_close', 50 );
-add_filter( 'woocommerce_product_loop_start', 'rx_theme_wc_product_loop_start' );
+add_action( 'woocommerce_before_shop_loop', 'rvdx_theme_wc_loop_products_panel_open', 15 );
+add_action( 'woocommerce_before_shop_loop', 'rvdx_theme_wc_loop_products_panel_close', 50 );
+add_filter( 'woocommerce_product_loop_start', 'rvdx_theme_wc_product_loop_start' );
 
-if ( ! function_exists( 'rx_theme_wc_loop_products_panel_open' ) ) {
+if ( ! function_exists( 'rvdx_theme_wc_loop_products_panel_open' ) ) {
 
 	/**
 	 * Archive products panel wrapper open
 	 */
-	function rx_theme_wc_loop_products_panel_open() {
+	function rvdx_theme_wc_loop_products_panel_open() {
 		if ( ! wc_get_loop_prop( 'is_paginated' ) || ! woocommerce_products_will_display() ) {
 			return;
 		}
@@ -24,12 +24,12 @@ if ( ! function_exists( 'rx_theme_wc_loop_products_panel_open' ) ) {
 
 }
 
-if ( ! function_exists( 'rx_theme_wc_loop_products_panel_close' ) ) {
+if ( ! function_exists( 'rvdx_theme_wc_loop_products_panel_close' ) ) {
 
 	/**
 	 * Archive products panel wrapper close
 	 */
-	function rx_theme_wc_loop_products_panel_close() {
+	function rvdx_theme_wc_loop_products_panel_close() {
 		if ( ! wc_get_loop_prop( 'is_paginated' ) || ! woocommerce_products_will_display() ) {
 			return;
 		}
@@ -39,7 +39,7 @@ if ( ! function_exists( 'rx_theme_wc_loop_products_panel_close' ) ) {
 
 }
 
-if ( ! function_exists( 'rx_theme_wc_product_loop_start' ) ) {
+if ( ! function_exists( 'rvdx_theme_wc_product_loop_start' ) ) {
 
 	/**
 	 * Rewrite loop start columns
@@ -48,7 +48,7 @@ if ( ! function_exists( 'rx_theme_wc_product_loop_start' ) ) {
 	 *
 	 * @return string
 	 */
-	function rx_theme_wc_product_loop_start( $ob_get_clean ) {
+	function rvdx_theme_wc_product_loop_start( $ob_get_clean ) {
 
 		$context = wc_get_loop_prop( 'name' );
 		$columns = array(
@@ -84,7 +84,7 @@ if ( ! function_exists( 'rx_theme_wc_product_loop_start' ) ) {
 			$columns['sm'] = $columns['md'];
 		}
 
-		$columns = apply_filters( 'rx-theme/woo/products_loop_columns', $columns, $context );
+		$columns = apply_filters( 'rvdx-theme/woo/products_loop_columns', $columns, $context );
 
 		if ( is_shop() || is_product_taxonomy() || is_product() ) {
 			$ob_get_clean = sprintf(
@@ -97,7 +97,7 @@ if ( ! function_exists( 'rx_theme_wc_product_loop_start' ) ) {
 			);
 		}
 
-		if ( apply_filters( 'rx-theme/woo/products-loop-categories/show', true ) ){
+		if ( apply_filters( 'rvdx-theme/woo/products-loop-categories/show', true ) ){
 			$ob_get_clean = woocommerce_maybe_show_product_subcategories( $ob_get_clean );
 		}
 

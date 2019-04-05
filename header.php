@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 ?><!DOCTYPE html>
@@ -20,12 +20,12 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php do_action( 'rx-theme/site/page-start' ); ?>
-<?php rx_theme_get_page_preloader(); ?>
+<?php do_action( 'rvdx-theme/site/page-start' ); ?>
+<?php rvdx_theme_get_page_preloader(); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'rx-theme' ); ?></a>
-	<header id="masthead" <?php echo rx_theme_get_container_classes( 'site-header' ); ?>>
-		<?php rx_theme()->do_location( 'header', 'template-parts/header' ); ?>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'rvdx-theme' ); ?></a>
+	<header id="masthead" <?php echo rvdx_theme_get_container_classes( 'site-header' ); ?>>
+		<?php rvdx_theme()->do_location( 'header', 'template-parts/header' ); ?>
 	</header><!-- #masthead -->
 	<?php
 		if( is_single() && get_page_template_slug( get_queried_object_id() ) ){
@@ -34,8 +34,8 @@
 	?>
 	<div class="page-header site-header__wrap">
 		<div class="container">
-			<?php rx_theme_the_title(); ?>
+			<?php rvdx_theme_the_title(); ?>
 			<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
 		</div>
 	</div><!-- .page-header -->
-	<div id="content" <?php echo rx_theme_get_container_classes( 'site-content' ); ?>>
+	<div id="content" <?php echo rvdx_theme_get_container_classes( 'site-content' ); ?>>

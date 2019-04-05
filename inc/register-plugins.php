@@ -4,7 +4,7 @@
  *
  * @package Storycle
  */
-add_action( 'tgmpa_register', 'rx_theme_register_required_plugins' );
+add_action( 'tgmpa_register', 'rvdx_theme_register_required_plugins' );
 /**
  * Register the required plugins for this theme.
  *
@@ -19,16 +19,16 @@ add_action( 'tgmpa_register', 'rx_theme_register_required_plugins' );
  * This function is hooked into tgmpa_init, which is fired within the
  * TGM_Plugin_Activation class constructor.
  */
-function rx_theme_register_required_plugins() {
+function rvdx_theme_register_required_plugins() {
 	/*
 	 * Array of plugin arrays. Required keys are name and slug.
 	 * If the source is NOT from the .org repo, then source is also required.
 	 */
 	$plugins = array(
 		array(
-			'name'   => esc_html__( 'Rx Theme Wizard', 'rx-theme' ),
-			'slug'   => 'rx-theme-wizard',
-			'source' => 'http://plugins.rovadex.com/rx-theme-wizard.zip',
+			'name'   => esc_html__( 'Rvdx Theme Wizard', 'rvdx-theme' ),
+			'slug'   => 'rvdx-theme-wizard',
+			'source' => 'http://plugins.rovadex.com/rvdx-theme-wizard.zip',
 		),
 	);
 
@@ -42,7 +42,7 @@ function rx_theme_register_required_plugins() {
 	 * Only uncomment the strings in the config array if you want to customize the strings.
 	 */
 	$config = array(
-		'id'           => 'rx-theme',            // Unique ID for hashing notices for multiple instances of TGMPA.
+		'id'           => 'rvdx-theme',            // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path' => '',                      // Default absolute path to bundled plugins.
 		'menu'         => 'tgmpa-install-plugins', // Menu slug.
 		'has_notices'  => true,                    // Show admin notices or not.

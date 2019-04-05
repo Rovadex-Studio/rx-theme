@@ -4,21 +4,21 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 ?>
 
 <?php
 
-do_action( 'rx-theme/sidebar/before' );
+do_action( 'rvdx-theme/sidebar/before' );
 
-if ( is_active_sidebar( 'sidebar' ) && 'none' !== rx_theme()->sidebar_position ) : ?>
-	<aside id="secondary" <?php rx_theme_secondary_content_class( array( 'widget-area' ) ); ?>>
+if ( is_active_sidebar( 'sidebar' ) && 'none' !== rvdx_theme()->sidebar_position ) : ?>
+	<aside id="secondary" <?php rvdx_theme_secondary_content_class( array( 'widget-area' ) ); ?>>
 		<div class="widget-area-inner"><?php
 			dynamic_sidebar( 'sidebar' );
 		?></div>
 	</aside><!-- #secondary -->
 <?php endif;
 
-do_action( 'rx-theme/sidebar/after' );
+do_action( 'rvdx-theme/sidebar/after' );

@@ -2,7 +2,7 @@
 /**
  * Menu Template Functions.
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 /**
@@ -11,7 +11,7 @@
  * @since  1.0.0
  * @return void
  */
-function rx_theme_main_menu() {
+function rvdx_theme_main_menu() {
 
 	$classes[] = 'main-navigation ';
 
@@ -19,7 +19,7 @@ function rx_theme_main_menu() {
 	<nav id="site-navigation" class="<?php echo join( ' ', $classes ); ?>" role="navigation">
 		<div class="main-navigation-inner">
 		<?php
-			$args = apply_filters( 'rx-theme/menu/main-menu-args', array(
+			$args = apply_filters( 'rvdx-theme/menu/main-menu-args', array(
 				'theme_location'   => 'main',
 				'container'        => '',
 				'menu_id'          => 'main-menu',
@@ -40,10 +40,10 @@ function rx_theme_main_menu() {
  * @since  1.0.0
  * @return void
  */
-function rx_theme_footer_menu() { ?>
+function rvdx_theme_footer_menu() { ?>
 	<nav id="footer-navigation" class="footer-menu" role="navigation">
 	<?php
-		$args = apply_filters( 'rx-theme/menu/footer-menu-args', array(
+		$args = apply_filters( 'rvdx-theme/menu/footer-menu-args', array(
 			'theme_location'   => 'footer',
 			'container'        => '',
 			'menu_id'          => 'footer-menu-items',
@@ -67,7 +67,7 @@ function rx_theme_footer_menu() { ?>
  * @param  string $type    Content type - icon, text or both.
  * @return string
  */
-function rx_theme_get_social_list( $context, $type = 'icon' ) {
+function rvdx_theme_get_social_list( $context, $type = 'icon' ) {
 	static $instance = 0;
 	$instance++;
 
@@ -79,7 +79,7 @@ function rx_theme_get_social_list( $context, $type = 'icon' ) {
 
 	$container_class[] = sprintf( 'social-list--%s', sanitize_html_class( $type ) );
 
-	$args = apply_filters( 'rx-theme/social/list-args', array(
+	$args = apply_filters( 'rvdx-theme/social/list-args', array(
 		'theme_location'   => 'social',
 		'container'        => 'div',
 		'container_class'  => join( ' ', $container_class ),

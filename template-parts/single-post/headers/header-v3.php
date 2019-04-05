@@ -4,10 +4,10 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
-$author_block_enabled = rx_theme()->customizer->get_value( 'single_author_block' );
+$author_block_enabled = rvdx_theme()->customizer->get_value( 'single_author_block' );
 
 ?>
 
@@ -15,19 +15,19 @@ $author_block_enabled = rx_theme()->customizer->get_value( 'single_author_block'
 	<header class="entry-header">
 		<div class="entry-meta">
 			<?php
-				rx_theme_posted_in( array(
+				rvdx_theme_posted_in( array(
 					'delimiter' => '',
 					'before'    => '<div class="cat-links btn-style">',
 					'after'     => '</div>'
 				) );
 				if ( ! $author_block_enabled ) {
-					rx_theme_posted_by();
-					rx_theme_posted_on( array(
-						'prefix'  => esc_html__( 'Posted', 'rx-theme' ),
+					rvdx_theme_posted_by();
+					rvdx_theme_posted_on( array(
+						'prefix'  => esc_html__( 'Posted', 'rvdx-theme' ),
 					) );
 				}
-				rx_theme_post_comments( array(
-					'postfix' => esc_html__( 'Comment(s)', 'rx-theme' ),
+				rvdx_theme_post_comments( array(
+					'postfix' => esc_html__( 'Comment(s)', 'rvdx-theme' ),
 				) );
 			?>
 		</div><!-- .entry-meta -->

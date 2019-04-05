@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 ?>
 
@@ -12,13 +12,13 @@
 
 <div class="site-header__wrap">
 	<div class="container">
-		<?php do_action( 'rx-theme/header/before' ); ?>
+		<?php do_action( 'rvdx-theme/header/before' ); ?>
 		<div class="space-between-content">
-			<div <?php echo rx_theme_site_branding_class(); ?>>
-				<?php rx_theme_header_logo(); ?>
+			<div <?php echo rvdx_theme_site_branding_class(); ?>>
+				<?php rvdx_theme_header_logo(); ?>
 			</div>
-			<?php rx_theme_main_menu(); ?>
+			<?php rvdx_theme_main_menu(); ?>
 		</div>
-		<?php do_action( 'rx-theme/header/after' ); ?>
+		<?php do_action( 'rvdx-theme/header/after' ); ?>
 	</div>
 </div>

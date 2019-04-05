@@ -1,7 +1,7 @@
 ( function( $ ) {
 	'use strict';
 
-	var RxMenu = function( element, options ) {
+	var RvdxMenu = function( element, options ) {
 
 		this.defaultSettings = {
 			enabled: false,
@@ -35,11 +35,11 @@
 
 		this.createMenuInstance();
 
-		this.$instance.trigger( 'RxMenuCreated' );
+		this.$instance.trigger( 'RvdxMenuCreated' );
 	}
 
-	RxMenu.prototype = {
-		constructor: RxMenu,
+	RvdxMenu.prototype = {
+		constructor: RvdxMenu,
 
 		createMenuInstance: function() {
 			var self = this,
@@ -200,7 +200,7 @@
 		watch: function( delay ) {
 			var delay = delay || 10;
 
-			$( window ).on( 'resize.RxResponsiveMenu orientationchange.RxResponsiveMenu', this.debounce( delay, this.watcher.bind( this ) ) );
+			$( window ).on( 'resize.RvdxResponsiveMenu orientationchange.RvdxResponsiveMenu', this.debounce( delay, this.watcher.bind( this ) ) );
 			this.$instance.trigger( 'containerResize' );
 		},
 
@@ -299,10 +299,10 @@
 
 			if ( 0 == hiddenItemsArray.length ) {
 				self.$moreItemsInstance.attr( { 'hidden': 'hidden' } );
-				self.$moreItemsInstance.addClass( 'rx-empty' );
+				self.$moreItemsInstance.addClass( 'rvdx-empty' );
 			} else {
 				self.$moreItemsInstance.removeAttr( 'hidden' );
-				self.$moreItemsInstance.removeClass( 'rx-empty' );
+				self.$moreItemsInstance.removeClass( 'rvdx-empty' );
 			}
 
 			self.hiddenItemsArray = hiddenItemsArray;
@@ -436,15 +436,15 @@
 	};
 
 	// jQuery plugin
-	$.fn.RxMenu = function( options ) {
+	$.fn.RvdxMenu = function( options ) {
 		return this.each( function() {
 			var $this         = $( this ),
 				pluginOptions = ( 'object' === typeof options ) ? options : {};
 
-			if ( ! $this.data( 'RxMenu' ) ) {
+			if ( ! $this.data( 'RvdxMenu' ) ) {
 
 				// create plugin instance (only if not exists) and expose the entire instance API
-				$this.data( 'RxMenu', new RxMenu( this, pluginOptions ) );
+				$this.data( 'RvdxMenu', new RvdxMenu( this, pluginOptions ) );
 			}
 		} );
 	};

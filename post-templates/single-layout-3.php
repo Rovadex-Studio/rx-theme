@@ -7,10 +7,10 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
-$author_block_enabled = rx_theme()->customizer->get_value( 'single_author_block' );
+$author_block_enabled = rvdx_theme()->customizer->get_value( 'single_author_block' );
 $primary_colum_class = $author_block_enabled ? 'col-xs-12 col-md-8' : 'col-xs-12';
 
 get_header();
@@ -20,8 +20,8 @@ get_header();
 				<?php if ( $author_block_enabled ) : ?>
 					<div id="author-block" class="col-xs-12 col-md-3"><?php
 						get_template_part( 'template-parts/single-post/author-bio' );
-						rx_theme_posted_on( array(
-							'prefix'  => esc_html__( 'Posted', 'rx-theme' ),
+						rvdx_theme_posted_on( array(
+							'prefix'  => esc_html__( 'Posted', 'rvdx-theme' ),
 							'before' => '<div class="posted-on">',
 							'after'  => '</div>',
 						) );
@@ -40,7 +40,7 @@ get_header();
 							?></article><?php
 
 								get_template_part( 'template-parts/single-post/post_navigation' );
-								rx_theme_related_posts();
+								rvdx_theme_related_posts();
 								get_template_part( 'template-parts/single-post/comments' );
 
 						endwhile; // End of the loop. ?>

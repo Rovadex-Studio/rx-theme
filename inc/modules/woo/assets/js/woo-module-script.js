@@ -1,11 +1,11 @@
-;var Rx_Theme_Woo_Module;
+;var Rvdx_Theme_Woo_Module;
 
 
 (function ($) {
 	"use strict";
 
 
-	Rx_Theme_Woo_Module = {
+	Rvdx_Theme_Woo_Module = {
 
 		init: function () {
 			this.wooHeaderCart();
@@ -25,6 +25,6 @@
 
 	};
 
-	Rx_Theme_Woo_Module.init();
+	Rvdx_Theme_Woo_Module.init();
 
 }(jQuery));

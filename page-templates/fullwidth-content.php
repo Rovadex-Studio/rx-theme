@@ -5,7 +5,7 @@
  *
  * @link https://developer.wordpress.org/themes/template-files-section/page-template-files/
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 get_header();
@@ -15,7 +15,7 @@ get_header();
 		?><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>><?php
 			the_content();
 			wp_link_pages( array(
-				'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'rx-theme' ),
+				'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'rvdx-theme' ),
 				'after'       => '</div>',
 				'link_before' => '<span>',
 				'link_after'  => '</span>',

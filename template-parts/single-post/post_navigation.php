@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 the_post_navigation( array(
@@ -13,7 +13,7 @@ the_post_navigation( array(
 		<i class="fa fa-chevron-left" aria-hidden="true"></i>
 		<div class="nav-text">%1$s</div>
 		<h4 class="post-title">%2$s</h4>',
-		esc_html__( 'Previous', 'rx-theme' ),
+		esc_html__( 'Previous', 'rvdx-theme' ),
 		'%title'
 	),
 	'next_text' => sprintf( '
@@ -21,7 +21,7 @@ the_post_navigation( array(
 		<i class="fa fa-chevron-right" aria-hidden="true"></i>
 		<div class="nav-text">%1$s</div>
 		<h4 class="post-title">%2$s</h4>',
-		esc_html__( 'Next', 'rx-theme' ),
+		esc_html__( 'Next', 'rvdx-theme' ),
 		'%title'
 	),
 ) );

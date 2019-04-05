@@ -4,17 +4,17 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 ?>
 
-<?php do_action( 'rx_theme_post_format_gallery', array( 'size' => 'rx-theme-thumb-l' ) ); ?>
+<?php do_action( 'rvdx_theme_post_format_gallery', array( 'size' => 'rvdx-theme-thumb-l' ) ); ?>
 
 <div class="entry-content">
 	<?php the_content(); ?>
 	<?php wp_link_pages( array(
-		'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'rx-theme' ),
+		'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'rvdx-theme' ),
 		'after'       => '</div>',
 		'link_before' => '<span>',
 		'link_after'  => '</span>',

@@ -2,29 +2,29 @@
 /**
  * Theme hooks.
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 // Adds the meta viewport to the header.
-add_action( 'wp_head', 'rx_theme_meta_viewport', 0 );
+add_action( 'wp_head', 'rvdx_theme_meta_viewport', 0 );
 
 // Additional body classes.
-add_filter( 'body_class', 'rx_theme_assistant_body_classes' );
+add_filter( 'body_class', 'rvdx_theme_body_classes' );
 
 // Enqueue sticky menu if required.
-add_filter( 'rx-theme/assets-depends/script', 'rx_theme_enqueue_misc' );
+add_filter( 'rvdx-theme/assets-depends/script', 'rvdx_theme_enqueue_misc' );
 
 // Additional image sizes for media gallery.
-add_filter( 'image_size_names_choose', 'rx_theme_image_size_names_choose' );
+add_filter( 'image_size_names_choose', 'rvdx_theme_image_size_names_choose' );
 
 // Modify a comment form.
-add_filter( 'comment_form_defaults', 'rx_theme_modify_comment_form' );
+add_filter( 'comment_form_defaults', 'rvdx_theme_modify_comment_form' );
 
 // Modify a nav menu.
-add_filter( 'widget_nav_menu_args', 'rx_theme_modify_nav_menu', 10, 4 );
+add_filter( 'widget_nav_menu_args', 'rvdx_theme_modify_nav_menu', 10, 4 );
 
 // Render macros in widget text.
-add_filter( 'widget_text', 'rx_theme_widget_text_parse_content', 10, 1 );
+add_filter( 'widget_text', 'rvdx_theme_widget_text_parse_content', 10, 1 );
 
 /**
  * Adds the meta viewport to the header.
@@ -32,7 +32,7 @@ add_filter( 'widget_text', 'rx_theme_widget_text_parse_content', 10, 1 );
  * @since  1.0.0
  * @return string `<meta>` tag for viewport.
  */
-function rx_theme_meta_viewport() {
+function rvdx_theme_meta_viewport() {
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1" />' . "\n";
 }
 
@@ -42,7 +42,7 @@ function rx_theme_meta_viewport() {
  * @param  array $classes Existing classes.
  * @return array
  */
-function rx_theme_assistant_body_classes( $classes ) {
+function rvdx_theme_body_classes( $classes ) {
 	global $post;
 
 	// Adds a class of group-blog to blogs with more than 1 published author.
@@ -55,18 +55,18 @@ function rx_theme_assistant_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
-	if ( ! rx_theme_is_top_panel_visible() ) {
+	if ( ! rvdx_theme_is_top_panel_visible() ) {
 		$classes[] = 'top-panel-invisible';
 	}
 
 	// Adds a options-based classes.
 	$options_based_classes = array();
 
-	$layout      = rx_theme()->customizer->get_value( 'container_type' );
-	$blog_layout = rx_theme()->customizer->get_value( 'blog_layout_type' );
-	$blog_style = rx_theme()->customizer->get_value( 'blog_style' );
-	$sb_position = rx_theme()->sidebar_position;
-	$sidebar     = rx_theme()->customizer->get_value( 'sidebar_width' );
+	$layout      = rvdx_theme()->customizer->get_value( 'container_type' );
+	$blog_layout = rvdx_theme()->customizer->get_value( 'blog_layout_type' );
+	$blog_style = rvdx_theme()->customizer->get_value( 'blog_style' );
+	$sb_position = rvdx_theme()->sidebar_position;
+	$sidebar     = rvdx_theme()->customizer->get_value( 'sidebar_width' );
 	$post_name   = ! empty( $post->post_name ) ? $post->post_name : '';
 
 	array_push( $options_based_classes, 'layout-' . $layout, 'blog-' . $blog_layout, $post_name );
@@ -83,8 +83,8 @@ function rx_theme_assistant_body_classes( $classes ) {
  * @param  array $depends Default dependencies.
  * @return array
  */
-function rx_theme_enqueue_misc( $depends ) {
-	$totop_visibility = rx_theme()->customizer->get_value( 'totop_visibility' );
+function rvdx_theme_enqueue_misc( $depends ) {
+	$totop_visibility = rvdx_theme()->customizer->get_value( 'totop_visibility' );
 
 	if ( $totop_visibility ) {
 		$depends[] = 'jquery-totop';
@@ -99,8 +99,8 @@ function rx_theme_enqueue_misc( $depends ) {
  * @param  array $classes Existing classes.
  * @return array
  */
-function rx_theme_image_size_names_choose( $image_sizes ) {
-	$image_sizes['post-thumbnail'] = esc_html__( 'Post Thumbnail', 'rx-theme' );
+function rvdx_theme_image_size_names_choose( $image_sizes ) {
+	$image_sizes['post-thumbnail'] = esc_html__( 'Post Thumbnail', 'rvdx-theme' );
 
 	return $image_sizes;
 }
@@ -111,7 +111,7 @@ function rx_theme_image_size_names_choose( $image_sizes ) {
  * @param  array $args Argumnts for comment form.
  * @return array
  */
-function rx_theme_modify_comment_form( $args ) {
+function rvdx_theme_modify_comment_form( $args ) {
 	$args = wp_parse_args( $args );
 
 	if ( ! isset( $args['format'] ) ) {
@@ -124,15 +124,15 @@ function rx_theme_modify_comment_form( $args ) {
 	$html5     = 'html5' === $args['format'];
 	$commenter = wp_get_current_commenter();
 
-	$args['label_submit'] = esc_html__( 'Submit Comment', 'rx-theme' );
+	$args['label_submit'] = esc_html__( 'Submit Comment', 'rvdx-theme' );
 
-	$args['fields']['author'] = '<p class="comment-form-author"><input id="author" class="comment-form__field" name="author" type="text" placeholder="' . esc_attr__( 'Name', 'rx-theme' ) . ( $req ? ' *' : '' ) . '" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . $html_req . ' /></p>';
+	$args['fields']['author'] = '<p class="comment-form-author"><input id="author" class="comment-form__field" name="author" type="text" placeholder="' . esc_attr__( 'Name', 'rvdx-theme' ) . ( $req ? ' *' : '' ) . '" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . $html_req . ' /></p>';
 
-	$args['fields']['email'] = '<p class="comment-form-email"><input id="email" class="comment-form__field" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' placeholder="' . esc_attr__( 'E-mail', 'rx-theme' ) . ( $req ? ' *' : '' ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" aria-describedby="email-notes"' . $aria_req . $html_req  . ' /></p>';
+	$args['fields']['email'] = '<p class="comment-form-email"><input id="email" class="comment-form__field" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' placeholder="' . esc_attr__( 'E-mail', 'rvdx-theme' ) . ( $req ? ' *' : '' ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" aria-describedby="email-notes"' . $aria_req . $html_req  . ' /></p>';
 
-	$args['fields']['url'] = '<p class="comment-form-url"><input id="url" class="comment-form__field" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' placeholder="' . esc_attr__( 'Website', 'rx-theme' ) . '" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>';
+	$args['fields']['url'] = '<p class="comment-form-url"><input id="url" class="comment-form__field" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' placeholder="' . esc_attr__( 'Website', 'rvdx-theme' ) . '" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>';
 
-	$args['comment_field'] = '<p class="comment-form-comment"><textarea id="comment" class="comment-form__field" name="comment" placeholder="' . esc_attr__( 'Comments *', 'rx-theme' ) . '" cols="45" rows="7" aria-required="true" required="required"></textarea></p>';
+	$args['comment_field'] = '<p class="comment-form-comment"><textarea id="comment" class="comment-form__field" name="comment" placeholder="' . esc_attr__( 'Comments *', 'rvdx-theme' ) . '" cols="45" rows="7" aria-required="true" required="required"></textarea></p>';
 
 	return $args;
 }
@@ -143,7 +143,7 @@ function rx_theme_modify_comment_form( $args ) {
  * @param  array $args Argumnts for nav menu.
  * @return array
  */
-function rx_theme_modify_nav_menu( $args ) {
+function rvdx_theme_modify_nav_menu( $args ) {
 	$args['items_wrap'] = '<div class="main-navigation"><div class="main-navigation-inner"><ul id="%1$s" class="%2$s">%3$s</ul></div></div>';
 
 	return $args;
@@ -155,8 +155,8 @@ function rx_theme_modify_nav_menu( $args ) {
  * @since  1.0.0
  * @return string widget content.
  */
-function rx_theme_widget_text_parse_content( $content ) {
-	$content = rx_theme_render_macros( $content );
+function rvdx_theme_widget_text_parse_content( $content ) {
+	$content = rvdx_theme_render_macros( $content );
 
 	return $content;
 }

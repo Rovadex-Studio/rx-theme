@@ -6,15 +6,15 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 ?>
 
 	</div><!-- #content -->
 
-	<footer id="colophon" <?php echo rx_theme_get_container_classes( 'site-footer' ); ?>>
-		<?php rx_theme()->do_location( 'footer', 'template-parts/footer' ); ?>
+	<footer id="colophon" <?php echo rvdx_theme_get_container_classes( 'site-footer' ); ?>>
+		<?php rvdx_theme()->do_location( 'footer', 'template-parts/footer' ); ?>
 	</footer><!-- #colophon -->
 
 </div><!-- #page -->

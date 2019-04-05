@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 ?>
@@ -13,18 +13,18 @@
 	<?php the_title( '<h2 class="entry-title h2-style">', '</h2>' ); ?>
 	<div class="entry-meta">
 		<?php
-			rx_theme_posted_by();
-			rx_theme_posted_in( array(
-				'prefix'  => esc_html__( 'In', 'rx-theme' ),
+			rvdx_theme_posted_by();
+			rvdx_theme_posted_in( array(
+				'prefix'  => esc_html__( 'In', 'rvdx-theme' ),
 			) );
-			rx_theme_posted_on( array(
-				'prefix'  => esc_html__( 'Posted', 'rx-theme' ),
+			rvdx_theme_posted_on( array(
+				'prefix'  => esc_html__( 'Posted', 'rvdx-theme' ),
 			) );
-			rx_theme_post_comments( array(
-				'postfix' => esc_html__( 'Comment(s)', 'rx-theme' ),
+			rvdx_theme_post_comments( array(
+				'postfix' => esc_html__( 'Comment(s)', 'rvdx-theme' ),
 			) );
 		?>
 	</div><!-- .entry-meta -->
 </header><!-- .entry-header -->
 
-<?php rx_theme_post_thumbnail( 'rx-theme-thumb-l', array( 'link' => false ) ); ?>
+<?php rvdx_theme_post_thumbnail( 'rvdx-theme-thumb-l', array( 'link' => false ) ); ?>

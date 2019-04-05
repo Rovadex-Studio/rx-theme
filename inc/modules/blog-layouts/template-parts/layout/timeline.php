@@ -4,17 +4,17 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'posts-list__item creative-item' ); ?>>
 
-	<?php if ( rx_theme()->customizer->get_value( 'blog_post_publish_date' ) ) : ?>
+	<?php if ( rvdx_theme()->customizer->get_value( 'blog_post_publish_date' ) ) : ?>
 		<div class="creative-item__post-date">
 			<?php
-				rx_theme_posted_on();
+				rvdx_theme_posted_on();
 			?>
 		</div>
 	<?php endif; ?>
@@ -22,33 +22,33 @@
 	<div class="creative-item__content">
 		<header class="entry-header">
 			<h3 class="entry-title"><?php
-				rx_theme_sticky_label();
+				rvdx_theme_sticky_label();
 				the_title( '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a>' );
 			?></h3>
 			<div class="entry-meta"><?php
-				rx_theme_posted_by();
-				rx_theme_posted_in( array(
-					'prefix' => esc_html__( 'In', 'rx-theme' ),
+				rvdx_theme_posted_by();
+				rvdx_theme_posted_in( array(
+					'prefix' => esc_html__( 'In', 'rvdx-theme' ),
 				) );
 			?></div>
 		</header><!-- .entry-header -->
 
-		<?php rx_theme_post_excerpt(); ?>
+		<?php rvdx_theme_post_excerpt(); ?>
 
 		<footer class="entry-footer">
 			<div class="entry-meta"><?php
-				rx_theme_post_tags( array(
-					'prefix' => esc_html__( 'Tags:', 'rx-theme' )
+				rvdx_theme_post_tags( array(
+					'prefix' => esc_html__( 'Tags:', 'rvdx-theme' )
 				) );
 				?><div><?php
-					rx_theme_post_comments( array(
+					rvdx_theme_post_comments( array(
 						'prefix' => '<i class="fa fa-comment" aria-hidden="true"></i>',
 						'class'  => 'comments-button'
 					) );
-					rx_theme_post_link();
+					rvdx_theme_post_link();
 				?></div>
 			</div>
-			<?php rx_theme_edit_link(); ?>
+			<?php rvdx_theme_edit_link(); ?>
 		</footer><!-- .entry-footer -->
 	</div>
 

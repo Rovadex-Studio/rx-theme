@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 ?>
@@ -18,7 +18,7 @@
 				printf(
 					wp_kses(
 						/* translators: 1: link to WP admin new post page. */
-						sprintf( esc_html__( 'Ready to publish your first post? %1$sGet started here%2$s.', 'rx-theme' ), '<a href="%1$s">', '</a>' ) ,
+						sprintf( esc_html__( 'Ready to publish your first post? %1$sGet started here%2$s.', 'rvdx-theme' ), '<a href="%1$s">', '</a>' ) ,
 						array(
 							'a' => array(
 								'href' => array(),
@@ -31,13 +31,13 @@
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'rx-theme' ); ?></p>
+			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'rvdx-theme' ); ?></p>
 			<?php
 				get_search_form();
 
 		else : ?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'rx-theme' ); ?></p>
+			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'rvdx-theme' ); ?></p>
 			<?php
 				get_search_form();
 

@@ -2,13 +2,13 @@
 /**
  * Class for widget areas registration.
  *
- * @package    Rx Theme
+ * @package    Rvdx Theme
  * @subpackage Class
  */
 
-if ( ! class_exists( 'Rx_Theme_Widget_Area' ) ) {
+if ( ! class_exists( 'Rvdx_Theme_Widget_Area' ) ) {
 
-	class Rx_Theme_Widget_Area {
+	class Rvdx_Theme_Widget_Area {
 
 		/**
 		 * A reference to an instance of this class.
@@ -42,7 +42,7 @@ if ( ! class_exists( 'Rx_Theme_Widget_Area' ) ) {
 		 */
 		function __construct() {
 			add_action( 'widgets_init',            array( $this, 'register' ) );
-			add_action( 'rx-theme/widget-area/render', array( $this, 'render' ) );
+			add_action( 'rvdx-theme/widget-area/render', array( $this, 'render' ) );
 		}
 
 		/**
@@ -110,12 +110,12 @@ if ( ! class_exists( 'Rx_Theme_Widget_Area' ) ) {
 				}
 			}
 
-			$area_id        = apply_filters( 'rx-theme/widget_area/rendering_current', $area_id );
+			$area_id        = apply_filters( 'rvdx-theme/widget_area/rendering_current', $area_id );
 			$before_wrapper = isset( $this->widgets_settings[ $area_id ]['before_wrapper'] ) ? $this->widgets_settings[ $area_id ]['before_wrapper'] : '<div id="%1$s" %2$s>';
 			$after_wrapper  = isset( $this->widgets_settings[ $area_id ]['after_wrapper'] ) ? $this->widgets_settings[ $area_id ]['after_wrapper'] : '</div>';
 
 			$classes = array( $area_id, 'widget-area' );
-			$classes = apply_filters( 'rx-theme/widget_area/classes', $classes, $area_id );
+			$classes = apply_filters( 'rvdx-theme/widget_area/classes', $classes, $area_id );
 
 			if ( is_array( $classes ) ) {
 				$classes = 'class="' . join( ' ', $classes ) . '"';
@@ -159,9 +159,9 @@ if ( ! class_exists( 'Rx_Theme_Widget_Area' ) ) {
 		}
 	}
 
-	function rx_theme_widget_area() {
-		return Rx_Theme_Widget_Area::get_instance();
+	function rvdx_theme_widget_area() {
+		return Rvdx_Theme_Widget_Area::get_instance();
 	}
 
-	rx_theme_widget_area();
+	rvdx_theme_widget_area();
 }

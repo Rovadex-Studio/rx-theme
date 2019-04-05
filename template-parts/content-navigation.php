@@ -2,42 +2,42 @@
 /**
  * Template part for posts navigation.
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
-do_action( 'rx-theme/blog/posts-navigation-before' );
+do_action( 'rvdx-theme/blog/posts-navigation-before' );
 
-$navigation_type = rx_theme()->customizer->get_value( 'blog_navigation_type' );
+$navigation_type = rvdx_theme()->customizer->get_value( 'blog_navigation_type' );
 
 switch ( $navigation_type ) {
 	case 'navigation':
 		the_posts_navigation(
-			apply_filters( 'rx-theme/posts/navigation-args',
+			apply_filters( 'rvdx-theme/posts/navigation-args',
 							array(
 								'prev_text' => sprintf( '
 									<span class="screen-reader-text">%1$s</span>
 									<i class="fa fa-angle-left" aria-hidden="true"></i> %1$s',
-									esc_html__( 'Older Posts', 'rx-theme' ) ),
+									esc_html__( 'Older Posts', 'rvdx-theme' ) ),
 								'next_text' => sprintf( '
 									<span class="screen-reader-text">%1$s</span>
 									%1$s <i class="fa fa-angle-right" aria-hidden="true"></i>',
-									esc_html__( 'Newer Posts', 'rx-theme' ) ),
+									esc_html__( 'Newer Posts', 'rvdx-theme' ) ),
 							)
 			)
 		);
 		break;
 	case 'pagination':
 		the_posts_pagination(
-			apply_filters( 'rx-theme/posts/pagination-args',
+			apply_filters( 'rvdx-theme/posts/pagination-args',
 							array(
 								'prev_text' => sprintf( '
 									<span class="screen-reader-text">%1$s</span>
 									<i class="fa fa-angle-left" aria-hidden="true"></i> %1$s',
-									esc_html__( 'Prev', 'rx-theme' ) ),
+									esc_html__( 'Prev', 'rvdx-theme' ) ),
 								'next_text' => sprintf( '
 									<span class="screen-reader-text">%1$s</span>
 									%1$s <i class="fa fa-angle-right" aria-hidden="true"></i>',
-									esc_html__( 'Next', 'rx-theme' ) ),
+									esc_html__( 'Next', 'rvdx-theme' ) ),
 							)
 			)
 		);
@@ -46,4 +46,4 @@ switch ( $navigation_type ) {
 
 
 
-do_action( 'rx-theme/blog/posts-navigation-after' );
+do_action( 'rvdx-theme/blog/posts-navigation-after' );

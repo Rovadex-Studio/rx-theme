@@ -4,11 +4,11 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 // Don't show top panel if all elements are disabled.
-if ( ! rx_theme_is_top_panel_visible() ) {
+if ( ! rvdx_theme_is_top_panel_visible() ) {
 	return;
 } ?>
 
@@ -16,12 +16,12 @@ if ( ! rx_theme_is_top_panel_visible() ) {
 	<div class="container">
 		<div class="space-between-content">
 			<div class="top-panel-content__left">
-				<?php do_action( 'rx-theme/top-panel/elements-left' ); ?>
-				<?php rx_theme_site_description(); ?>
+				<?php do_action( 'rvdx-theme/top-panel/elements-left' ); ?>
+				<?php rvdx_theme_site_description(); ?>
 			</div>
 			<div class="top-panel-content__right">
-				<?php rx_theme_social_list( 'header' ); ?>
-				<?php do_action( 'rx-theme/top-panel/elements-right' ); ?>
+				<?php rvdx_theme_social_list( 'header' ); ?>
+				<?php do_action( 'rvdx-theme/top-panel/elements-right' ); ?>
 			</div>
 		</div>
 	</div>

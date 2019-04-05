@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 ?>
@@ -12,12 +12,12 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('search-item'); ?>>
 	<header class="entry-header">
 		<div class="entry-meta"><?php
-			rx_theme_posted_by();
-			rx_theme_posted_in( array(
-				'prefix' => esc_html__( 'In', 'rx-theme' ),
+			rvdx_theme_posted_by();
+			rvdx_theme_posted_in( array(
+				'prefix' => esc_html__( 'In', 'rvdx-theme' ),
 			) );
-			rx_theme_posted_on( array(
-				'prefix' => esc_html__( 'Posted', 'rx-theme' )
+			rvdx_theme_posted_on( array(
+				'prefix' => esc_html__( 'Posted', 'rvdx-theme' )
 			) );
 		?></div><!-- .entry-meta -->
 		<?php the_title( '<h4 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' ); ?>
@@ -28,6 +28,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php rx_theme_post_link(); ?>
+		<?php rvdx_theme_post_link(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

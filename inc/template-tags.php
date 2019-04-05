@@ -4,15 +4,15 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
-if ( ! function_exists( 'rx_theme_post_excerpt' ) ) :
+if ( ! function_exists( 'rvdx_theme_post_excerpt' ) ) :
 	/**
 	 * Prints HTML with excerpt.
 	 */
-	function rx_theme_post_excerpt( $args = array() ) {
-		$post_excerpt_enable = rx_theme()->customizer->get_value( 'blog_post_excerpt' );
+	function rvdx_theme_post_excerpt( $args = array() ) {
+		$post_excerpt_enable = rvdx_theme()->customizer->get_value( 'blog_post_excerpt' );
 
 		if ( ! $post_excerpt_enable ) {
 			return;
@@ -25,7 +25,7 @@ if ( ! function_exists( 'rx_theme_post_excerpt' ) ) :
 		);
 		$args = wp_parse_args( $args, $default_args );
 
-		$words_count = rx_theme()->customizer->get_value( 'blog_post_excerpt_words_count' );
+		$words_count = rvdx_theme()->customizer->get_value( 'blog_post_excerpt_words_count' );
 
 		if ( has_excerpt()) {
 			$excerpt = '<p>' . wp_trim_words( get_the_excerpt(), $words_count, '...' ) . '</p>';
@@ -33,7 +33,7 @@ if ( ! function_exists( 'rx_theme_post_excerpt' ) ) :
 			$excerpt = get_the_content( '!--more' );
 			$post_format = strpos( $excerpt, '!--more' ) ? 'tag_more' : get_post_format() ;
 
-			$blog_type = rx_theme()->customizer->get_value( 'blog_layout_type' );
+			$blog_type = rvdx_theme()->customizer->get_value( 'blog_layout_type' );
 			$post_format = ( 'default' === $blog_type ) ? $post_format : '' ;
 
 			switch ( $post_format ) {
@@ -71,7 +71,7 @@ if ( ! function_exists( 'rx_theme_post_excerpt' ) ) :
 		}
 
 		$excerpt_output = apply_filters(
-			'rx-theme/post/excerpt-output',
+			'rvdx-theme/post/excerpt-output',
 			$args['before'] . $excerpt . $args['after']
 		);
 
@@ -83,11 +83,11 @@ if ( ! function_exists( 'rx_theme_post_excerpt' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'rx_theme_posted_on' ) ) :
+if ( ! function_exists( 'rvdx_theme_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	function rx_theme_posted_on( $args = array() ) {
+	function rvdx_theme_posted_on( $args = array() ) {
 		if ( 'post' === get_post_type() ) {
 
 			$default_args = array(
@@ -100,7 +100,7 @@ if ( ! function_exists( 'rx_theme_posted_on' ) ) :
 			$args = wp_parse_args( $args, $default_args );
 
 			$option_name = ! is_singular( 'post' ) ? 'blog_post_publish_date' : 'single_post_publish_date';
-			$post_publish_date_enable = rx_theme()->customizer->get_value( $option_name );
+			$post_publish_date_enable = rvdx_theme()->customizer->get_value( $option_name );
 
 			if( $post_publish_date_enable ) {
 
@@ -113,12 +113,12 @@ if ( ! function_exists( 'rx_theme_posted_on' ) ) :
 
 				$posted_on = sprintf(
 					/* translators: %s: post date. */
-					esc_html_x( '%s', 'post date', 'rx-theme' ),
+					esc_html_x( '%s', 'post date', 'rvdx-theme' ),
 					$time_string
 				);
 
 				$date_output = apply_filters(
-					'rx-theme/post/date-output',
+					'rvdx-theme/post/date-output',
 					$args['before'] . $args['prefix'] . ' ' . $posted_on . $args['after']
 				);
 
@@ -129,7 +129,7 @@ if ( ! function_exists( 'rx_theme_posted_on' ) ) :
 				);
 
 				if ( $args['echo'] ) {
-					echo wp_kses( $date_output, rx_theme_kses_post_allowed_html( $allowed_html ) );
+					echo wp_kses( $date_output, rvdx_theme_kses_post_allowed_html( $allowed_html ) );
 				} else {
 					return $date_output;
 				}
@@ -139,15 +139,15 @@ if ( ! function_exists( 'rx_theme_posted_on' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'rx_theme_posted_by' ) ) :
+if ( ! function_exists( 'rvdx_theme_posted_by' ) ) :
 	/**
 	 * Prints HTML with meta information for the current author.
 	 */
-	function rx_theme_posted_by( $args = array() ) {
+	function rvdx_theme_posted_by( $args = array() ) {
 		if ( 'post' === get_post_type() ) {
 
 			$default_args = array(
-				'prefix' => esc_html__( 'By', 'rx-theme' ),
+				'prefix' => esc_html__( 'By', 'rvdx-theme' ),
 				'before' => '<span class="byline">',
 				'after'  => '</span>',
 				'echo'   => true
@@ -155,21 +155,21 @@ if ( ! function_exists( 'rx_theme_posted_by' ) ) :
 			$args = wp_parse_args( $args, $default_args );
 
 			$option_name = ! is_singular( 'post' ) ? 'blog_post_author' : 'single_post_author';
-			$post_author_enable = rx_theme()->customizer->get_value( $option_name );
+			$post_author_enable = rvdx_theme()->customizer->get_value( $option_name );
 
 			if( $post_author_enable ) {
-				rx_theme_get_post_author($args);
+				rvdx_theme_get_post_author($args);
 			}
 
 		}
 	}
 endif;
 
-if ( ! function_exists( 'rx_theme_posted_in' ) ) :
+if ( ! function_exists( 'rvdx_theme_posted_in' ) ) :
 	/**
 	 * Prints HTML with meta information for the current categories.
 	 */
-	function rx_theme_posted_in( $args = array() ) {
+	function rvdx_theme_posted_in( $args = array() ) {
 		if ( 'post' === get_post_type() ) {
 
 			$default_args = array(
@@ -181,7 +181,7 @@ if ( ! function_exists( 'rx_theme_posted_in' ) ) :
 			$args = wp_parse_args( $args, $default_args );
 
 			$option_name = ! is_singular( 'post' ) ? 'blog_post_categories' : 'single_post_categories';
-			$post_categories_enable = rx_theme()->customizer->get_value( $option_name );
+			$post_categories_enable = rvdx_theme()->customizer->get_value( $option_name );
 
 			if( $post_categories_enable ) {
 
@@ -189,12 +189,12 @@ if ( ! function_exists( 'rx_theme_posted_in' ) ) :
 				if ( $categories_list ) {
 					$categories = sprintf(
 						/* translators: 1: list of categories. */
-						esc_html__( '%s', 'rx-theme' ),
+						esc_html__( '%s', 'rvdx-theme' ),
 						$categories_list
 					);
 
 					echo apply_filters(
-						'rx-theme/post/categories-output',
+						'rvdx-theme/post/categories-output',
 						$args['before'] . $args['prefix'] . ' ' . $categories . $args['after']
 					);
 				}
@@ -205,11 +205,11 @@ if ( ! function_exists( 'rx_theme_posted_in' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'rx_theme_post_tags' ) ) :
+if ( ! function_exists( 'rvdx_theme_post_tags' ) ) :
 	/**
 	 * Prints HTML with meta information for the current tags.
 	 */
-	function rx_theme_post_tags( $args = array() ) {
+	function rvdx_theme_post_tags( $args = array() ) {
 		if ( 'post' === get_post_type() ) {
 
 			$default_args = array(
@@ -221,21 +221,21 @@ if ( ! function_exists( 'rx_theme_post_tags' ) ) :
 			$args = wp_parse_args( $args, $default_args );
 
 			$option_name = ! is_singular( 'post' ) ? 'blog_post_tags' : 'single_post_tags';
-			$post_tags_enable = rx_theme()->customizer->get_value( $option_name );
+			$post_tags_enable = rvdx_theme()->customizer->get_value( $option_name );
 
 			if( $post_tags_enable ) {
 
 				/* translators: used between list items, there is a space after the comma */
-				$tags_list = get_the_tag_list( '', esc_html_x( $args['delimiter'], 'list item separator', 'rx-theme' ) );
+				$tags_list = get_the_tag_list( '', esc_html_x( $args['delimiter'], 'list item separator', 'rvdx-theme' ) );
 				if ( $tags_list ) {
 					$tags = sprintf(
 						/* translators: 1: list of tags. */
-						esc_html__( '%s', 'rx-theme' ),
+						esc_html__( '%s', 'rvdx-theme' ),
 						$tags_list
 					);
 
 					echo apply_filters(
-						'rx-theme/post/tags-output',
+						'rvdx-theme/post/tags-output',
 						$args['before'] . $args['prefix'] . ' ' . $tags . $args['after']
 					);
 				}
@@ -245,15 +245,15 @@ if ( ! function_exists( 'rx_theme_post_tags' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'rx_theme_post_comments' ) ) :
+if ( ! function_exists( 'rvdx_theme_post_comments' ) ) :
 	/**
 	 * Prints HTML with meta information for the current comments.
 	 */
-	function rx_theme_post_comments( $args = array() ) {
+	function rvdx_theme_post_comments( $args = array() ) {
 		if ( 'post' === get_post_type() ) {
 
 			$option_name = ! is_singular( 'post' ) ? 'blog_post_comments' : 'single_post_comments';
-			$post_comments_enable = rx_theme()->customizer->get_value( $option_name );
+			$post_comments_enable = rvdx_theme()->customizer->get_value( $option_name );
 
 			if ( $post_comments_enable && ! post_password_required() && comments_open() ) {
 				global $post;
@@ -278,7 +278,7 @@ if ( ! function_exists( 'rx_theme_post_comments' ) ) :
 				}
 
 				echo apply_filters(
-					'rx-theme/post/comments-output',
+					'rvdx-theme/post/comments-output',
 					'<a href="' . $link . '" class="' . $args['class'] . '">' . $args['prefix'] . $count . $args['postfix'] . '</a>'
 				);
 			}
@@ -287,11 +287,11 @@ if ( ! function_exists( 'rx_theme_post_comments' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'rx_theme_get_post_author' ) ) :
+if ( ! function_exists( 'rvdx_theme_get_post_author' ) ) :
 	/*
 	* Display a post author.
 	*/
-	function rx_theme_get_post_author( $args = array() ) {
+	function rvdx_theme_get_post_author( $args = array() ) {
 		$default_args = array(
 			'prefix' => '',
 			'before' => '<span class="author">',
@@ -318,7 +318,7 @@ if ( ! function_exists( 'rx_theme_get_post_author' ) ) :
 		$author_output .= $args['after'];
 
 		$author_output = apply_filters(
-			'rx-theme/post/author-output',
+			'rvdx-theme/post/author-output',
 			$author_output
 		);
 
@@ -330,11 +330,11 @@ if ( ! function_exists( 'rx_theme_get_post_author' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'rx_theme_get_post_author_avatar' ) ) :
+if ( ! function_exists( 'rvdx_theme_get_post_author_avatar' ) ) :
 	/*
 	* Display a post author avatar.
 	*/
-	function rx_theme_get_post_author_avatar( $args = array() ) {
+	function rvdx_theme_get_post_author_avatar( $args = array() ) {
 		$default_args = array(
 			'size' => 140,
 			'echo' => true
@@ -345,7 +345,7 @@ if ( ! function_exists( 'rx_theme_get_post_author_avatar' ) ) :
 		$author_id = $post->post_author;
 
 		$avatar_output = apply_filters(
-			'rx-theme/post/avatar-output',
+			'rvdx-theme/post/avatar-output',
 			get_avatar( get_the_author_meta( 'user_email', $author_id ), $args['size'], '', esc_attr( get_the_author_meta( 'nickname', $author_id ) ) )
 		);
 
@@ -356,18 +356,18 @@ if ( ! function_exists( 'rx_theme_get_post_author_avatar' ) ) :
 		);
 
 		if ( $args['echo'] ) {
-			echo wp_kses( $avatar_output, rx_theme_kses_post_allowed_html( $allowed_html ) );
+			echo wp_kses( $avatar_output, rvdx_theme_kses_post_allowed_html( $allowed_html ) );
 		} else {
 			return $avatar_output;
 		}
 	}
 endif;
 
-if ( ! function_exists( 'rx_theme_get_author_meta' ) ) :
+if ( ! function_exists( 'rvdx_theme_get_author_meta' ) ) :
 	/*
 	* Display author meta.
 	*/
-	function rx_theme_get_author_meta( $args = array() ) {
+	function rvdx_theme_get_author_meta( $args = array() ) {
 		$default_args = array(
 			'field' => 'description',
 			'echo'  => true
@@ -378,7 +378,7 @@ if ( ! function_exists( 'rx_theme_get_author_meta' ) ) :
 		$author_id = $post->post_author;
 
 		$author_meta_output = apply_filters(
-			'rx-theme/post/author-meta-output',
+			'rvdx-theme/post/author-meta-output',
 			get_the_author_meta( $args['field'], $author_id )
 		);
 
@@ -390,8 +390,8 @@ if ( ! function_exists( 'rx_theme_get_author_meta' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'rx_theme_post_link' ) ) :
-	function rx_theme_post_link( $args = array() ) {
+if ( ! function_exists( 'rvdx_theme_post_link' ) ) :
+	function rvdx_theme_post_link( $args = array() ) {
 
 		$default_args = array(
 			'class' => '',
@@ -399,12 +399,12 @@ if ( ! function_exists( 'rx_theme_post_link' ) ) :
 
 		$args = wp_parse_args( $args, $default_args );
 
-		$post_link_type = rx_theme()->customizer->get_value( 'blog_read_more_type' );
+		$post_link_type = rvdx_theme()->customizer->get_value( 'blog_read_more_type' );
 		$link = get_permalink();
 		$post_link_output = '';
 
 		if ( 'text' === $post_link_type ) {
-			$title = rx_theme()->customizer->get_value( 'blog_read_more_text' );
+			$title = rvdx_theme()->customizer->get_value( 'blog_read_more_text' );
 
 			if ( strlen( $title ) > 0 ) {
 				$post_link_output = '<a href="' . $link . '" class="btn ' . $args['class'] . '">' . $title . '</a>';
@@ -412,7 +412,7 @@ if ( ! function_exists( 'rx_theme_post_link' ) ) :
 		}
 
 		if ( 'text_icon' === $post_link_type ) {
-			$title = rx_theme()->customizer->get_value( 'blog_read_more_text' );
+			$title = rvdx_theme()->customizer->get_value( 'blog_read_more_text' );
 
 			$post_link_output = '<a href="' . $link . '" class="btn-text-icon ' . $args['class'] . '">' . $title . '</a>';
 		}
@@ -422,19 +422,19 @@ if ( ! function_exists( 'rx_theme_post_link' ) ) :
 		}
 
 		echo apply_filters(
-			'rx-theme/post/link-output',
+			'rvdx-theme/post/link-output',
 			$post_link_output
 		);
 	}
 endif;
 
-if ( ! function_exists( 'rx_theme_edit_link' ) ) :
-	function rx_theme_edit_link() {
+if ( ! function_exists( 'rvdx_theme_edit_link' ) ) :
+	function rvdx_theme_edit_link() {
 		edit_post_link(
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					sprintf( esc_html__( 'Edit %s', 'rx-theme' ), '<span class="screen-reader-text">%s</span>' ),
+					sprintf( esc_html__( 'Edit %s', 'rvdx-theme' ), '<span class="screen-reader-text">%s</span>' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -449,14 +449,14 @@ if ( ! function_exists( 'rx_theme_edit_link' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'rx_theme_post_thumbnail' ) ) :
+if ( ! function_exists( 'rvdx_theme_post_thumbnail' ) ) :
 /**
  * Displays an optional post thumbnail.
  *
  * Wraps the post thumbnail in an anchor element on index views, or a div
  * element when on single views.
  */
-function rx_theme_post_thumbnail( $image_size = 'post-thumbnail', $args = array() ) {
+function rvdx_theme_post_thumbnail( $image_size = 'post-thumbnail', $args = array() ) {
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 		return;
 	}
@@ -470,7 +470,7 @@ function rx_theme_post_thumbnail( $image_size = 'post-thumbnail', $args = array(
 	$args = wp_parse_args( $args, $default_args );
 
 	$image_size = apply_filters(
-		'rx-theme/post/thumb-image-size',
+		'rvdx-theme/post/thumb-image-size',
 		$image_size
 	);
 
@@ -485,7 +485,7 @@ function rx_theme_post_thumbnail( $image_size = 'post-thumbnail', $args = array(
 	$thumb .= '</figure>';
 
 	$thumb = apply_filters(
-		'rx-theme/post/thumb',
+		'rvdx-theme/post/thumb',
 		$thumb
 	);
 
@@ -500,22 +500,22 @@ function rx_theme_post_thumbnail( $image_size = 'post-thumbnail', $args = array(
 	);
 
 	if ( $args['echo'] ) {
-		echo wp_kses( $thumb, rx_theme_kses_post_allowed_html( $allowed_html ) );
+		echo wp_kses( $thumb, rvdx_theme_kses_post_allowed_html( $allowed_html ) );
 	} else {
 		return $thumb;
 	}
 }
 endif;
 
-if ( ! function_exists( 'rx_theme_post_overlay_thumbnail' ) ) :
+if ( ! function_exists( 'rvdx_theme_post_overlay_thumbnail' ) ) :
 /**
  * Displays post thumbnail as tag style
  *
  * @return string
  */
-function rx_theme_post_overlay_thumbnail( $img_size = 'rx-theme-thumb-xl', $postID = null ) {
+function rvdx_theme_post_overlay_thumbnail( $img_size = 'rvdx-theme-thumb-xl', $postID = null ) {
 	$thumbnail = apply_filters(
-		'rx-theme/post/overlay-thumb',
+		'rvdx-theme/post/overlay-thumb',
 		get_the_post_thumbnail_url( $postID, $img_size )
 	);
 
@@ -525,19 +525,19 @@ function rx_theme_post_overlay_thumbnail( $img_size = 'rx-theme-thumb-xl', $post
 }
 endif;
 
-if ( ! function_exists( 'rx_theme_get_page_preloader' ) ) :
+if ( ! function_exists( 'rvdx_theme_get_page_preloader' ) ) :
 /**
  * Display the page preloader.
  *
  * @since  1.0.0
  * @return void
  */
-function rx_theme_get_page_preloader() {
-	$page_preloader = rx_theme()->customizer->get_value( 'page_preloader' );
+function rvdx_theme_get_page_preloader() {
+	$page_preloader = rvdx_theme()->customizer->get_value( 'page_preloader' );
 
 	if ( $page_preloader ) {
 		echo  apply_filters(
-			'rx-theme/page/preloader',
+			'rvdx-theme/page/preloader',
 			'<div class="page-preloader-cover">
 				<div class="page-preloader"></div>
 			</div>'
@@ -546,21 +546,21 @@ function rx_theme_get_page_preloader() {
 }
 endif;
 
-if ( ! function_exists( 'rx_theme_header_logo' ) ) :
+if ( ! function_exists( 'rvdx_theme_header_logo' ) ) :
 /**
  * Display the header logo.
  *
  * @since  1.0.0
  * @return void
  */
-function rx_theme_header_logo() {
+function rvdx_theme_header_logo() {
 	if ( has_custom_logo() ) {
 		the_custom_logo();
 	} else {
 		$logo = get_bloginfo( 'name' );
 
 		$format = apply_filters(
-			'rx-theme/header/logo-format',
+			'rvdx-theme/header/logo-format',
 			'<h1 class="site-logo"><a class="site-logo__link" href="%1$s" rel="home">%2$s</a></h1>'
 		);
 
@@ -569,15 +569,15 @@ function rx_theme_header_logo() {
 }
 endif;
 
-if ( ! function_exists( 'rx_theme_site_description' ) ) :
+if ( ! function_exists( 'rvdx_theme_site_description' ) ) :
 /**
  * Display the site description.
  *
  * @since  1.0.0
  * @return void
  */
-function rx_theme_site_description() {
-	$show_desc = rx_theme()->customizer->get_value( 'show_tagline' );
+function rvdx_theme_site_description() {
+	$show_desc = rvdx_theme()->customizer->get_value( 'show_tagline' );
 
 	if ( ! $show_desc ) {
 		return;
@@ -589,13 +589,13 @@ function rx_theme_site_description() {
 		return;
 	}
 
-	$format = apply_filters( 'rx-theme/header/description-format', '<div class="site-description">%s</div>' );
+	$format = apply_filters( 'rvdx-theme/header/description-format', '<div class="site-description">%s</div>' );
 
 	printf( $format, $description );
 }
 endif;
 
-if ( ! function_exists( 'rx_theme_social_list' ) ) :
+if ( ! function_exists( 'rvdx_theme_social_list' ) ) :
 /**
  * Show Social list.
  *
@@ -603,9 +603,9 @@ if ( ! function_exists( 'rx_theme_social_list' ) ) :
  * @since  1.0.1 Added new param - $type.
  * @return void
  */
-function rx_theme_social_list( $context = '', $type = 'icon' ) {
-	$visibility_in_header = rx_theme()->customizer->get_value( 'header_social_links' );
-	$visibility_in_footer = rx_theme()->customizer->get_value( 'footer_social_links' );
+function rvdx_theme_social_list( $context = '', $type = 'icon' ) {
+	$visibility_in_header = rvdx_theme()->customizer->get_value( 'header_social_links' );
+	$visibility_in_footer = rvdx_theme()->customizer->get_value( 'footer_social_links' );
 
 	if ( ! $visibility_in_header && ( 'header' === $context ) ) {
 		return;
@@ -615,21 +615,21 @@ function rx_theme_social_list( $context = '', $type = 'icon' ) {
 		return;
 	}
 
-	echo rx_theme_get_social_list( $context, $type );
+	echo rvdx_theme_get_social_list( $context, $type );
 }
 endif;
 
-if ( ! function_exists( 'rx_theme_footer_copyright' ) ) :
+if ( ! function_exists( 'rvdx_theme_footer_copyright' ) ) :
 /**
  * Show footer copyright text.
  *
  * @since  1.0.0
  * @return void
  */
-function rx_theme_footer_copyright() {
-	$copyright = rx_theme()->customizer->get_value( 'footer_copyright' );
+function rvdx_theme_footer_copyright() {
+	$copyright = rvdx_theme()->customizer->get_value( 'footer_copyright' );
 	$format    = apply_filters(
-		'rx-theme/footer/copyright-format',
+		'rvdx-theme/footer/copyright-format',
 		'<div class="footer-copyright">%s</div>'
 	);
 
@@ -637,26 +637,26 @@ function rx_theme_footer_copyright() {
 		return;
 	}
 
-	printf( $format, wp_kses( rx_theme_render_macros( $copyright ), wp_kses_allowed_html( 'post' ) ) );
+	printf( $format, wp_kses( rvdx_theme_render_macros( $copyright ), wp_kses_allowed_html( 'post' ) ) );
 }
 endif;
 
-if ( ! function_exists( 'rx_theme_is_top_panel_visible' ) ) :
+if ( ! function_exists( 'rvdx_theme_is_top_panel_visible' ) ) :
 /**
  * Check if top panele visible or not
  *
  * @return bool
  */
-function rx_theme_is_top_panel_visible() {
+function rvdx_theme_is_top_panel_visible() {
 	$is_visible = false;
-	$top_panel_enable = rx_theme()->customizer->get_value( 'top_panel_enable' );
+	$top_panel_enable = rvdx_theme()->customizer->get_value( 'top_panel_enable' );
 
 	if ( $top_panel_enable ) {
-		$site_description = ( rx_theme()->customizer->get_value( 'show_tagline' ) && strlen(get_bloginfo( 'description' ) ) > 0 ) ? true : false;
-		$social           = rx_theme()->customizer->get_value( 'header_social_links' );
+		$site_description = ( rvdx_theme()->customizer->get_value( 'show_tagline' ) && strlen(get_bloginfo( 'description' ) ) > 0 ) ? true : false;
+		$social           = rvdx_theme()->customizer->get_value( 'header_social_links' );
 
 		$conditions = apply_filters(
-			'rx-theme/header/top-panel-visibility-conditions',
+			'rvdx-theme/header/top-panel-visibility-conditions',
 			array( $site_description, $social )
 		);
 
@@ -671,24 +671,24 @@ function rx_theme_is_top_panel_visible() {
 }
 endif;
 
-if ( ! function_exists( 'rx_theme_sticky_label' ) ) :
+if ( ! function_exists( 'rvdx_theme_sticky_label' ) ) :
 /**
  * Show sticky menu label grabbed from options.
  *
  * @since  1.0.0
  * @return void
  */
-function rx_theme_sticky_label() {
+function rvdx_theme_sticky_label() {
 
 	if ( ! is_sticky() || ! is_home() || is_paged() ) {
 		return;
 	}
 
-	$sticky_type = rx_theme()->customizer->get_value( 'blog_sticky_type' );
+	$sticky_type = rvdx_theme()->customizer->get_value( 'blog_sticky_type' );
 
 	$content = '';
 	$icon    = apply_filters(
-		'rx-theme/posts/sticky-icon',
+		'rvdx-theme/posts/sticky-icon',
 		'<i class="fa fa-thumb-tack" aria-hidden="true"></i>'
 	);
 
@@ -699,12 +699,12 @@ function rx_theme_sticky_label() {
 			break;
 
 		case 'label':
-			$label = rx_theme()->customizer->get_value( 'blog_sticky_label' );
+			$label = rvdx_theme()->customizer->get_value( 'blog_sticky_label' );
 			$content = $label;
 			break;
 
 		case 'both':
-			$label = rx_theme()->customizer->get_value( 'blog_sticky_label' );
+			$label = rvdx_theme()->customizer->get_value( 'blog_sticky_label' );
 			$content = $icon . $label;
 			break;
 	}
@@ -717,14 +717,14 @@ function rx_theme_sticky_label() {
 }
 endif;
 
-if ( ! function_exists( 'rx_theme_the_title' ) ) {
+if ( ! function_exists( 'rvdx_theme_the_title' ) ) {
 	/**
 	 * Prints HTML page title.
 	 * @since  1.0.0
 	 * @return void
 	 */
 
-	function rx_theme_the_title( $args = array() ) {
+	function rvdx_theme_the_title( $args = array() ) {
 
 		switch ( true ) {
 			case function_exists( 'is_woocommerce' ) && is_woocommerce():
@@ -735,7 +735,7 @@ if ( ! function_exists( 'rx_theme_the_title' ) ) {
 				printf( '<h1 class="page-title">%s</h1>', woocommerce_page_title( false ) );
 			break;
 			case is_search():
-				printf( '<h1 class="page-title">%s %s</h1>', esc_html__( 'Search Results for:', 'rx-theme' ), '<span>' . get_search_query() . '</span>' );
+				printf( '<h1 class="page-title">%s %s</h1>', esc_html__( 'Search Results for:', 'rvdx-theme' ), '<span>' . get_search_query() . '</span>' );
 			break;
 
 			case is_archive():
@@ -744,7 +744,7 @@ if ( ! function_exists( 'rx_theme_the_title' ) ) {
 			break;
 
 			case is_404():
-					printf( '<h1 class="page-title">%s</h1>', esc_html__( 'Oops! That page can&rsquo;t be found.', 'rx-theme' ) );
+					printf( '<h1 class="page-title">%s</h1>', esc_html__( 'Oops! That page can&rsquo;t be found.', 'rvdx-theme' ) );
 			break;
 
 			default:

@@ -2,7 +2,7 @@
 /**
  * Contextual functions for the header, footer, content and sidebar classes.
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 /**
@@ -12,13 +12,13 @@
  * @param  string  $classes Additional classes.
  * @return string
  */
-function rx_theme_get_container_classes( $classes = null, $fullwidth = false ) {
+function rvdx_theme_get_container_classes( $classes = null, $fullwidth = false ) {
 	if ( $classes ) {
 		$classes .= ' ';
 	}
 
-	if ( ! apply_filters( 'rx-theme/site/fullwidth', $fullwidth ) ) {
-		$layout_type = rx_theme()->customizer->get_value( 'container_type' );
+	if ( ! apply_filters( 'rvdx-theme/site/fullwidth', $fullwidth ) ) {
+		$layout_type = rvdx_theme()->customizer->get_value( 'container_type' );
 
 		if ( 'boxed' == $layout_type ) {
 			$classes .= 'container';
@@ -35,7 +35,7 @@ function rx_theme_get_container_classes( $classes = null, $fullwidth = false ) {
  * @param   string  $classes Additional classes.
  * @return  void
  */
-function rx_theme_header_class( $classes = null ) {
+function rvdx_theme_header_class( $classes = null ) {
 	if ( $classes ) {
 		$classes .= ' ';
 	}
@@ -43,7 +43,7 @@ function rx_theme_header_class( $classes = null ) {
 	$classes .= 'site-header__wrap';
 
 	$site_header_container = apply_filters(
-		'rx-theme/site-header/container-enabled',
+		'rvdx-theme/site-header/container-enabled',
 		true
 	);
 
@@ -51,13 +51,13 @@ function rx_theme_header_class( $classes = null ) {
 		$classes .= ' container';
 	}
 
-	$sticky = rx_theme()->customizer->get_value( 'is_sticky_mode' );
+	$sticky = rvdx_theme()->customizer->get_value( 'is_sticky_mode' );
 
 	if ( $sticky ) {
 		$classes .= 'header-sticky';
 	}
 
-	echo 'class="' . apply_filters( 'rx-theme/site-header/content-classes', $classes ) . '"';
+	echo 'class="' . apply_filters( 'rvdx-theme/site-header/content-classes', $classes ) . '"';
 }
 
 /**
@@ -67,7 +67,7 @@ function rx_theme_header_class( $classes = null ) {
  * @param   string  $classes Additional classes.
  * @return  void
  */
-function rx_theme_breadcrumbs_class( $classes = null ) {
+function rvdx_theme_breadcrumbs_class( $classes = null ) {
 	if ( $classes ) {
 		$classes .= ' ';
 	}
@@ -75,7 +75,7 @@ function rx_theme_breadcrumbs_class( $classes = null ) {
 	$classes .= 'site-breadcrumbs__wrap';
 
 	$site_breadcrumbs_container = apply_filters(
-		'rx-theme/site-breadcrumbs/container-enabled',
+		'rvdx-theme/site-breadcrumbs/container-enabled',
 		true
 	);
 
@@ -83,7 +83,7 @@ function rx_theme_breadcrumbs_class( $classes = null ) {
 	// 	$classes .= ' container';
 	// }
 
-	echo 'class="' . apply_filters( 'rx-theme/site-breadcrumbs/content-classes', $classes ) . '"';
+	echo 'class="' . apply_filters( 'rvdx-theme/site-breadcrumbs/content-classes', $classes ) . '"';
 }
 
 /**
@@ -92,20 +92,20 @@ function rx_theme_breadcrumbs_class( $classes = null ) {
  * @since  1.0.0
  * @return string
  */
-function rx_theme_content_class( $classes = null ) {
+function rvdx_theme_content_class( $classes = null ) {
 	if ( $classes ) {
 		$classes .= ' ';
 	}
 
 	$classes .= 'site-content__wrap';
 
-	$site_content_container = apply_filters( 'rx-theme/site-content/container-enabled', true );
+	$site_content_container = apply_filters( 'rvdx-theme/site-content/container-enabled', true );
 
 	if ( $site_content_container ) {
 		$classes .= ' container';
 	}
 
-	echo 'class="' . apply_filters( 'rx-theme/site-content/content-classes', $classes ) . '"';
+	echo 'class="' . apply_filters( 'rvdx-theme/site-content/content-classes', $classes ) . '"';
 }
 
 /**
@@ -114,20 +114,20 @@ function rx_theme_content_class( $classes = null ) {
  * @since  1.0.0
  * @return string
  */
-function rx_theme_footer_class( $classes = null ) {
+function rvdx_theme_footer_class( $classes = null ) {
 	if ( $classes ) {
 		$classes .= ' ';
 	}
 
 	$classes .= 'site-footer__wrap';
 
-	$site_content_container = apply_filters( 'rx-theme/site-footer/container-enabled', true );
+	$site_content_container = apply_filters( 'rvdx-theme/site-footer/container-enabled', true );
 
 	if ( $site_content_container ) {
 		$classes .= ' container';
 	}
 
-	echo 'class="' . apply_filters( 'rx-theme/site-footer/content-classes', $classes ) . '"';
+	echo 'class="' . apply_filters( 'rvdx-theme/site-footer/content-classes', $classes ) . '"';
 }
 
 /**
@@ -137,8 +137,8 @@ function rx_theme_footer_class( $classes = null ) {
  * @param  array $classes Additional classes.
  * @return void
  */
-function rx_theme_primary_content_class( $classes = array() ) {
-	echo rx_theme_get_layout_classes( 'content', $classes );
+function rvdx_theme_primary_content_class( $classes = array() ) {
+	echo rvdx_theme_get_layout_classes( 'content', $classes );
 }
 
 /**
@@ -148,8 +148,8 @@ function rx_theme_primary_content_class( $classes = array() ) {
  * @param  array $classes Additional classes.
  * @return void
  */
-function rx_theme_secondary_content_class( $classes = array() ) {
-	echo rx_theme_get_layout_classes( 'sidebar', $classes );
+function rvdx_theme_secondary_content_class( $classes = array() ) {
+	echo rvdx_theme_get_layout_classes( 'sidebar', $classes );
 }
 
 /**
@@ -160,16 +160,16 @@ function rx_theme_secondary_content_class( $classes = array() ) {
  * @param  array  $classes Additional classes.
  * @return string
  */
-function rx_theme_get_layout_classes( $layout = 'content', $classes = array() ) {
-	$sidebar_position = rx_theme()->sidebar_position;
-	$sidebar_width    = rx_theme()->customizer->get_value( 'sidebar_width' );
+function rvdx_theme_get_layout_classes( $layout = 'content', $classes = array() ) {
+	$sidebar_position = rvdx_theme()->sidebar_position;
+	$sidebar_width    = rvdx_theme()->customizer->get_value( 'sidebar_width' );
 
 	if ( 'none' === $sidebar_position || ! is_active_sidebar( 'sidebar' ) ) {
 		$sidebar_position = is_singular( 'post' ) ? 'single-post-fullwidth' : 'fullwidth';
 		$sidebar_width = 0;
 	}
 
-	$layout_classes = ! empty( rx_theme()->layout[ $sidebar_position ][ $sidebar_width ][ $layout ] ) ? rx_theme()->layout[ $sidebar_position ][ $sidebar_width ][ $layout ] : array();
+	$layout_classes = ! empty( rvdx_theme()->layout[ $sidebar_position ][ $sidebar_width ][ $layout ] ) ? rvdx_theme()->layout[ $sidebar_position ][ $sidebar_width ][ $layout ] : array();
 
 	if ( ! empty( $classes ) ) {
 		$layout_classes = array_merge( $layout_classes, $classes );
@@ -179,7 +179,7 @@ function rx_theme_get_layout_classes( $layout = 'content', $classes = array() ) 
 		return '';
 	}
 
-	$layout_classes = apply_filters( "rx-theme/wrapper/{$layout}_classes", $layout_classes );
+	$layout_classes = apply_filters( "rvdx-theme/wrapper/{$layout}_classes", $layout_classes );
 
 	return 'class="' . join( ' ', $layout_classes ) . '"';
 }
@@ -191,14 +191,14 @@ function rx_theme_get_layout_classes( $layout = 'content', $classes = array() ) 
  * @param  string       $classes Additional classes.
  * @return string|void
  */
-function rx_theme_posts_list_class( $classes = null ) {
+function rvdx_theme_posts_list_class( $classes = null ) {
 	if ( $classes ) {
 		$classes .= ' ';
 	}
 
 	$classes .= 'posts-list';
 
-	echo 'class="' . apply_filters( 'rx-theme/posts/list-class', $classes ) . '"';
+	echo 'class="' . apply_filters( 'rvdx-theme/posts/list-class', $classes ) . '"';
 }
 
 
@@ -209,7 +209,7 @@ function rx_theme_posts_list_class( $classes = null ) {
  * @param  array $classes Additional classes.
  * @return void
  */
-function rx_theme_site_branding_class( $classes = array() ) {
+function rvdx_theme_site_branding_class( $classes = array() ) {
 	$classes[] = 'site-branding';
 
 	echo 'class="' . join( ' ', $classes ) . '"';

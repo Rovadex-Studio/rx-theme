@@ -1,9 +1,9 @@
-;var Rx_Theme_JS;
+;var Rvdx_Theme_JS;
 
 (function($) {
 	'use strict';
 
-	Rx_Theme_JS = {
+	Rvdx_Theme_JS = {
 
 		$window: $( window ),
 
@@ -40,7 +40,7 @@
 		},
 
 		responsiveMenuInit: function() {
-			$( '.site-header .main-navigation' ).RxMenu( { 'threshold' : Rx_Theme_JS.threshold } );
+			$( '.site-header .main-navigation' ).RvdxMenu( { 'threshold' : Rvdx_Theme_JS.threshold } );
 		},
 
 		magnificPopupInit: function() {
@@ -83,17 +83,17 @@
 		},
 
 		mobilePanelInit: function() {
-			var $mobilePanel = $( '.rx-mobile-panel' ),
+			var $mobilePanel = $( '.rvdx-mobile-panel' ),
 				$body        = $( 'body' );
 
 			if ( ! $mobilePanel[0] ) {
 				return false;
 			}
 
-			var $controls         = $( '.rx-mobile-panel__control', $mobilePanel ),
+			var $controls         = $( '.rvdx-mobile-panel__control', $mobilePanel ),
 				controlsData      = {},
-				$sidebarToggle    = $( '.rx-mobile-panel__control--sidebar', $mobilePanel ),
-				$mobileMenuToggle = $( '.rx-mobile-panel__control--mobile-menu', $mobilePanel );
+				$sidebarToggle    = $( '.rvdx-mobile-panel__control--sidebar', $mobilePanel ),
+				$mobileMenuToggle = $( '.rvdx-mobile-panel__control--mobile-menu', $mobilePanel );
 
 			$controls.each( function( intex ) {
 				var $control    = $( this ),
@@ -107,7 +107,7 @@
 				controlsData[ type ] = controlData;
 			} );
 
-			$controls.on( 'click.rxTheme', function( event ) {
+			$controls.on( 'click.RvdxTheme', function( event ) {
 				var $this = $( this ),
 					type  = $this.data( 'control-type' );
 
@@ -120,7 +120,7 @@
 				controlsSync();
 			} );
 
-			this.$window.on( 'rx-theme/responsive-menu/mobile/hide-event', function() {
+			this.$window.on( 'rvdx-theme/responsive-menu/mobile/hide-event', function() {
 				//$mobileMenuToggle.removeClass( 'active' );
 
 				modifyControlData( 'mobile-menu', 'status', 'hidden' );
@@ -160,7 +160,7 @@
 		},
 
 		eventsInit: function() {
-			Rx_Theme_JS.$window.on( 'resize.RxTheme orientationchange.RxTheme', Rx_Theme_JS.debounce( 50, Rx_Theme_JS.watcher.bind( this ) ) ).trigger( 'resize.RxTheme' );
+			Rvdx_Theme_JS.$window.on( 'resize.RvdxTheme orientationchange.RvdxTheme', Rvdx_Theme_JS.debounce( 50, Rvdx_Theme_JS.watcher.bind( this ) ) ).trigger( 'resize.RvdxTheme' );
 		},
 
 		select2: function() {
@@ -188,12 +188,12 @@
 		 */
 		watcher: function( event ) {
 
-			if ( Rx_Theme_JS.isThreshold() ) {
-				Rx_Theme_JS.$body.addClass( 'mobile-layout' );
-				Rx_Theme_JS.$body.removeClass( 'desktop-layout' );
+			if ( Rvdx_Theme_JS.isThreshold() ) {
+				Rvdx_Theme_JS.$body.addClass( 'mobile-layout' );
+				Rvdx_Theme_JS.$body.removeClass( 'desktop-layout' );
 			} else {
-				Rx_Theme_JS.$body.addClass( 'desktop-layout' );
-				Rx_Theme_JS.$body.removeClass( 'mobile-layout' );
+				Rvdx_Theme_JS.$body.addClass( 'desktop-layout' );
+				Rvdx_Theme_JS.$body.removeClass( 'mobile-layout' );
 			}
 		},
 
@@ -203,7 +203,7 @@
 		 * @return {boolean} Mobile Status
 		 */
 		isThreshold: function() {
-			return ( Rx_Theme_JS.$window.width() < Rx_Theme_JS.threshold ) ? true : false;
+			return ( Rvdx_Theme_JS.$window.width() < Rvdx_Theme_JS.threshold ) ? true : false;
 		},
 
 		/**
@@ -230,6 +230,6 @@
 		},
 	};
 
-	Rx_Theme_JS.init();
+	Rvdx_Theme_JS.init();
 
 }(jQuery));

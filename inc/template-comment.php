@@ -2,7 +2,7 @@
 /**
  * Functions for handling how comments are displayed and used on the site.
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 /**
@@ -13,10 +13,10 @@
  * @param array  $args     An array of arguments.
  * @param int    $depth    Depth of comment.
  */
-function rx_theme_rewrite_comment_item( $_comment, $args, $depth ) {
+function rvdx_theme_rewrite_comment_item( $_comment, $args, $depth ) {
 	global $comment;
 
-	$_comment->rx_theme_comment_list_args = $args;
+	$_comment->rvdx_theme_comment_list_args = $args;
 	$comment = $_comment;
 
 	$tag = ( 'div' === $args['style'] ) ? 'div' : 'li'; ?>
@@ -35,11 +35,11 @@ function rx_theme_rewrite_comment_item( $_comment, $args, $depth ) {
  * @param  array  $args   Arguments.
  * @return string $output Avatar of the author of the comment.
  */
-function rx_theme_comment_author_avatar( $args = array() ) {
+function rvdx_theme_comment_author_avatar( $args = array() ) {
 	global $comment;
 
-	if ( ! empty( $comment->rx_theme_comment_list_args['avatar_size'] ) ) {
-		$size = $comment->rx_theme_comment_list_args['avatar_size'];
+	if ( ! empty( $comment->rvdx_theme_comment_list_args['avatar_size'] ) ) {
+		$size = $comment->rvdx_theme_comment_list_args['avatar_size'];
 	}
 
 	if ( ! empty( $args['size'] ) ) {
@@ -53,7 +53,7 @@ function rx_theme_comment_author_avatar( $args = array() ) {
 	 * @param array $output Avatar.
 	 * @param array $args   Arguments.
 	 */
-	return apply_filters( 'rx-theme/comments/author-avatar', get_avatar( $comment, $size ), $args );
+	return apply_filters( 'rvdx-theme/comments/author-avatar', get_avatar( $comment, $size ), $args );
 }
 
 /**
@@ -63,7 +63,7 @@ function rx_theme_comment_author_avatar( $args = array() ) {
  * @param  array  $args   Arguments.
  * @return string $output URL of the author of the comment.
  */
-function rx_theme_get_comment_author_link( $args = array() ) {
+function rvdx_theme_get_comment_author_link( $args = array() ) {
 	/**
 	 * Filter a URL of the author of the current comment.
 	 *
@@ -71,7 +71,7 @@ function rx_theme_get_comment_author_link( $args = array() ) {
 	 * @param array $output URL of the author of the comment.
 	 * @param array $args   Arguments.
 	 */
-	return apply_filters( 'rx-theme/comments/author-link', sprintf( '<b class="fn">%s</b>', get_comment_author_link() ), $args );
+	return apply_filters( 'rvdx-theme/comments/author-link', sprintf( '<b class="fn">%s</b>', get_comment_author_link() ), $args );
 }
 
 /**
@@ -81,7 +81,7 @@ function rx_theme_get_comment_author_link( $args = array() ) {
  * @param  array  $args   Arguments.
  * @return string $output The comment date of the current comment.
  */
-function rx_theme_get_comment_date( $args = array() ) {
+function rvdx_theme_get_comment_date( $args = array() ) {
 	$format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
 
 	if ( ! empty( $args['format'] ) ) {
@@ -95,7 +95,7 @@ function rx_theme_get_comment_date( $args = array() ) {
 	 * @param string $output The comment date.
 	 * @param array  $args   Arguments.
 	 */
-	return apply_filters( 'rx-theme/comments/date', sprintf(
+	return apply_filters( 'rvdx-theme/comments/date', sprintf(
 		'<span class="comment-date"><time datetime="%1$s" class="comment-date__time">%2$s</time></span>',
 		get_comment_time( 'c' ),
 		get_comment_date( $format )
@@ -110,7 +110,7 @@ function rx_theme_get_comment_date( $args = array() ) {
  * @param  array  $args          Arguments.
  * @return string $output        Comment's text.
  */
-function rx_theme_get_comment_text( $args = array() ) {
+function rvdx_theme_get_comment_text( $args = array() ) {
 	global $comment_depth;
 
 	ob_start();
@@ -131,7 +131,7 @@ function rx_theme_get_comment_text( $args = array() ) {
 	 * @param string $comment_text Comment's text.
 	 * @param array  $args         Arguments.
 	 */
-	return apply_filters( 'rx-theme/comments/text', $comment_text, $args );
+	return apply_filters( 'rvdx-theme/comments/text', $comment_text, $args );
 }
 
 /**
@@ -142,7 +142,7 @@ function rx_theme_get_comment_text( $args = array() ) {
  * @param  array  $args          Arguments.
  * @return string $output        `Reply` link.
  */
-function rx_theme_get_comment_reply_link( $args = array() ) {
+function rvdx_theme_get_comment_reply_link( $args = array() ) {
 	global $comment_depth;
 
 	$args = wp_parse_args( $args, array(
@@ -162,7 +162,7 @@ function rx_theme_get_comment_reply_link( $args = array() ) {
 	 * @param string $reply `reply` link.
 	 * @param array  $args  Arguments.
 	 */
-	return apply_filters( 'rx-theme/comments/reply_link', $reply, $args );
+	return apply_filters( 'rvdx-theme/comments/reply_link', $reply, $args );
 }
 
 /**
@@ -172,10 +172,10 @@ function rx_theme_get_comment_reply_link( $args = array() ) {
  * @param  array  $args   Arguments.
  * @return string $output HTML-link to edit the current comment.
  */
-function rx_theme_get_comment_link_edit( $args = array() ) {
+function rvdx_theme_get_comment_link_edit( $args = array() ) {
 	global $comment;
 
-	$text = esc_html__( 'Edit', 'rx-theme' );
+	$text = esc_html__( 'Edit', 'rvdx-theme' );
 
 	if ( ! empty( $args['text'] ) ) {
 		$text = esc_attr( $args['text'] );
@@ -197,5 +197,5 @@ function rx_theme_get_comment_link_edit( $args = array() ) {
 	 * @param int    $comment_id Comment ID.
 	 * @param array  $args       Arguments.
 	 */
-	return apply_filters( 'rx-theme/comments/link-edit', $link, $comment->comment_ID, $args );
+	return apply_filters( 'rvdx-theme/comments/link-edit', $link, $comment->comment_ID, $args );
 }

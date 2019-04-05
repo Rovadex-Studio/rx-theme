@@ -1,12 +1,12 @@
 <?php
-if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
+if ( ! class_exists( 'Rvdx_Theme_Setup' ) ) {
 
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
 	 * @since 1.0.0
 	 */
-	class Rx_Theme_Setup {
+	class Rvdx_Theme_Setup {
 
 		/**
 		 * A reference to an instance of this class.
@@ -76,13 +76,13 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			$this->version = $theme_obj->get( 'Version' );
 
 			// Load the theme modules.
-			add_action( 'after_setup_theme', array( $this, 'rx_theme_framework_loader' ), -20 );
+			add_action( 'after_setup_theme', array( $this, 'rvdx_theme_framework_loader' ), -20 );
 
 			// Initialization of customizer.
-			add_action( 'after_setup_theme', array( $this, 'rx_theme_customizer' ) );
+			add_action( 'after_setup_theme', array( $this, 'rvdx_theme_customizer' ) );
 
 			// Initialization of breadcrumbs module
-			add_action( 'wp_head', array( $this, 'rx_theme_breadcrumbs' ) );
+			add_action( 'wp_head', array( $this, 'rvdx_theme_breadcrumbs' ) );
 
 			// Language functions and translations setup.
 			add_action( 'after_setup_theme', array( $this, 'l10n' ), 2 );
@@ -97,7 +97,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			add_action( 'after_setup_theme', array( $this, 'load_modules' ), 5 );
 
 			// Init properties.
-			add_action( 'wp_head', array( $this, 'rx_theme_init_properties' ) );
+			add_action( 'wp_head', array( $this, 'rvdx_theme_init_properties' ) );
 
 			// Register public assets.
 			add_action( 'wp_enqueue_scripts', array( $this, 'register_assets' ), 9 );
@@ -125,7 +125,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 		 * @return string
 		 */
 		public function version() {
-			return apply_filters( 'rx-theme/version', $this->version );
+			return apply_filters( 'rvdx-theme/version', $this->version );
 		}
 
 		/**
@@ -133,11 +133,11 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 		 *
 		 * @since  1.0.0
 		 */
-		public function rx_theme_framework_loader() {
+		public function rvdx_theme_framework_loader() {
 
 			require get_theme_file_path( 'framework/loader.php' );
 
-			$this->framework = new Rx_Theme_CX_Loader(
+			$this->framework = new Rvdx_Theme_CX_Loader(
 				array(
 					get_theme_file_path( 'framework/modules/customizer/cherry-x-customizer.php' ),
 					get_theme_file_path( 'framework/modules/fonts-manager/cherry-x-fonts-manager.php' ),
@@ -152,10 +152,10 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		public function rx_theme_customizer() {
+		public function rvdx_theme_customizer() {
 
-			$this->customizer = new CX_Customizer( rx_theme_get_customizer_options() );
-			$this->dynamic_css = new CX_Dynamic_CSS( rx_theme_get_dynamic_css_options() );
+			$this->customizer = new CX_Customizer( rvdx_theme_get_customizer_options() );
+			$this->dynamic_css = new CX_Dynamic_CSS( rvdx_theme_get_dynamic_css_options() );
 
 		}
 
@@ -164,9 +164,9 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		public function rx_theme_breadcrumbs() {
+		public function rvdx_theme_breadcrumbs() {
 
-			$this->breadcrumbs = new CX_Breadcrumbs( rx_theme_get_breadcrumbs_options() );
+			$this->breadcrumbs = new CX_Breadcrumbs( rvdx_theme_get_breadcrumbs_options() );
 
 		}
 
@@ -175,18 +175,18 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		public function rx_theme_init_properties() {
+		public function rvdx_theme_init_properties() {
 
 			$this->is_blog = is_home() || ( is_archive() && ! is_tax() && ! is_post_type_archive() ) ? true : false;
 
 			// Blog list properties init
 			if ( $this->is_blog ) {
-				$this->sidebar_position = rx_theme()->customizer->get_value( 'blog_sidebar_position' );
+				$this->sidebar_position = rvdx_theme()->customizer->get_value( 'blog_sidebar_position' );
 			}
 
 			// Single blog properties init
 			if ( is_singular( 'post' ) ) {
-				$this->sidebar_position = rx_theme()->customizer->get_value( 'single_sidebar_position' );
+				$this->sidebar_position = rvdx_theme()->customizer->get_value( 'single_sidebar_position' );
 			}
 
 		}
@@ -210,7 +210,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			 * Make theme available for translation.
 			 * Translations can be filed in the /languages/ directory.
 			 */
-			load_theme_textdomain( 'rx-theme', get_theme_file_path( 'languages' ) );
+			load_theme_textdomain( 'rvdx-theme', get_theme_file_path( 'languages' ) );
 
 		}
 
@@ -335,7 +335,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 		public function get_module_class( $name ) {
 
 			$module = str_replace( ' ', '_', ucwords( str_replace( '-', ' ', $name ) ) );
-			return 'Rx_Theme_' . $module . '_Module';
+			return 'Rvdx_Theme_' . $module . '_Module';
 
 		}
 
@@ -346,9 +346,9 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 		 */
 		public function load_modules() {
 
-			$disabled_modules = apply_filters( 'rx-theme/disabled-modules', array() );
+			$disabled_modules = apply_filters( 'rvdx-theme/disabled-modules', array() );
 
-			foreach ( rx_theme_get_allowed_modules() as $module => $childs ) {
+			foreach ( rvdx_theme_get_allowed_modules() as $module => $childs ) {
 				if ( ! in_array( $module, $disabled_modules ) ) {
 					$this->load_module( $module, $childs );
 				}
@@ -466,7 +466,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			 * @since 1.0.0
 			 * @var   array
 			 */
-			$scripts_depends = 	apply_filters( 'rx-theme/assets-depends/script', array(
+			$scripts_depends = 	apply_filters( 'rvdx-theme/assets-depends/script', array(
 				'jquery',
 				'responsive-menu',
 				'select2',
@@ -477,7 +477,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			}
 
 			wp_enqueue_script(
-				'rx-theme-script',
+				'rvdx-theme-script',
 				get_theme_file_uri( 'assets/js/theme-script.js' ),
 				$scripts_depends,
 				$this->version(),
@@ -504,7 +504,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			 * @since 1.0.0
 			 * @var   array
 			 */
-			$styles_depends = apply_filters( 'rx-theme/assets-depends/styles', array(
+			$styles_depends = apply_filters( 'rvdx-theme/assets-depends/styles', array(
 				'font-awesome',
 				'select2',
 			) );
@@ -514,7 +514,7 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
 			}
 
 			wp_enqueue_style(
-				'rx-theme-style',
+				'rvdx-theme-style',
 				get_stylesheet_uri(),
 				$styles_depends,
 				$this->version()
@@ -655,10 +655,10 @@ if ( ! class_exists( 'Rx_Theme_Setup' ) ) {
  * @since  1.0.0
  * @return object
  */
-function rx_theme() {
+function rvdx_theme() {
 
-	return Rx_Theme_Setup::get_instance();
+	return Rvdx_Theme_Setup::get_instance();
 
 }
 
-rx_theme();
+rvdx_theme();

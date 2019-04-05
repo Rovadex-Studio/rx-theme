@@ -2,13 +2,13 @@
 /**
  * Layout configuration.
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
-add_action( 'after_setup_theme', 'rx_theme_set_layout', 5 );
-function rx_theme_set_layout() {
+add_action( 'after_setup_theme', 'rvdx_theme_set_layout', 5 );
+function rvdx_theme_set_layout() {
 
-	rx_theme()->layout = array(
+	rvdx_theme()->layout = array(
 		'one-right-sidebar' => array(
 			'1/3' => array(
 				'content' => array( 'col-xs-12', 'col-md-8' ),

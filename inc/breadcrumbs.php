@@ -2,7 +2,7 @@
 /**
  * Theme Breadcrumbs.
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 /**
@@ -12,22 +12,22 @@
  * @return array
  */
 
-function rx_theme_get_breadcrumbs_options() {
+function rvdx_theme_get_breadcrumbs_options() {
 	/**
 	 * Filter a holder for breadcrumbs options.
 	 *
 	 * @since 1.0.0
 	 */
 
-	/* 'show_on_front'     => rx_theme()->customizer->get_value( 'breadcrumbs_front_visibillity' ),
-	'show_title'        => rx_theme()->customizer->get_value( 'breadcrumbs_page_title' ),
-	'path_type'         => rx_theme()->customizer->get_value( 'breadcrumbs_path_type' ), */
+	/* 'show_on_front'     => rvdx_theme()->customizer->get_value( 'breadcrumbs_front_visibillity' ),
+	'show_title'        => rvdx_theme()->customizer->get_value( 'breadcrumbs_page_title' ),
+	'path_type'         => rvdx_theme()->customizer->get_value( 'breadcrumbs_path_type' ), */
 
-	return apply_filters( 'rx-theme/breadcrumbs/options' , array(
+	return apply_filters( 'rvdx-theme/breadcrumbs/options' , array(
 		'show_browse'       => false,
-		'show_on_front'     => rx_theme()->customizer->get_value( 'breadcrumbs_front_visibillity' ),
-		'show_title'        => rx_theme()->customizer->get_value( 'breadcrumbs_page_title' ),
-		'path_type'         => rx_theme()->customizer->get_value( 'breadcrumbs_path_type' ),
+		'show_on_front'     => rvdx_theme()->customizer->get_value( 'breadcrumbs_front_visibillity' ),
+		'show_title'        => rvdx_theme()->customizer->get_value( 'breadcrumbs_page_title' ),
+		'path_type'         => rvdx_theme()->customizer->get_value( 'breadcrumbs_path_type' ),
 		'css_namespace'     => array(
 			'module'    => 'breadcrumbs',
 			'content'   => 'breadcrumbs_content',

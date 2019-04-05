@@ -1,4 +1,4 @@
-﻿rx-theme
+﻿rvdx-theme
 Version: 1.0.0
 Copyright: 2019, Rovadex
 License: GNU General Public License v2.0 or later

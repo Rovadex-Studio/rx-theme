@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 /*
@@ -20,24 +20,24 @@ if ( post_password_required() ) {
 }
 ?>
 
-<?php do_action( 'rx-theme/comments/comments-area-before' ); ?>
+<?php do_action( 'rvdx-theme/comments/comments-area-before' ); ?>
 
 <div id="comments" class="comments-area"><?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
 
-		<?php do_action( 'rx-theme/comments/title-before' ); ?>
+		<?php do_action( 'rvdx-theme/comments/title-before' ); ?>
 
 		<h4 class="comments-title">
 			<?php
 				printf( // WPCS: XSS OK.
-					esc_html( _nx( 'One Comment', '%1$s Comments', get_comments_number(), 'comments title', 'rx-theme' ) ),
+					esc_html( _nx( 'One Comment', '%1$s Comments', get_comments_number(), 'comments title', 'rvdx-theme' ) ),
 					number_format_i18n( get_comments_number() )
 				);
 			?>
 		</h4><!-- .comments-title -->
 
-		<?php do_action( 'rx-theme/comments/comment-list-before' ); ?>
+		<?php do_action( 'rvdx-theme/comments/comment-list-before' ); ?>
 
 		<ol class="comment-list">
 			<?php
@@ -45,26 +45,26 @@ if ( post_password_required() ) {
 					'style'       => 'ol',
 					'avatar_size' => 50,
 					'short_ping'  => true,
-					'callback'    => 'rx_theme_rewrite_comment_item',
+					'callback'    => 'rvdx_theme_rewrite_comment_item',
 				) );
 			?>
 		</ol><!-- .comment-list -->
 
-		<?php do_action( 'rx-theme/comments/comments-navigation-before' ); ?>
+		<?php do_action( 'rvdx-theme/comments/comments-navigation-before' ); ?>
 
 		<?php the_comments_navigation();
 
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) : ?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'rx-theme' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'rvdx-theme' ); ?></p>
 		<?php
 		endif;
 
 	endif; // Check for have_comments().
 
-	do_action( 'rx-theme/comments/comment-form-before' );
+	do_action( 'rvdx-theme/comments/comment-form-before' );
 
 	comment_form();
 ?></div><!-- #comments -->
 
-<?php do_action( 'rx-theme/comments/comments-area-after' ); ?>
+<?php do_action( 'rvdx-theme/comments/comments-area-after' ); ?>

@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rovadex-Studio/rx-theme.git"
+    "url": "git+https://github.com/Rovadex-Studio/rvdx-theme.git"
   },
   "author": "Shin",
   "license": "ISC",
   "bugs": {
     "url": "#"
   },
-  "homepage": "https://github.com/Rovadex-Studio/rx-theme",
+  "homepage": "https://github.com/Rovadex-Studio/rvdx-theme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",

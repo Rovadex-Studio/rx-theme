@@ -2,15 +2,15 @@
 /**
  * Menus configuration.
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
-add_action( 'after_setup_theme', 'rx_theme_register_menus', 5 );
-function rx_theme_register_menus() {
+add_action( 'after_setup_theme', 'rvdx_theme_register_menus', 5 );
+function rvdx_theme_register_menus() {
 
 	register_nav_menus( array(
-		'main'   => esc_html__( 'Main', 'rx-theme' ),
-		'footer' => esc_html__( 'Footer', 'rx-theme' ),
-		'social' => esc_html__( 'Social', 'rx-theme' ),
+		'main'   => esc_html__( 'Main', 'rvdx-theme' ),
+		'footer' => esc_html__( 'Footer', 'rvdx-theme' ),
+		'social' => esc_html__( 'Social', 'rvdx-theme' ),
 	) );
 }

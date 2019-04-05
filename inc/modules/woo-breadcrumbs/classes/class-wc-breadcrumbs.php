@@ -4,7 +4,7 @@
  * Custom WooCommerce breadcrumbs for Cherry
  * (extends default Cherry breadcrumbs)
  */
-class Rx_Theme_WC_Breadcrumbs extends CX_Breadcrumbs {
+class Rvdx_Theme_WC_Breadcrumbs extends CX_Breadcrumbs {
 
 	/**
 	 * Build breadcrumbs trail items array
@@ -49,7 +49,7 @@ class Rx_Theme_WC_Breadcrumbs extends CX_Breadcrumbs {
 			);
 		}
 		if ( $terms ) {
-			$main_term = apply_filters( 'rx-theme/woo/breadcrumbs/main_term', $terms[0], $terms );
+			$main_term = apply_filters( 'rvdx-theme/woo/breadcrumbs/main_term', $terms[0], $terms );
 			$this->term_ancestors( $main_term->term_id, 'product_cat' );
 			$this->_add_item( 'link_format', $main_term->name, get_term_link( $main_term ) );
 		}

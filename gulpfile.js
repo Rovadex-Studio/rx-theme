@@ -9,7 +9,7 @@ let gulp         = require('gulp'),
 	uglify       = require('gulp-uglify'),
 	plumber      = require('gulp-plumber' );
 
-gulp.task( 'rx-theme-css', () => {
+gulp.task( 'rvdx-theme-css', () => {
 	return gulp.src('./assets/sass/style.scss')
 		.pipe(
 			plumber( {
@@ -31,7 +31,7 @@ gulp.task( 'rx-theme-css', () => {
 		.pipe(notify('Compile Sass Done!'));
 });
 
-gulp.task( 'rx-theme-blog-layout-css', () => {
+gulp.task( 'rvdx-theme-blog-layout-css', () => {
 	return gulp.src('./inc/modules/blog-layouts/assets/scss/blog-layouts-module.scss')
 		.pipe(
 			plumber( {
@@ -55,6 +55,6 @@ gulp.task( 'rx-theme-blog-layout-css', () => {
 
 //watch
 gulp.task( 'watch', () => {
-	gulp.watch( [ './assets/style.scss', './assets/sass/**'], ['rx-theme-css'] );
-	gulp.watch( [ './assets/sass/**', './inc/modules/blog-layouts/assets/scss/**'], ['rx-theme-blog-layout-css'] );
+	gulp.watch( [ './assets/style.scss', './assets/sass/**'], ['rvdx-theme-css'] );
+	gulp.watch( [ './assets/sass/**', './inc/modules/blog-layouts/assets/scss/**'], ['rvdx-theme-blog-layout-css'] );
 });

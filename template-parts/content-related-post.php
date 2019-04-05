@@ -4,21 +4,21 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  * @subpackage single-post
  */
 ?>
 <div class="related-post <?php echo esc_attr( $grid_class ); ?>"><?php
 	if ( $settings['image_visible'] ) :
-		rx_theme_post_thumbnail( 'rx-theme-thumb-s' );
+		rvdx_theme_post_thumbnail( 'rvdx-theme-thumb-s' );
 	endif; ?>
 	<div class="entry-meta"><?php
 		if ( $settings['date_visible'] ) :
-			rx_theme_posted_on();
+			rvdx_theme_posted_on();
 		endif;
 
 		if ( $settings['author_visible'] ) :
-			rx_theme_posted_by();
+			rvdx_theme_posted_by();
 		endif; ?>
 	</div>
 	<header class="entry-header"><?php

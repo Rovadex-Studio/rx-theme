@@ -2,13 +2,13 @@
 /**
  * Class adds theme supported features.
  *
- * @package    Rx Theme
+ * @package    Rvdx Theme
  * @subpackage Class
  */
 
-if ( ! class_exists( 'Rx_Theme_Gutenberg_Editor_Styles' ) ) {
+if ( ! class_exists( 'Rvdx_Theme_Gutenberg_Editor_Styles' ) ) {
 
-	class Rx_Theme_Gutenberg_Editor_Styles{
+	class Rvdx_Theme_Gutenberg_Editor_Styles{
 
 		/**
 		 * A reference to an instance of this class.
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Rx_Theme_Gutenberg_Editor_Styles' ) ) {
 		 */
 		public function admin_enqueue_styles() {
 			// Enqueue frontend fonts
-			rx_theme()->customizer->fonts_manager->prepare_fonts();
+			rvdx_theme()->customizer->fonts_manager->prepare_fonts();
 
 			// register style
 			wp_enqueue_style(
@@ -75,7 +75,7 @@ if ( ! class_exists( 'Rx_Theme_Gutenberg_Editor_Styles' ) ) {
 		 * @return void|bool false
 		 */
 		public function gutenberg_extend_editor_styles( $editor_settings ) {
-			$dynamic_css = rx_theme()->dynamic_css;
+			$dynamic_css = rvdx_theme()->dynamic_css;
 			$css = array( 'css' => $dynamic_css->get_inline_css() );
 
 			if( ! empty( $css['css'] ) && $css['css'] ){
@@ -102,9 +102,9 @@ if ( ! class_exists( 'Rx_Theme_Gutenberg_Editor_Styles' ) ) {
 		}
 	}
 
-	function rx_theme_gutenberg_editor_styles() {
-		return Rx_Theme_Gutenberg_Editor_Styles::get_instance();
+	function rvdx_theme_gutenberg_editor_styles() {
+		return Rvdx_Theme_Gutenberg_Editor_Styles::get_instance();
 	}
 
-	rx_theme_gutenberg_editor_styles();
+	rvdx_theme_gutenberg_editor_styles();
 }

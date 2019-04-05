@@ -4,28 +4,28 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 get_header();
 
-	do_action( 'rx-theme/site/site-content-before', 'search' ); ?>
+	do_action( 'rvdx-theme/site/site-content-before', 'search' ); ?>
 
-	<div <?php rx_theme_content_class() ?>>
+	<div <?php rvdx_theme_content_class() ?>>
 		<div class="row">
 
-			<?php do_action( 'rx-theme/site/primary-before', 'search' ); ?>
+			<?php do_action( 'rvdx-theme/site/primary-before', 'search' ); ?>
 
 			<div id="primary" class="col-xs-12">
 
-				<?php do_action( 'rx-theme/site/main-before', 'search' ); ?>
+				<?php do_action( 'rvdx-theme/site/main-before', 'search' ); ?>
 
 				<main id="main" class="site-main"><?php
 					if ( have_posts() ) : ?>
 
 						<?php
 
-						rx_theme()->do_location( 'archive', 'template-parts/search-loop' );
+						rvdx_theme()->do_location( 'archive', 'template-parts/search-loop' );
 
 					else :
 
@@ -34,11 +34,11 @@ get_header();
 					endif;
 				?></main><!-- #main -->
 
-				<?php do_action( 'rx-theme/site/main-after', 'search' ); ?>
+				<?php do_action( 'rvdx-theme/site/main-after', 'search' ); ?>
 
 			</div><!-- #primary -->
 
-			<?php do_action( 'rx-theme/site/primary-after', 'search' ); ?>
+			<?php do_action( 'rvdx-theme/site/primary-after', 'search' ); ?>
 
 		</div>
 	</div><?php

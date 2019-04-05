@@ -8,12 +8,12 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( ! class_exists( 'Rx_Theme_Woo_Module' ) ) {
+if ( ! class_exists( 'Rvdx_Theme_Woo_Module' ) ) {
 
 	/**
-	 * Define Rx_Theme_Woo_Module class
+	 * Define Rvdx_Theme_Woo_Module class
 	 */
-	class Rx_Theme_Woo_Module extends Rx_Theme_Module_Base {
+	class Rvdx_Theme_Woo_Module extends Rvdx_Theme_Module_Base {
 
 		/**
 		 * Module ID
@@ -41,9 +41,9 @@ if ( ! class_exists( 'Rx_Theme_Woo_Module' ) ) {
 			 */
 			add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
-			add_filter( 'rx-theme/assets-depends/script', array( $this, 'assets_depends_script' ) );
+			add_filter( 'rvdx-theme/assets-depends/script', array( $this, 'assets_depends_script' ) );
 
-			add_filter( 'rx-theme/customizer/options', array( $this, 'customizer_options' ) );
+			add_filter( 'rvdx-theme/customizer/options', array( $this, 'customizer_options' ) );
 		}
 
 		/**
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Rx_Theme_Woo_Module' ) ) {
 
 			$new_options = array(
 				'woocommerce_accent_color' => array(
-					'title'    => esc_html__( 'WooCommerce Accent color', 'rx-theme' ),
+					'title'    => esc_html__( 'WooCommerce Accent color', 'rvdx-theme' ),
 					'section'  => 'color_scheme',
 					'priority' => 10,
 					'default'  => '#27d18b',
@@ -102,7 +102,7 @@ if ( ! class_exists( 'Rx_Theme_Woo_Module' ) ) {
 		 * @return int
 		 */
 		public function assets_depends_script( $scripts_depends ) {
-			array_push( $scripts_depends, 'rx-theme-woo-module-script' );
+			array_push( $scripts_depends, 'rvdx-theme-woo-module-script' );
 
 			return $scripts_depends;
 		}
@@ -115,10 +115,10 @@ if ( ! class_exists( 'Rx_Theme_Woo_Module' ) ) {
 		public function enqueue_scripts() {
 			// register scripts
 			wp_register_script(
-				'rx-theme-woo-module-script',
+				'rvdx-theme-woo-module-script',
 				get_theme_file_uri( 'inc/modules/woo/assets/js/woo-module-script.js' ),
 				array( 'jquery' ),
-				rx_theme()->version(),
+				rvdx_theme()->version(),
 				true
 			);
 		}
@@ -142,15 +142,15 @@ if ( ! class_exists( 'Rx_Theme_Woo_Module' ) ) {
 			}';
 
 			wp_add_inline_style(
-				'rx-theme-woocommerce-style',
+				'rvdx-theme-woocommerce-style',
 				$inline_font
 			);
 
 			wp_enqueue_style(
-				'rx-theme-woocommerce-style',
+				'rvdx-theme-woocommerce-style',
 				get_template_directory_uri() . '/inc/modules/woo/assets/css/woo-module' . ( is_rtl() ? '-rtl' : '' ) . '.css',
 				false,
-				rx_theme()->version()
+				rvdx_theme()->version()
 			);
 
 		}

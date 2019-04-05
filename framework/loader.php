@@ -31,12 +31,12 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( ! class_exists( 'Rx_Theme_CX_Loader' ) ) {
+if ( ! class_exists( 'Rvdx_Theme_CX_Loader' ) ) {
 
 	/**
-	 * Define Rx_Theme_CX_Loader class
+	 * Define Rvdx_Theme_CX_Loader class
 	 */
-	class Rx_Theme_CX_Loader {
+	class Rvdx_Theme_CX_Loader {
 
 		/**
 		 * Key for object cache where are stored information about all modules in current environment

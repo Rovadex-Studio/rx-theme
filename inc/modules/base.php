@@ -8,12 +8,12 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( ! class_exists( 'Rx_Theme_Module_Base' ) ) {
+if ( ! class_exists( 'Rvdx_Theme_Module_Base' ) ) {
 
 	/**
-	 * Define Rx_Theme_Module_Base class
+	 * Define Rvdx_Theme_Module_Base class
 	 */
-	abstract class Rx_Theme_Module_Base {
+	abstract class Rvdx_Theme_Module_Base {
 
 		/**
 		 * Returns module ID.
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Rx_Theme_Module_Base' ) ) {
 		public function load_child_modules( $childs = array() ) {
 
 			foreach ( $childs as $child => $childs_of_child ) {
-				rx_theme()->load_module( $child, $childs_of_child );
+				rvdx_theme()->load_module( $child, $childs_of_child );
 			}
 
 		}

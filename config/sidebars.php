@@ -2,15 +2,15 @@
 /**
  * Sidebars configuration.
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
-add_action( 'after_setup_theme', 'rx_theme_register_sidebars', 5 );
-function rx_theme_register_sidebars() {
+add_action( 'after_setup_theme', 'rvdx_theme_register_sidebars', 5 );
+function rvdx_theme_register_sidebars() {
 
-	rx_theme_widget_area()->widgets_settings = apply_filters( 'rx-theme/widget_area/default_settings', array(
+	rvdx_theme_widget_area()->widgets_settings = apply_filters( 'rvdx-theme/widget_area/default_settings', array(
 		'sidebar' => array(
-			'name'           => esc_html__( 'Sidebar', 'rx-theme' ),
+			'name'           => esc_html__( 'Sidebar', 'rvdx-theme' ),
 			'description'    => '',
 			'before_widget'  => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'   => '</aside>',
@@ -21,7 +21,7 @@ function rx_theme_register_sidebars() {
 			'is_global'      => true,
 		),
 		'sidebar-shop' => array(
-			'name'           => esc_html__( 'Shop Sidebar', 'rx-theme' ),
+			'name'           => esc_html__( 'Shop Sidebar', 'rvdx-theme' ),
 			'description'    => '',
 			'before_widget'  => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'   => '</aside>',

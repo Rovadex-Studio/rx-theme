@@ -4,23 +4,23 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Rx Theme
+ * @package Rvdx Theme
  */
 
 /**
  * Sidebar position
  */
-add_filter( 'theme_mod_sidebar_position', 'rx_theme_set_post_meta_value' );
+add_filter( 'theme_mod_sidebar_position', 'rvdx_theme_set_post_meta_value' );
 
 /**
  * Container type
  */
-add_filter( 'theme_mod_container_type', 'rx_theme_set_post_meta_value' );
+add_filter( 'theme_mod_container_type', 'rvdx_theme_set_post_meta_value' );
 
 /**
  * Header layout type
  */
-add_filter( 'theme_mod_header_layout_type', 'rx_theme_set_header_layout_value' );
+add_filter( 'theme_mod_header_layout_type', 'rvdx_theme_set_header_layout_value' );
 
 /**
  * Set post specific meta value.
@@ -28,14 +28,14 @@ add_filter( 'theme_mod_header_layout_type', 'rx_theme_set_header_layout_value' )
  * @param  string $value Default meta-value.
  * @return string
  */
-function rx_theme_set_post_meta_value( $value ) {
-	$queried_obj = rx_theme_get_queried_obj();
+function rvdx_theme_set_post_meta_value( $value ) {
+	$queried_obj = rvdx_theme_get_queried_obj();
 
 	if ( ! $queried_obj ) {
 		return $value;
 	}
 
-	$meta_key   = 'rx_theme_' . str_replace( 'theme_mod_', '', current_filter() );
+	$meta_key   = 'rvdx_theme_' . str_replace( 'theme_mod_', '', current_filter() );
 	$meta_value = get_post_meta( $queried_obj, $meta_key, true );
 
 	if ( ! $meta_value || 'inherit' === $meta_value ) {
@@ -51,13 +51,13 @@ function rx_theme_set_post_meta_value( $value ) {
  * @param  string $value Default meta-value.
  * @return string
  */
-function rx_theme_set_header_layout_value( $value ) {
+function rvdx_theme_set_header_layout_value( $value ) {
 
 	if ( wp_is_mobile() ) {
 		return 'mobile';
 	}
 
-	return rx_theme_set_post_meta_value( $value );
+	return rvdx_theme_set_post_meta_value( $value );
 }
 
 /**
@@ -65,10 +65,10 @@ function rx_theme_set_header_layout_value( $value ) {
  *
  * @return string|boolean
  */
-function rx_theme_get_queried_obj() {
-	$queried_obj = apply_filters( 'rx-theme/posts/queried_object_id', false );
+function rvdx_theme_get_queried_obj() {
+	$queried_obj = apply_filters( 'rvdx-theme/posts/queried_object_id', false );
 
-	if ( ! $queried_obj && ! rx_theme_maybe_need_rewrite_mod() ) {
+	if ( ! $queried_obj && ! rvdx_theme_maybe_need_rewrite_mod() ) {
 		return false;
 	}
 
@@ -83,7 +83,7 @@ function rx_theme_get_queried_obj() {
  *
  * @return boolean
  */
-function rx_theme_maybe_need_rewrite_mod() {
+function rvdx_theme_maybe_need_rewrite_mod() {
 
 	if ( is_front_page() && 'page' !== get_option( 'show_on_front' ) ) {
 		return false;
@@ -107,9 +107,9 @@ function rx_theme_maybe_need_rewrite_mod() {
  * @param  string $string String to parse.
  * @return string
  */
-function rx_theme_render_macros( $string ) {
+function rvdx_theme_render_macros( $string ) {
 
-	$macros = apply_filters( 'rx-theme/data_macros', array(
+	$macros = apply_filters( 'rvdx-theme/data_macros', array(
 		'/%%year%%/' => date( 'Y' ),
 		'/%%date%%/' => date( get_option( 'date_format' ) ),
 	) );
@@ -123,13 +123,13 @@ function rx_theme_render_macros( $string ) {
  * @param  string $content content to render
  * @return string
  */
-function rx_theme_render_icons( $content ) {
-	$icons     = rx_theme_get_render_icons_set();
+function rvdx_theme_render_icons( $content ) {
+	$icons     = rvdx_theme_get_render_icons_set();
 	$icons_set = implode( '|', array_keys( $icons ) );
 
 	$regex = '/icon:(' . $icons_set . ')?:?([a-zA-Z0-9-_]+)/';
 
-	return preg_replace_callback( $regex, 'rx_theme_render_icons_callback', $content );
+	return preg_replace_callback( $regex, 'rvdx_theme_render_icons_callback', $content );
 }
 
 /**
@@ -138,7 +138,7 @@ function rx_theme_render_icons( $content ) {
  * @param  array $matches Search matches array.
  * @return string
  */
-function rx_theme_render_icons_callback( $matches ) {
+function rvdx_theme_render_icons_callback( $matches ) {
 
 	if ( empty( $matches[1] ) && empty( $matches[2] ) ) {
 		return $matches[0];
@@ -148,7 +148,7 @@ function rx_theme_render_icons_callback( $matches ) {
 		return sprintf( '<i class="fa fa-%s"></i>', $matches[2] );
 	}
 
-	$icons = rx_theme_get_render_icons_set();
+	$icons = rvdx_theme_get_render_icons_set();
 
 	if ( ! isset( $icons[ $matches[1] ] ) ) {
 		return $matches[0];
@@ -162,8 +162,8 @@ function rx_theme_render_icons_callback( $matches ) {
  *
  * @return array
  */
-function rx_theme_get_render_icons_set() {
-	return apply_filters( 'rx-theme/icons/icons-set', array(
+function rvdx_theme_get_render_icons_set() {
+	return apply_filters( 'rvdx-theme/icons/icons-set', array(
 		'fa'       => '<i class="fa fa-%s"></i>',
 		'material' => '<i class="material-icons">%s</i>',
 	) );
@@ -175,7 +175,7 @@ function rx_theme_get_render_icons_set() {
  * @param  string $url Formatted URL to parse.
  * @return string
  */
-function rx_theme_render_theme_url( $url ) {
+function rvdx_theme_render_theme_url( $url ) {
 	return sprintf( $url, get_template_directory_uri() );
 }
 
@@ -184,7 +184,7 @@ function rx_theme_render_theme_url( $url ) {
  *
  * @return string
  */
-function rx_theme_justify_thumbnail_size( $mask = 0, $thumbnail_size = 'post-thumbnail', $justify_size='rx-theme-thumb-justify', $justify_size_1 = 'rx-theme-thumb-justify', $justify_size_2 = 'rx-theme-thumb-justify-2') {
+function rvdx_theme_justify_thumbnail_size( $mask = 0, $thumbnail_size = 'post-thumbnail', $justify_size='rvdx-theme-thumb-justify', $justify_size_1 = 'rvdx-theme-thumb-justify', $justify_size_2 = 'rvdx-theme-thumb-justify-2') {
 	$mask_list = array(
 		array( $justify_size_1, $justify_size_2, $justify_size_2, $justify_size_1, $justify_size_1, $justify_size_1, $justify_size_1 ),
 		array( $justify_size_1, $justify_size_1, $justify_size_2, $justify_size_2, $justify_size_1, $justify_size_1, $justify_size_1, $justify_size_2, $justify_size_1 )
@@ -201,8 +201,8 @@ function rx_theme_justify_thumbnail_size( $mask = 0, $thumbnail_size = 'post-thu
  *
  * @return string
  */
-function rx_theme_get_post_template_part_slug() {
-	return apply_filters( 'rx-theme/posts/template-part-slug', 'template-parts/content' );
+function rvdx_theme_get_post_template_part_slug() {
+	return apply_filters( 'rvdx-theme/posts/template-part-slug', 'template-parts/content' );
 }
 
 /**
@@ -210,8 +210,8 @@ function rx_theme_get_post_template_part_slug() {
  *
  * @return string
  */
-function rx_theme_get_post_style() {
-	return apply_filters( 'rx-theme/posts/post-style', false );
+function rvdx_theme_get_post_style() {
+	return apply_filters( 'rvdx-theme/posts/post-style', false );
 }
 
 /**
@@ -221,7 +221,7 @@ function rx_theme_get_post_style() {
  *
  * @return array
  */
-function rx_theme_kses_post_allowed_html( $additional_allowed_html = array() ) {
+function rvdx_theme_kses_post_allowed_html( $additional_allowed_html = array() ) {
 	$allowed_html = wp_kses_allowed_html( 'post' );
 
 	if ( ! empty( $additional_allowed_html ) ) {
