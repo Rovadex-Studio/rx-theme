@@ -26,6 +26,21 @@ add_filter( 'widget_nav_menu_args', 'rvdx_theme_modify_nav_menu', 10, 4 );
 // Render macros in widget text.
 add_filter( 'widget_text', 'rvdx_theme_widget_text_parse_content', 10, 1 );
 
+// Add a pingback url auto-discovery header for single posts, pages, or attachments.
+add_action( 'wp_head', 'rvdx_theme_pingback_header' );
+
+/**
+ * Add a pingback url auto-discovery header for single posts, pages, or attachments.
+  *
+ * @since  1.0.0
+ * @return string `<link>` tag for pingback.
+ */
+function rvdx_theme_pingback_header() {
+	if ( is_singular() && pings_open() ) {
+		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
+	}
+}
+
 /**
  * Adds the meta viewport to the header.
  *
