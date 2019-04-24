@@ -13,7 +13,6 @@
 if ( ! function_exists( 'rvdx_theme_get_allowed_modules' ) ) {
 	function rvdx_theme_get_allowed_modules() {
 		return apply_filters( 'rvdx-theme/allowed-modules', array(
-			'blog-layouts'    => array(),
 			'woo'             => array(
 				'woo-breadcrumbs' => array(),
 			),

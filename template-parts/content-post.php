@@ -5,7 +5,7 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>><?php
 
-	get_template_part( 'template-parts/single-post/headers/header-v1', get_post_format() );
+	get_template_part( 'template-parts/single-post/header', get_post_format() );
 	get_template_part( 'template-parts/single-post/content', get_post_format() );
 	get_template_part( 'template-parts/single-post/footer' );
 

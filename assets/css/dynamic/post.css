@@ -204,12 +204,3 @@
 	border-color: $accent_color;
 	background-color: $accent_color;
 }
-
-.single-header-5 a.comments-button {
-	border: 1px solid $invert_text_color;
-}
-
-.single-header-5 a.comments-button:hover {
-	color: $link_color;
-	background-color: $invert_text_color;
-}
