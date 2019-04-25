@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rvdx Theme\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2019-04-05 17:32+0300\n"
+"POT-Creation-Date: 2019-04-25 17:15+0300\n"
 "PO-Revision-Date: 2018-05-29 11:17+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -75,7 +75,7 @@ msgid "JetWidgets For Elementor"
 msgstr ""
 
 #: config/plugins-wizard.php:40
-msgid "Rvdx Theme Assistant"
+msgid "Rx Theme Assistant"
 msgstr ""
 
 #: config/plugins-wizard.php:47
@@ -122,12 +122,6 @@ msgstr ""
 msgid "Theme"
 msgstr ""
 
-#: config/plugins-wizard.php:133
-msgid ""
-"An ideal solution particularly regards to plumber and water service as well "
-"as it enables you to build a wide variety of business websites."
-msgstr ""
-
 #: config/plugins-wizard.php:143
 msgid "Documentation"
 msgstr ""
@@ -171,11 +165,7 @@ msgstr ""
 msgid "Author Site"
 msgstr ""
 
-#: config/plugins-wizard.php:169
-msgid "Rvdx Theme"
-msgstr ""
-
-#: config/sidebars.php:13 inc/customizer.php:1259 inc/customizer.php:1400
+#: config/sidebars.php:13 inc/customizer.php:1259 inc/customizer.php:1413
 msgid "Sidebar"
 msgstr ""
 
@@ -183,7 +173,7 @@ msgstr ""
 msgid "Shop Sidebar"
 msgstr ""
 
-#: header.php:26
+#: header.php:25
 msgid "Skip to content"
 msgstr ""
 
@@ -793,15 +783,15 @@ msgstr ""
 msgid "Background Position"
 msgstr ""
 
-#: inc/customizer.php:1188 inc/customizer.php:1653
+#: inc/customizer.php:1188 inc/customizer.php:1666
 msgid "Left"
 msgstr ""
 
-#: inc/customizer.php:1189 inc/customizer.php:1651
+#: inc/customizer.php:1189 inc/customizer.php:1664
 msgid "Center"
 msgstr ""
 
-#: inc/customizer.php:1190 inc/customizer.php:1654
+#: inc/customizer.php:1190 inc/customizer.php:1667
 msgid "Right"
 msgstr ""
 
@@ -841,15 +831,15 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: inc/customizer.php:1265 inc/customizer.php:1405
+#: inc/customizer.php:1265 inc/customizer.php:1418
 msgid "Sidebar on left side"
 msgstr ""
 
-#: inc/customizer.php:1266 inc/customizer.php:1406
+#: inc/customizer.php:1266 inc/customizer.php:1419
 msgid "Sidebar on right side"
 msgstr ""
 
-#: inc/customizer.php:1267 inc/customizer.php:1407
+#: inc/customizer.php:1267 inc/customizer.php:1420
 msgid "No sidebar"
 msgstr ""
 
@@ -893,261 +883,218 @@ msgstr ""
 msgid "Featured"
 msgstr ""
 
-#: inc/customizer.php:1307 inc/customizer.php:1412 inc/customizer.php:1510
+#: inc/customizer.php:1307 inc/customizer.php:1425 inc/customizer.php:1523
 msgid "Show post author"
 msgstr ""
 
-#: inc/customizer.php:1315 inc/customizer.php:1419
+#: inc/customizer.php:1315 inc/customizer.php:1432
 msgid "Show publish date"
 msgstr ""
 
-#: inc/customizer.php:1323 inc/customizer.php:1426
+#: inc/customizer.php:1323 inc/customizer.php:1439
 msgid "Show categories"
 msgstr ""
 
-#: inc/customizer.php:1331 inc/customizer.php:1433
+#: inc/customizer.php:1331 inc/customizer.php:1446
 msgid "Show tags"
 msgstr ""
 
-#: inc/customizer.php:1339 inc/customizer.php:1440
+#: inc/customizer.php:1339 inc/customizer.php:1453
 msgid "Show comments"
 msgstr ""
 
 #: inc/customizer.php:1347
-msgid "Show Excerpt"
+msgid "Post Image Size"
+msgstr ""
+
+#: inc/customizer.php:1353
+msgid "Original Size"
+msgstr ""
+
+#: inc/customizer.php:1354
+msgid "Full Width"
 msgstr ""
 
 #: inc/customizer.php:1355
-msgid "Excerpt Words Count"
+msgid "Fill Container"
+msgstr ""
+
+#: inc/customizer.php:1360
+msgid "Show Excerpt"
 msgstr ""
 
 #: inc/customizer.php:1368
+msgid "Excerpt Words Count"
+msgstr ""
+
+#: inc/customizer.php:1381
 msgid "Read more button type"
 msgstr ""
 
-#: inc/customizer.php:1374
+#: inc/customizer.php:1387
 msgid "Text"
 msgstr ""
 
-#: inc/customizer.php:1375
+#: inc/customizer.php:1388
 msgid "Icon"
 msgstr ""
 
-#: inc/customizer.php:1376
+#: inc/customizer.php:1389
 msgid "Text & Icon"
 msgstr ""
 
-#: inc/customizer.php:1377
+#: inc/customizer.php:1390
 msgid "None"
 msgstr ""
 
-#: inc/customizer.php:1382
+#: inc/customizer.php:1395
 msgid "Read more button text"
 msgstr ""
 
-#: inc/customizer.php:1384
+#: inc/customizer.php:1397
 msgid "More"
 msgstr ""
 
-#: inc/customizer.php:1393
+#: inc/customizer.php:1406
 msgid "Post"
 msgstr ""
 
-#: inc/customizer.php:1447
+#: inc/customizer.php:1460
 msgid "Enable the author block after each post"
 msgstr ""
 
-#: inc/customizer.php:1456
+#: inc/customizer.php:1469
 msgid "Related posts block"
 msgstr ""
 
-#: inc/customizer.php:1463
+#: inc/customizer.php:1476
 msgid "Show related posts block"
 msgstr ""
 
-#: inc/customizer.php:1470
+#: inc/customizer.php:1483
 msgid "Related posts block title"
 msgstr ""
 
-#: inc/customizer.php:1472
+#: inc/customizer.php:1485
 msgid "Related Posts"
 msgstr ""
 
-#: inc/customizer.php:1477
+#: inc/customizer.php:1490
 msgid "Number of post"
 msgstr ""
 
-#: inc/customizer.php:1484 inc/modules/blog-layouts/module.php:144
+#: inc/customizer.php:1497
 msgid "Layout"
 msgstr ""
 
-#: inc/customizer.php:1489
+#: inc/customizer.php:1502
 msgid "2 columns"
 msgstr ""
 
-#: inc/customizer.php:1490
+#: inc/customizer.php:1503
 msgid "3 columns"
 msgstr ""
 
-#: inc/customizer.php:1491
+#: inc/customizer.php:1504
 msgid "4 columns"
 msgstr ""
 
-#: inc/customizer.php:1496
+#: inc/customizer.php:1509
 msgid "Show post image"
 msgstr ""
 
-#: inc/customizer.php:1503
+#: inc/customizer.php:1516
 msgid "Show post publish date"
 msgstr ""
 
-#: inc/customizer.php:1517
+#: inc/customizer.php:1530
 msgid "Show post title"
 msgstr ""
 
-#: inc/customizer.php:1524
+#: inc/customizer.php:1537
 msgid "Display excerpt"
 msgstr ""
 
-#: inc/customizer.php:1603
+#: inc/customizer.php:1616
 msgid "Body Background Color"
 msgstr ""
 
-#: inc/customizer.php:1617
+#: inc/customizer.php:1630
 msgid "Normal"
 msgstr ""
 
-#: inc/customizer.php:1618
+#: inc/customizer.php:1631
 msgid "Italic"
 msgstr ""
 
-#: inc/customizer.php:1619
+#: inc/customizer.php:1632
 msgid "Oblique"
 msgstr ""
 
-#: inc/customizer.php:1620 inc/customizer.php:1650
+#: inc/customizer.php:1633 inc/customizer.php:1663
 msgid "Inherit"
 msgstr ""
 
-#: inc/customizer.php:1632
+#: inc/customizer.php:1645
 msgid "Latin"
 msgstr ""
 
-#: inc/customizer.php:1633
+#: inc/customizer.php:1646
 msgid "Greek"
 msgstr ""
 
-#: inc/customizer.php:1634
+#: inc/customizer.php:1647
 msgid "Greek Extended"
 msgstr ""
 
-#: inc/customizer.php:1635
+#: inc/customizer.php:1648
 msgid "Vietnamese"
 msgstr ""
 
-#: inc/customizer.php:1636
+#: inc/customizer.php:1649
 msgid "Cyrillic Extended"
 msgstr ""
 
-#: inc/customizer.php:1637
+#: inc/customizer.php:1650
 msgid "Latin Extended"
 msgstr ""
 
-#: inc/customizer.php:1638
+#: inc/customizer.php:1651
 msgid "Cyrillic"
 msgstr ""
 
-#: inc/customizer.php:1652
+#: inc/customizer.php:1665
 msgid "Justify"
 msgstr ""
 
-#: inc/customizer.php:1716
+#: inc/customizer.php:1729
 #, php-format
 msgid ""
 "&copy; %%year%% Rovadex | Multipurpose WP Theme with Elementor Page Builder"
 msgstr ""
 
-#: inc/hooks.php:103
+#: inc/hooks.php:120
 msgid "Post Thumbnail"
 msgstr ""
 
-#: inc/hooks.php:127
+#: inc/hooks.php:144
 msgid "Submit Comment"
 msgstr ""
 
-#: inc/hooks.php:129
+#: inc/hooks.php:146
 msgid "Name"
 msgstr ""
 
-#: inc/hooks.php:131
+#: inc/hooks.php:148
 msgid "E-mail"
 msgstr ""
 
-#: inc/hooks.php:133
+#: inc/hooks.php:150
 msgid "Website"
 msgstr ""
 
-#: inc/hooks.php:135
+#: inc/hooks.php:152
 msgid "Comments *"
-msgstr ""
-
-#: inc/modules/blog-layouts/module.php:150
-msgid "Listing"
-msgstr ""
-
-#: inc/modules/blog-layouts/module.php:151
-msgid "Grid"
-msgstr ""
-
-#: inc/modules/blog-layouts/module.php:152
-msgid "Masonry"
-msgstr ""
-
-#: inc/modules/blog-layouts/module.php:153
-msgid "Vertical Justify"
-msgstr ""
-
-#: inc/modules/blog-layouts/module.php:154
-msgid "Creative"
-msgstr ""
-
-#: inc/modules/blog-layouts/module.php:155
-msgid "Timeline"
-msgstr ""
-
-#: inc/modules/blog-layouts/template-parts/layout/creative.php:31
-#: inc/modules/blog-layouts/template-parts/layout/grid.php:20
-#: inc/modules/blog-layouts/template-parts/layout/list.php:22
-#: inc/modules/blog-layouts/template-parts/layout/masonry.php:19
-#: inc/modules/blog-layouts/template-parts/layout/timeline.php:31
-#: inc/modules/blog-layouts/template-parts/layout/vertical-justify.php:22
-#: template-parts/content-search.php:17 template-parts/content.php:23
-#: template-parts/single-post/headers/header-v1.php:18
-#: template-parts/single-post/headers/header-v4.php:24
-#: template-parts/single-post/headers/header-v5.php:36
-msgid "In"
-msgstr ""
-
-#: inc/modules/blog-layouts/template-parts/layout/creative.php:34
-#: inc/modules/blog-layouts/template-parts/layout/grid.php:24
-#: inc/modules/blog-layouts/template-parts/layout/list.php:25
-#: inc/modules/blog-layouts/template-parts/layout/masonry.php:23
-#: inc/modules/blog-layouts/template-parts/layout/vertical-justify.php:26
-#: post-templates/single-layout-3.php:24 template-parts/content-search.php:20
-#: template-parts/content.php:26
-#: template-parts/single-post/headers/header-v1.php:21
-#: template-parts/single-post/headers/header-v2.php:47
-#: template-parts/single-post/headers/header-v3.php:26
-#: template-parts/single-post/headers/header-v4.php:27
-#: template-parts/single-post/headers/header-v5.php:39
-msgid "Posted"
-msgstr ""
-
-#: inc/modules/blog-layouts/template-parts/layout/creative.php:37
-#: inc/modules/blog-layouts/template-parts/layout/list.php:39
-#: inc/modules/blog-layouts/template-parts/layout/timeline.php:41
-#: template-parts/content.php:40 template-parts/single-post/footer.php:15
-msgid "Tags:"
 msgstr ""
 
 #: inc/modules/woo/includes/wc-integration.php:160
@@ -1248,9 +1195,21 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: template-parts/single-post/headers/header-v1.php:24
-#: template-parts/single-post/headers/header-v3.php:30
-#: template-parts/single-post/headers/header-v4.php:34
+#: template-parts/content-search.php:17 template-parts/content.php:23
+#: template-parts/single-post/header.php:17
+msgid "In"
+msgstr ""
+
+#: template-parts/content-search.php:20 template-parts/content.php:26
+#: template-parts/single-post/header.php:20
+msgid "Posted"
+msgstr ""
+
+#: template-parts/content.php:40 template-parts/single-post/footer.php:15
+msgid "Tags:"
+msgstr ""
+
+#: template-parts/single-post/header.php:23
 msgid "Comment(s)"
 msgstr ""
 
