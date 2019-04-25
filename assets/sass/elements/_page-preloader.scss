@@ -31,7 +31,11 @@ $main-loader-border-width: 3px;
 }
 
 .website-loading{
-	overflow: hidden;
+	overflow-y: scroll;
+	.site{
+		overflow: hidden;
+		height: 1vh;
+	}
 }
 
 @keyframes tm_spin {

@@ -1343,6 +1343,19 @@ function rvdx_theme_get_customizer_options() {
 				'priority' => 45,
 				'type'     => 'control',
 			),
+			'blog_post_image_size' => array(
+				'title'    => esc_html__( 'Post Image Size', 'dentalica' ),
+				'section'  => 'blog',
+				'default'  => 'original',
+				'field'    => 'select',
+				'priority' => 52,
+				'choices' => array(
+					'original'      => esc_html__( 'Original Size', 'dentalica' ),
+					'full-width'      => esc_html__( 'Full Width', 'dentalica' ),
+					'fill-container' => esc_html__( 'Fill Container', 'dentalica' ),
+				),
+				'type'    => 'control',
+			),
 			'blog_post_excerpt' => array(
 				'title'   => esc_html__( 'Show Excerpt', 'rvdx-theme' ),
 				'section' => 'blog',

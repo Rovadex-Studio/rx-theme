@@ -144,11 +144,26 @@ span.tags-links {
 
 .post-thumbnail {
 	&__link {
-		display: inline-block;
+		display: block;
 	}
 	img {
 		display: block;
 		@include border-radius;
+		object-fit: cover;
+		margin: 0 auto;
+		max-width: 100%;
+		.blog-image-size-full-width &{
+			width: 100%;
+			height: auto;
+		}
+		.blog-image-size-fill-container &{
+			width: 100%;
+			height: 500px;
+		}
+		.blog-image-size-original &{
+			width: auto;
+			max-height: 500px;
+		}
 	}
 	.grid-item & {
 		margin-bottom: 20px;
