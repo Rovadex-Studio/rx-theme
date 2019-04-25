@@ -10,6 +10,10 @@ $main-loader-border-width: 3px;
 	width: 100%;
 	height: 100%;
 	background-color: $color__bg-preloader-cover;
+	&.hide-loader{
+		transition: all 0.5s ease-in;
+		transform: translateY( -100% );
+	}
 }
 
 .page-preloader {
@@ -24,6 +28,10 @@ $main-loader-border-width: 3px;
 	margin: ($main-loader-width+$main-loader-border-width)/-2 0 0 ($main-loader-width+$main-loader-border-width)/-2;
 	animation: tm_spin 1s linear infinite;
 	z-index: 11;
+}
+
+.website-loading{
+	overflow: hidden;
 }
 
 @keyframes tm_spin {

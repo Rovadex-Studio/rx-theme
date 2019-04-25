@@ -24,9 +24,22 @@
 
 		page_preloader_init: function(self) {
 			if ($('.page-preloader-cover')[0]) {
-				$('.page-preloader-cover').delay(500).fadeTo(500, 0, function() {
-					$(this).remove();
-				});
+				$( window ).on('load', function () {
+					if ( "onanimationend" in window && 'ontransitionend' in window ) {
+						$('.page-preloader-cover')
+							.on( 'animationend', removePreLoader )
+							.on( 'transitionend', removePreLoader )
+							.addClass( 'hide-loader' );
+							console.log('asdasdasd');
+					} else {
+						$('.page-preloader-cover').fadeTo(500, 0, removePreLoader);
+					}
+
+					function removePreLoader(){
+						$( this ).remove();
+						$( 'body' ).removeClass( 'website-loading' )
+					}
+				})
 			}
 		},
 

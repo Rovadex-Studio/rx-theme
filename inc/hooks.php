@@ -80,11 +80,12 @@ function rvdx_theme_body_classes( $classes ) {
 	$layout      = rvdx_theme()->customizer->get_value( 'container_type' );
 	$blog_layout = rvdx_theme()->customizer->get_value( 'blog_layout_type' );
 	$blog_style = rvdx_theme()->customizer->get_value( 'blog_style' );
+	$page_preloader = ( rvdx_theme()->customizer->get_value( 'page_preloader' ) ) ? 'website-loading' : '' ;
 	$sb_position = rvdx_theme()->sidebar_position;
 	$sidebar     = rvdx_theme()->customizer->get_value( 'sidebar_width' );
 	$post_name   = ! empty( $post->post_name ) ? $post->post_name : '';
 
-	array_push( $options_based_classes, 'layout-' . $layout, 'blog-' . $blog_layout, $post_name );
+	array_push( $options_based_classes, 'layout-' . $layout, 'blog-' . $blog_layout, $post_name, $page_preloader );
 	if( 'none' !== $sb_position ) {
 		array_push( $options_based_classes, 'sidebar_enabled', 'position-' . $sb_position, 'sidebar-' . str_replace( '/', '-', $sidebar ) );
 	}
