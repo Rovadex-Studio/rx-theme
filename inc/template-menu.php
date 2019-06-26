@@ -13,7 +13,8 @@
  */
 function rvdx_theme_main_menu() {
 
-	$classes[] = 'main-navigation ';
+	$classes[] = 'main-navigation';
+	$classes[] = 'default';
 
 	?>
 	<nav id="site-navigation" class="<?php echo join( ' ', $classes ); ?>" role="navigation">

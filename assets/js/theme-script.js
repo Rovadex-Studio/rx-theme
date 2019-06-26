@@ -103,73 +103,35 @@
 				return false;
 			}
 
-			var $controls         = $( '.rvdx-mobile-panel__control', $mobilePanel ),
-				controlsData      = {},
-				$sidebarToggle    = $( '.rvdx-mobile-panel__control--sidebar', $mobilePanel ),
-				$mobileMenuToggle = $( '.rvdx-mobile-panel__control--mobile-menu', $mobilePanel );
+			var $manuToggle    = $( '.rvdx-mobile-panel__control--mobile-menu', $mobilePanel ),
+				$sidebarToggle = $( '.rvdx-mobile-panel__control--sidebar', $mobilePanel );
 
-			$controls.each( function( intex ) {
-				var $control    = $( this ),
-					type        = $control.data( 'control-type' ),
-					controlData = {
-						'selector': $control,
-						'type': type,
-						'status': 'hidden',
-					};
+			$sidebarToggle.on( 'click.rvdx-mobile-panel', function(){
+				var toggle = $(this);
 
-				controlsData[ type ] = controlData;
-			} );
+				$( '.active', $mobilePanel ).not( toggle ).removeClass( 'active' );
+				toggle.toggleClass( 'active' );
 
-			$controls.on( 'click.RvdxTheme', function( event ) {
-				var $this = $( this ),
-					type  = $this.data( 'control-type' );
+				$body.removeClass( 'mobile-menu-visible' ).toggleClass( 'sidebar-visible' );
+			} )
 
-				if ( ! $this.hasClass( 'active' ) ) {
-					modifyControlData( type, 'status', 'visible' );
-				} else {
-					modifyControlData( type, 'status', 'hidden' );
-				}
-
-				controlsSync();
-			} );
-
-			this.$window.on( 'rvdx-theme/responsive-menu/mobile/hide-event', function() {
-				//$mobileMenuToggle.removeClass( 'active' );
-
-				modifyControlData( 'mobile-menu', 'status', 'hidden' );
-				controlsSync();
-			} );
-
-			function modifyControlData( type, key, value ) {
-
-				if ( 'status' === key ) {
-					for ( var _key in controlsData ) {
-						controlsData[ _key ][ 'status' ] = 'hidden';
-					}
-				}
-
-				controlsData[ type ][ key ] = value;
+			if( ! $('.main-navigation, .rx-menu-on-mobile-panel')[0] ){
+				$manuToggle.remove();
+				return false;
 			}
 
-			function controlsSync() {
+			$manuToggle.on( 'click.rvdx-mobile-panel', function(){
+				var toggle = $(this),
+					iconHolder = $('i', toggle),
+					icon = iconHolder.attr( 'class' ) ===  iconHolder.data( 'icon' ) ? iconHolder.data( 'close-icon' ) : iconHolder.data( 'icon' ) ;
 
-				for ( var key in controlsData ) {
-					var $control = controlsData[ key ].selector,
-						type     = controlsData[ key ].type,
-						status   = controlsData[ key ].status;
+				$( '.active', $mobilePanel ).not( toggle ).removeClass( 'active' );
+				toggle.toggleClass( 'active' );
 
-					if ( 'hidden' == status ) {
-						$control.removeClass( 'active' );
-						$body.removeClass( type + '-visible' );
-					}
+				$('i', toggle).attr( 'class', icon );
 
-					if ( 'visible' == status ) {
-						$control.addClass( 'active' );
-						$body.addClass( type + '-visible' );
-					}
-
-				}
-			}
+				$body.removeClass( 'sidebar-visible' ).toggleClass( 'mobile-menu-visible' );
+			} )
 		},
 
 		eventsInit: function() {

@@ -18,19 +18,21 @@ $controls_list = [
 		'after'  => '',
 	],
 	'mobile-menu' => [
-		'label' => false,
-		'icon'  => 'fa fa-bars',
-		'link'  => false,
-		'before' => '',
-		'after'  => '',
+		'label'         => false,
+		'icon'          => 'fa fa-bars',
+		'close-icon'    => 'fa fa-bars',
+		'link'          => false,
+		'before'        => '',
+		'after'         => '',
+		'mobile_layout' => 'default',
 	],
 ];
 
 if ( class_exists( 'WooCommerce' ) ) {
 	$controls_list['woo-card'] = [
-		'label' => false,
-		'icon'  => 'fa fa-shopping-cart',
-		'link'  => wc_get_cart_url(),
+		'label'  => false,
+		'icon'   => 'fa fa-shopping-cart',
+		'link'   => wc_get_cart_url(),
 		'before' => '',
 		'after'  => rvdx_theme_mobile_panel_woo_after_content(),
 	];
@@ -38,20 +40,21 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 if ( is_active_sidebar( 'sidebar' ) && 'none' !== rvdx_theme()->sidebar_position ) {
 	$controls_list['sidebar'] = [
-		'label' => false,
-		'icon'  => 'fa fa-ellipsis-h',
-		'link'  => false,
-		'before' => '',
-		'after'  => '',
+		'label'         => false,
+		'icon'          => 'fa fa-ellipsis-h',
+		'link'          => false,
+		'before'        => '',
+		'after'         => '',
+		'mobile_layout' => 'default-layout',
 	];
 }
 
-global $rx_navigation_widget_data;
+/*global $rx_navigation_widget_data;
 
 if ( isset( $rx_navigation_widget_data ) ) {
 	$mobile_trigger_icon = $rx_navigation_widget_data['mobile_trigger_icon'];
 	$controls_list['mobile-menu']['icon'] = $mobile_trigger_icon;
-}
+}*/
 
 $controls_list = apply_filters( 'rvdx-theme/mobile-panel/mobile-panel-controls', $controls_list );
 
@@ -61,14 +64,14 @@ $controls_list = apply_filters( 'rvdx-theme/mobile-panel/mobile-panel-controls',
 
 			if ( ! empty( $controls_list ) ) {
 				foreach ( $controls_list as $control_slug => $control_data ) {
-					$label   = ! empty( $control_data['label'] ) ? sprintf( '<span>%s</span>', $control_data['label'] ) : '';
-					$icon    = $control_data['icon'];
-					$link    = $control_data['link'];
-					$before  = $control_data['before'];
-					$after   = $control_data['after'];
-					$classes = sprintf( 'rvdx-mobile-panel__control--%s', $control_slug );
-
-					$button = sprintf( '<i class="%1$s"></i>%2$s', $icon, $label );
+					$label      = ! empty( $control_data['label'] ) ? sprintf( '<span>%s</span>', $control_data['label'] ) : '';
+					$icon       = $control_data['icon'];
+					$close_icon = isset( $control_data['close-icon'] ) ? 'data-close-icon="' . $control_data['close-icon'] . '"' : '' ;
+					$link       = $control_data['link'];
+					$before     = $control_data['before'];
+					$after      = $control_data['after'];
+					$classes    = sprintf( 'rvdx-mobile-panel__control--%s', $control_slug );
+					$button     = sprintf( '<i class="%1$s" data-icon="%1$s" %2$s></i>%3$s', $icon, $close_icon, $label );
 
 					if ( ! empty( $link ) ) {
 						$button = sprintf( '<a href="%s">%s</a>', $link, $button );

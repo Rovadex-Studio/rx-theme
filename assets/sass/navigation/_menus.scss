@@ -1,12 +1,6 @@
 .main-navigation {
 	position: relative;
 	flex: 0 1 auto;
-
-	@media (max-width: 767px) {
-		position: fixed;
-		opacity: 0;
-		pointer-events: none;
-	}
 }
 
 .menu {
@@ -188,22 +182,25 @@
 		padding-bottom: 60px;
 		background-color: $color__white;
 		z-index: 998;
+	}
+
+	.main-navigation.default {
 		opacity: 0;
 		pointer-events: none;
-		transition: opacity 0.3s ease;
+		transition: opacity .4s cubic-bezier(0.4, 0, 1, 1);
+	}
+
+	&.mobile-menu-visible {
+		.site-header .main-navigation.default{
+			opacity: 1;
+			pointer-events: all;
+			transition-timing-function:cubic-bezier(0.22, 0.61, 0.36, 1);
+		}
 	}
 
 	.main-navigation-inner {
 		width: 100%;
 		overflow-y: scroll;
-	}
-
-	&.mobile-menu-visible {
-		.site-header .main-navigation{
-			opacity: 1;
-			pointer-events: all;
-			transition: opacity .5s cubic-bezier(.35,.19,.45,.91);
-		}
 	}
 
 	.menu-inner {

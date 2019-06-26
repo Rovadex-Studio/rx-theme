@@ -50,7 +50,7 @@ body{
 		z-index: 997;
 		opacity: 0;
 		pointer-events: none;
-		transition: opacity 0.3s ease;
+		transition: opacity 0.4s cubic-bezier(0.4, 0, 1, 1);
 	}
 
 	@media (max-width: 768px) {
@@ -62,6 +62,7 @@ body{
 	.mobile-layout.sidebar-visible & {
 		opacity: 1;
 		pointer-events: all;
+		transition-timing-function:cubic-bezier(0.22, 0.61, 0.36, 1);
 	}
 }
 
