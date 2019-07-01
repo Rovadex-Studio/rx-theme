@@ -49,13 +49,6 @@ if ( is_active_sidebar( 'sidebar' ) && 'none' !== rvdx_theme()->sidebar_position
 	];
 }
 
-/*global $rx_navigation_widget_data;
-
-if ( isset( $rx_navigation_widget_data ) ) {
-	$mobile_trigger_icon = $rx_navigation_widget_data['mobile_trigger_icon'];
-	$controls_list['mobile-menu']['icon'] = $mobile_trigger_icon;
-}*/
-
 $controls_list = apply_filters( 'rvdx-theme/mobile-panel/mobile-panel-controls', $controls_list );
 
 ?><div class="rvdx-mobile-panel">

@@ -13,7 +13,7 @@ $breadcrumbs_visibillity = rvdx_theme()->customizer->get_value( 'breadcrumbs_vis
  * [$breadcrumbs_visibillity description]
  * @var [type]
  */
-$breadcrumbs_visibillity = apply_filters( 'rvdx-theme/breadcrumbs/breadcrumbs-visibillity', $breadcrumbs_visibillity );
+$breadcrumbs_visibillity = apply_filters( 'rx-theme/breadcrumbs/breadcrumbs-visibillity', $breadcrumbs_visibillity );
 
 if ( ! $breadcrumbs_visibillity ) {
 	return;
