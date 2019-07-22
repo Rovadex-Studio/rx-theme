@@ -725,6 +725,9 @@ if ( ! function_exists( 'rvdx_theme_the_title' ) ) {
 	 */
 
 	function rvdx_theme_the_title( $args = array() ) {
+		if( rvdx_theme()->customizer->get_value( 'breadcrumbs_page_title' ) || ! rvdx_theme()->customizer->get_value( 'page_title_visibility' ) ){
+			return '';
+		}
 
 		switch ( true ) {
 			case function_exists( 'is_woocommerce' ) && is_woocommerce():

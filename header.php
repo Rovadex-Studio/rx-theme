@@ -31,10 +31,14 @@
 			return;
 		}
 	?>
+	<?php if( rvdx_theme()->customizer->get_value( 'breadcrumbs_visibillity' ) || rvdx_theme()->customizer->get_value( 'page_title_visibility' ) ){ ?>
+
 	<div class="page-header site-header__wrap">
 		<div class="container">
 			<?php rvdx_theme_the_title(); ?>
 			<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
 		</div>
 	</div><!-- .page-header -->
+
+	<?php } ?>
 	<div id="content" <?php echo rvdx_theme_get_container_classes( 'site-content' ); ?>>

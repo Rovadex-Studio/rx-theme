@@ -18,15 +18,12 @@ function rvdx_theme_get_breadcrumbs_options() {
 	 *
 	 * @since 1.0.0
 	 */
-
-	/* 'show_on_front'     => rvdx_theme()->customizer->get_value( 'breadcrumbs_front_visibillity' ),
-	'show_title'        => rvdx_theme()->customizer->get_value( 'breadcrumbs_page_title' ),
-	'path_type'         => rvdx_theme()->customizer->get_value( 'breadcrumbs_path_type' ), */
+	$show_title = rvdx_theme()->customizer->get_value( 'page_title_visibility' ) && rvdx_theme()->customizer->get_value( 'breadcrumbs_page_title' );
 
 	return apply_filters( 'rvdx-theme/breadcrumbs/options' , array(
 		'show_browse'       => false,
 		'show_on_front'     => rvdx_theme()->customizer->get_value( 'breadcrumbs_front_visibillity' ),
-		'show_title'        => rvdx_theme()->customizer->get_value( 'breadcrumbs_page_title' ),
+		'show_title'        => $show_title,
 		'path_type'         => rvdx_theme()->customizer->get_value( 'breadcrumbs_path_type' ),
 		'css_namespace'     => array(
 			'module'    => 'breadcrumbs',

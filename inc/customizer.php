@@ -104,6 +104,13 @@ function rvdx_theme_get_customizer_options() {
 				),
 				'type'    => 'control',
 			),
+			'page_title_visibility' => array(
+				'title'   => esc_html__( 'Enable Page Title', 'rvdx-theme' ),
+				'section' => 'breadcrumbs',
+				'default' => true,
+				'field'   => 'checkbox',
+				'type'    => 'control',
+			),
 
 			/** `Social links` section */
 			'social_links' => array(
