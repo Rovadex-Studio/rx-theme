@@ -1,4 +1,6 @@
 .site-header {
+	position: relative;
+	z-index: 100;
 	&__wrap {
 		padding-top: 15px;
 		padding-bottom: 15px;
