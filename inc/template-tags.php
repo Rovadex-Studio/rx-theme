@@ -33,9 +33,6 @@ if ( ! function_exists( 'rvdx_theme_post_excerpt' ) ) :
 			$excerpt = get_the_content( '!--more' );
 			$post_format = strpos( $excerpt, '!--more' ) ? 'tag_more' : get_post_format() ;
 
-			$blog_type = rvdx_theme()->customizer->get_value( 'blog_layout_type' );
-			$post_format = ( 'default' === $blog_type ) ? $post_format : '' ;
-
 			switch ( $post_format ) {
 				case 'link':
 				case 'aside':
