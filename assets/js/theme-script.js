@@ -121,8 +121,8 @@
 			}
 
 			$manuToggle.on( 'click.rvdx-mobile-panel', function(){
-				var toggle = $(this),
-					iconHolder = $('i', toggle),
+				var toggle = $( this ),
+					iconHolder = $( 'i', toggle ),
 					icon = iconHolder.attr( 'class' ) ===  iconHolder.data( 'icon' ) ? iconHolder.data( 'close-icon' ) : iconHolder.data( 'icon' ) ;
 
 				$( '.active', $mobilePanel ).not( toggle ).removeClass( 'active' );
