@@ -115,7 +115,7 @@
 				$body.removeClass( 'mobile-menu-visible' ).toggleClass( 'sidebar-visible' );
 			} )
 
-			if( ! $('.main-navigation, .rx-menu-on-mobile-panel')[0] ){
+			if( typeof( elementor ) === 'undefined' && ! $('.rx-menu-on-mobile-panel.rx-mobile-menu')[0] ){
 				$manuToggle.remove();
 				return false;
 			}
