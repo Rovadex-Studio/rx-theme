@@ -27,7 +27,7 @@ function rvdx_theme_register_required_plugins() {
 	$plugins = array(
 		array(
 			'name'   => esc_html__( 'Rx Theme Wizard', 'rvdx-theme' ),
-			'slug'   => 'rvdx-theme-wizard',
+			'slug'   => 'rx-theme-wizard',
 			'source' => 'http://plugins.rovadex.com/rx-theme-wizard.zip',
 		),
 	);
