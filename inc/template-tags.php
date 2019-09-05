@@ -510,7 +510,7 @@ if ( ! function_exists( 'rvdx_theme_post_overlay_thumbnail' ) ) :
  *
  * @return string
  */
-function rvdx_theme_post_overlay_thumbnail( $img_size = 'rvdx-theme-thumb-xl', $postID = null ) {
+function rvdx_theme_post_overlay_thumbnail( $img_size = 'rvdx-theme-thumb-m', $postID = null ) {
 	$thumbnail = apply_filters(
 		'rvdx-theme/post/overlay-thumb',
 		get_the_post_thumbnail_url( $postID, $img_size )

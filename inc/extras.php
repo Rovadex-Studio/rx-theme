@@ -180,23 +180,6 @@ function rvdx_theme_render_theme_url( $url ) {
 }
 
 /**
- * Get justify thumbnail size.
- *
- * @return string
- */
-function rvdx_theme_justify_thumbnail_size( $mask = 0, $thumbnail_size = 'post-thumbnail', $justify_size='rvdx-theme-thumb-justify', $justify_size_1 = 'rvdx-theme-thumb-justify', $justify_size_2 = 'rvdx-theme-thumb-justify-2') {
-	$mask_list = array(
-		array( $justify_size_1, $justify_size_2, $justify_size_2, $justify_size_1, $justify_size_1, $justify_size_1, $justify_size_1 ),
-		array( $justify_size_1, $justify_size_1, $justify_size_2, $justify_size_2, $justify_size_1, $justify_size_1, $justify_size_1, $justify_size_2, $justify_size_1 )
-	);
-
-	global $wp_query;
-	$image_size_index = $wp_query->current_post % count( $mask_list[$mask] );
-
-	return $mask_list[$mask][$image_size_index];
-}
-
-/**
  * Get post template part slug.
  *
  * @return string

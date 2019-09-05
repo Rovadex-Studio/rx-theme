@@ -55,13 +55,6 @@ $plugins = array(
 		'access' => 'base',
 	),
 
-	'cherry-ld-mods-switcher' => array(
-		'name'   => esc_html__( 'Cherry ld mods switcher', 'rvdx-theme' ),
-		'source' => 'remote', // 'local', 'remote', 'wordpress' (default).
-		'path'   => 'https://plugins.rovadex.com/cherry-ld-mods-switcher.zip',
-		'access' => 'base',
-	),
-
 	'block-builder' => array(
 		'name'   => esc_html__( 'Elementor Blocks for Gutenberg', 'rvdx-theme' ),
 		'access' => 'base',
@@ -154,7 +147,7 @@ $skins = array(
 					),
 					'author' => array(
 						'thumb'       => 'https://plugins.rovadex.com/rx-theme-wizard/author-thumb.png',
-						'title'       => esc_html__( 'Author', 'rvdx-theme' ),
+						'title'       => esc_html__( 'Rovadex', 'rvdx-theme' ),
 						'description' => esc_html__( 'Business has an idea, an idea has a realization. We develop ideas for your business on the Internet. With our help, you will put into effect the most demanding and quality projects.', 'rvdx-theme' ),
 						'link_text'   => esc_html__( 'Author Site', 'rvdx-theme' ),
 						'link'        => 'https://rovadex.com/',

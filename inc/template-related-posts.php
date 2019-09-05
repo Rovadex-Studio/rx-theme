@@ -81,7 +81,7 @@ function rvdx_theme_related_posts() {
 
 			setup_postdata( $post );
 
-			$image = ( $settings['image_visible'] ) ? rvdx_theme_post_thumbnail( 'rvdx-theme-thumb-s', array( 'echo' => false ) ) : '';
+			$image = ( $settings['image_visible'] ) ? rvdx_theme_post_thumbnail( 'rvdx-theme-thumb-m', array( 'echo' => false ) ) : '';
 
 			$title = ( $settings['title_visible'] ) ? sprintf(
 				'<h6 class="entry-title"><a href="%s" rel="bookmark">%s</a></h6>',

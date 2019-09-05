@@ -10,7 +10,7 @@
 ?>
 <div class="related-post <?php echo esc_attr( $grid_class ); ?>"><?php
 	if ( $settings['image_visible'] ) :
-		rvdx_theme_post_thumbnail( 'rvdx-theme-thumb-s' );
+		rvdx_theme_post_thumbnail( 'rvdx-theme-thumb-m' );
 	endif; ?>
 	<div class="entry-meta"><?php
 		if ( $settings['date_visible'] ) :
