@@ -1232,6 +1232,53 @@ function rvdx_theme_get_customizer_options() {
 				'type'    => 'control',
 			),
 
+			/** 'Mobile Panel' panel */
+			'mobile_panel_options' => array(
+				'title'       => esc_html__( 'Mobile Panel', 'rvdx-theme' ),
+				'priority'    => 65,
+				'type'        => 'section',
+			),
+			'mobile_panel_enable' => array(
+				'title'   => esc_html__( 'Enable Mobile Panel', 'rvdx-theme' ),
+				'description' => esc_html__( 'This panel is displayed on mobile devices.', 'rvdx-theme' ),
+				'section' => 'mobile_panel_options',
+				'default' => true,
+				'field'   => 'checkbox',
+				'type'    => 'control',
+			),
+			'mobile_panel_home_button' => array(
+				'title'   => esc_html__( 'Show "Home button" in Mobile Panel', 'rvdx-theme' ),
+				'section' => 'mobile_panel_options',
+				'default' => true,
+				'field'   => 'checkbox',
+				'type'    => 'control',
+			),
+			'mobile_panel_main_menu' => array(
+				'title'   => esc_html__( 'Show "Main Menu" in Mobile Panel', 'rvdx-theme' ),
+				'section' => 'mobile_panel_options',
+				'default' => true,
+				'field'   => 'checkbox',
+				'type'    => 'control',
+			),
+
+			'mobile_panel_sidebar' => array(
+				'title'   => esc_html__( 'Show "Blog Sidebar" in Mobile Panel', 'rvdx-theme' ),
+				'section' => 'mobile_panel_options',
+				'default' => true,
+				'field'   => 'checkbox',
+				'type'    => 'control',
+			),
+
+			'mobile_panel_cart' => array(
+				'title'   => esc_html__( 'Show "Shop Cart" in Mobile Panel', 'rvdx-theme' ),
+				'description' => esc_html__( 'The cart will be displayed if the WooCommerce plugin is installed.', 'rvdx-theme' ),
+				'section' => 'mobile_panel_options',
+				'default' => true,
+				'field'   => 'checkbox',
+				'type'    => 'control',
+			),
+
+
 			/** `Footer` panel */
 			'footer_options' => array(
 				'title'    => esc_html__( 'Footer', 'rvdx-theme' ),
@@ -1547,28 +1594,6 @@ function rvdx_theme_get_customizer_options() {
 				'field'   => 'checkbox',
 				'type' => 'control',
 			),
-
-			/* 'related_posts_categories' => array(
-				'title'   => esc_html__( 'Show post categories', 'rvdx-theme' ),
-				'section' => 'related_posts',
-				'default' => true,
-				'field'   => 'checkbox',
-				'type'    => 'control',
-			), */
-			/* 'related_posts_tags' => array(
-				'title'   => esc_html__( 'Show post tags', 'rvdx-theme' ),
-				'section' => 'related_posts',
-				'default' => true,
-				'field'   => 'checkbox',
-				'type'    => 'control',
-			), */
-			/* 'related_posts_comment_count' => array(
-				'title'   => esc_html__( 'Show post comment count', 'rvdx-theme' ),
-				'section' => 'related_posts',
-				'default' => true,
-				'field'   => 'checkbox',
-				'type'    => 'control',
-			), */
 	) ) );
 }
 

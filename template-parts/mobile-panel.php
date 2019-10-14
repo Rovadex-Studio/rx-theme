@@ -7,17 +7,26 @@
  * @package Rvdx Theme
  */
 
+if( ! rvdx_theme()->customizer->get_value( 'mobile_panel_enable' ) ){
+	return;
+}
+
 do_action( 'rvdx-theme/mobile-panel/mobile-panel-before' );
 
-$controls_list = [
-	'home' => [
+$controls_list = array();
+
+if ( rvdx_theme()->customizer->get_value( 'mobile_panel_home_button' ) ) {
+	$controls_list['home'] = [
 		'label'  => false,
 		'icon'   => 'fa fa-home',
 		'link'   => get_home_url(),
 		'before' => '',
 		'after'  => '',
-	],
-	'mobile-menu' => [
+	];
+}
+
+if ( rvdx_theme()->customizer->get_value( 'mobile_panel_main_menu' ) ) {
+	$controls_list['mobile-menu'] = [
 		'label'         => false,
 		'icon'          => 'fa fa-bars',
 		'close-icon'    => 'fa fa-bars',
@@ -25,10 +34,10 @@ $controls_list = [
 		'before'        => '',
 		'after'         => '',
 		'mobile_layout' => 'default',
-	],
-];
+	];
+}
 
-if ( class_exists( 'WooCommerce' ) ) {
+if ( class_exists( 'WooCommerce' ) && rvdx_theme()->customizer->get_value( 'mobile_panel_cart' ) ) {
 	$controls_list['woo-card'] = [
 		'label'  => false,
 		'icon'   => 'fa fa-shopping-cart',
@@ -38,7 +47,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 	];
 }
 
-if ( is_active_sidebar( 'sidebar' ) && 'none' !== rvdx_theme()->sidebar_position ) {
+if ( is_active_sidebar( 'sidebar' ) && 'none' !== rvdx_theme()->sidebar_position  && rvdx_theme()->customizer->get_value( 'mobile_panel_sidebar' ) ) {
 	$controls_list['sidebar'] = [
 		'label'         => false,
 		'icon'          => 'fa fa-ellipsis-h',
@@ -77,7 +86,6 @@ $controls_list = apply_filters( 'rvdx-theme/mobile-panel/mobile-panel-controls',
 					?></div><?php
 				}
 			}
-
 		?></div>
 	</div>
 </div><?php
