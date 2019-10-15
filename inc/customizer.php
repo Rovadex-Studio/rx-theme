@@ -343,7 +343,7 @@ function rvdx_theme_get_customizer_options() {
 				'input_attrs' => array(
 					'min'  => -10,
 					'max'  => 10,
-					'step' => 1,
+					'step' => 0.01,
 				),
 				'type' => 'control',
 			),
@@ -427,7 +427,7 @@ function rvdx_theme_get_customizer_options() {
 				'input_attrs' => array(
 					'min'  => -10,
 					'max'  => 10,
-					'step' => 1,
+					'step' => 0.01,
 				),
 				'type' => 'control',
 			),
@@ -511,7 +511,7 @@ function rvdx_theme_get_customizer_options() {
 				'input_attrs' => array(
 					'min'  => -10,
 					'max'  => 10,
-					'step' => 1,
+					'step' => 0.01,
 				),
 				'type' => 'control',
 			),
@@ -595,7 +595,7 @@ function rvdx_theme_get_customizer_options() {
 				'input_attrs' => array(
 					'min'  => -10,
 					'max'  => 10,
-					'step' => 1,
+					'step' => 0.01,
 				),
 				'type' => 'control',
 			),
@@ -679,7 +679,7 @@ function rvdx_theme_get_customizer_options() {
 				'input_attrs' => array(
 					'min'  => -10,
 					'max'  => 10,
-					'step' => 1,
+					'step' => 0.01,
 				),
 				'type' => 'control',
 			),
@@ -763,7 +763,7 @@ function rvdx_theme_get_customizer_options() {
 				'input_attrs' => array(
 					'min'  => -10,
 					'max'  => 10,
-					'step' => 1,
+					'step' => 0.01,
 				),
 				'type' => 'control',
 			),
@@ -847,7 +847,7 @@ function rvdx_theme_get_customizer_options() {
 				'input_attrs' => array(
 					'min'  => -10,
 					'max'  => 10,
-					'step' => 1,
+					'step' => 0.01,
 				),
 				'type' => 'control',
 			),
@@ -982,7 +982,7 @@ function rvdx_theme_get_customizer_options() {
 				'input_attrs' => array(
 					'min'  => -10,
 					'max'  => 10,
-					'step' => 1,
+					'step' => 0.01,
 				),
 				'type' => 'control',
 			),
@@ -1058,7 +1058,7 @@ function rvdx_theme_get_customizer_options() {
 				'input_attrs' => array(
 					'min'  => -10,
 					'max'  => 10,
-					'step' => 1,
+					'step' => 0.01,
 				),
 				'type' => 'control',
 			),
@@ -1133,7 +1133,7 @@ function rvdx_theme_get_customizer_options() {
 				'input_attrs' => array(
 					'min'  => -10,
 					'max'  => 10,
-					'step' => 1,
+					'step' => 0.01,
 				),
 				'type' => 'control',
 			),
