@@ -8,7 +8,7 @@ input[type='submit'] {
 	font-size: $button_font_size{px};
 	line-height: $button_line_height;
 	font-family: @font_family( $button_font_family );
-	letter-spacing: $button_letter_spacing{px};
+	letter-spacing: $button_letter_spacing{em};
 
 	color: $invert_text_color;
 	background-color: $accent_color;

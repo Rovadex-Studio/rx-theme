@@ -5,7 +5,7 @@
 	font-size: $h6_font_size{px};
 	line-height: $h6_line_height;
 	font-family: @font_family( $h6_font_family );
-	letter-spacing: $h6_letter_spacing{px};
+	letter-spacing: $h6_letter_spacing{em};
 	color: $h6_color;
 }
 

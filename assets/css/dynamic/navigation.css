@@ -5,7 +5,7 @@
 	font-size: $breadcrumbs_font_size{px};
 	line-height: $breadcrumbs_line_height;
 	font-family: @font_family( $breadcrumbs_font_family );
-	letter-spacing: $breadcrumbs_letter_spacing{px};
+	letter-spacing: $breadcrumbs_letter_spacing{em};
 }
 
 .breadcrumbs_item_sep,

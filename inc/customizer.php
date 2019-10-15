@@ -336,7 +336,7 @@ function rvdx_theme_get_customizer_options() {
 				'type' => 'control',
 			),
 			'body_letter_spacing' => array(
-				'title'       => esc_html__( 'Letter Spacing, px', 'rvdx-theme' ),
+				'title'       => esc_html__( 'Letter Spacing, em', 'rvdx-theme' ),
 				'section'     => 'body_typography',
 				'default'     => '0',
 				'field'       => 'number',
@@ -420,7 +420,7 @@ function rvdx_theme_get_customizer_options() {
 				'type' => 'control',
 			),
 			'h1_letter_spacing' => array(
-				'title'       => esc_html__( 'Letter Spacing, px', 'rvdx-theme' ),
+				'title'       => esc_html__( 'Letter Spacing, em', 'rvdx-theme' ),
 				'section'     => 'h1_typography',
 				'default'     => '0',
 				'field'       => 'number',
@@ -504,7 +504,7 @@ function rvdx_theme_get_customizer_options() {
 				'type' => 'control',
 			),
 			'h2_letter_spacing' => array(
-				'title'       => esc_html__( 'Letter Spacing, px', 'rvdx-theme' ),
+				'title'       => esc_html__( 'Letter Spacing, em', 'rvdx-theme' ),
 				'section'     => 'h2_typography',
 				'default'     => '0',
 				'field'       => 'number',
@@ -588,7 +588,7 @@ function rvdx_theme_get_customizer_options() {
 				'type' => 'control',
 			),
 			'h3_letter_spacing' => array(
-				'title'       => esc_html__( 'Letter Spacing, px', 'rvdx-theme' ),
+				'title'       => esc_html__( 'Letter Spacing, em', 'rvdx-theme' ),
 				'section'     => 'h3_typography',
 				'default'     => '0',
 				'field'       => 'number',
@@ -672,7 +672,7 @@ function rvdx_theme_get_customizer_options() {
 				'type' => 'control',
 			),
 			'h4_letter_spacing' => array(
-				'title'       => esc_html__( 'Letter Spacing, px', 'rvdx-theme' ),
+				'title'       => esc_html__( 'Letter Spacing, em', 'rvdx-theme' ),
 				'section'     => 'h4_typography',
 				'default'     => '0',
 				'field'       => 'number',
@@ -756,7 +756,7 @@ function rvdx_theme_get_customizer_options() {
 				'type' => 'control',
 			),
 			'h5_letter_spacing' => array(
-				'title'       => esc_html__( 'Letter Spacing, px', 'rvdx-theme' ),
+				'title'       => esc_html__( 'Letter Spacing, em', 'rvdx-theme' ),
 				'section'     => 'h5_typography',
 				'default'     => '0',
 				'field'       => 'number',
@@ -840,7 +840,7 @@ function rvdx_theme_get_customizer_options() {
 				'type' => 'control',
 			),
 			'h6_letter_spacing' => array(
-				'title'       => esc_html__( 'Letter Spacing, px', 'rvdx-theme' ),
+				'title'       => esc_html__( 'Letter Spacing, em', 'rvdx-theme' ),
 				'section'     => 'h6_typography',
 				'default'     => '0',
 				'field'       => 'number',
@@ -975,7 +975,7 @@ function rvdx_theme_get_customizer_options() {
 				'type' => 'control',
 			),
 			'menu_letter_spacing' => array(
-				'title'       => esc_html__( 'Letter Spacing, px', 'rvdx-theme' ),
+				'title'       => esc_html__( 'Letter Spacing, em', 'rvdx-theme' ),
 				'section'     => 'menu_typography',
 				'default'     => '0',
 				'field'       => 'number',
@@ -1051,7 +1051,7 @@ function rvdx_theme_get_customizer_options() {
 				'type' => 'control',
 			),
 			'breadcrumbs_letter_spacing' => array(
-				'title'       => esc_html__( 'Letter Spacing, px', 'rvdx-theme' ),
+				'title'       => esc_html__( 'Letter Spacing, em', 'rvdx-theme' ),
 				'section'     => 'breadcrumbs_typography',
 				'default'     => '0',
 				'field'       => 'number',
@@ -1126,7 +1126,7 @@ function rvdx_theme_get_customizer_options() {
 				'type' => 'control',
 			),
 			'button_letter_spacing' => array(
-				'title'       => esc_html__( 'Letter Spacing, px', 'rvdx-theme' ),
+				'title'       => esc_html__( 'Letter Spacing, em', 'rvdx-theme' ),
 				'section'     => 'button_typography',
 				'default'     => '1',
 				'field'       => 'number',

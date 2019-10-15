@@ -5,7 +5,7 @@
 	font-size: $menu_font_size{px};
 	line-height: $menu_line_height;
 	font-family: @font_family( $menu_font_family );
-	letter-spacing: $menu_letter_spacing{px};
+	letter-spacing: $menu_letter_spacing{em};
 }
 
 .main-navigation a,

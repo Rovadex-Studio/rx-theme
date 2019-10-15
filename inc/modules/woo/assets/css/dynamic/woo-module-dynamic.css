@@ -41,7 +41,7 @@
 	font-size: $button_font_size{px};
 	line-height: $button_line_height;
 	font-family: @font_family( $button_font_family );
-	letter-spacing: $button_letter_spacing{px};
+	letter-spacing: $button_letter_spacing{em};
 	color: $invert_text_color;
 	background-color: $accent_color;
 }
@@ -235,7 +235,7 @@ table.woocommerce-table--order-downloads.shop_table tbody tr td.download-file .b
 	font-size: $body_font_size{px};
 	line-height: $body_line_height;
 	font-family: @font_family( $body_font_family );
-	letter-spacing: $body_letter_spacing{px};
+	letter-spacing: $body_letter_spacing{em};
 	text-align: $body_text_align;
 	color: $accent_color;
 }

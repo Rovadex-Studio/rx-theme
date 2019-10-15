@@ -22,7 +22,7 @@ body{
 	font-size: @font_size($h2_font_size, multiple, ceil, 0.6)px;
 	line-height: $h2_line_height;
 	font-family: @font_family( $h2_font_family );
-	letter-spacing: $h2_letter_spacing{px};
+	letter-spacing: $h2_letter_spacing{em};
 	color: $h2_color;
 }
 @media (min-width: 1200px) {
