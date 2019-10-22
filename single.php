@@ -23,7 +23,7 @@ get_header();
 				<main id="main" class="site-main"><?php
 					while ( have_posts() ) : the_post();
 
-						rvdx_theme()->do_location( 'single', 'template-parts/content-post' );
+						rvdx_theme()->do_location( 'single', 'template-parts/single-post' );
 
 					endwhile; // End of the loop.
 				?></main><!-- #main -->

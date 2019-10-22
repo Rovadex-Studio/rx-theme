@@ -537,15 +537,24 @@ if ( ! class_exists( 'Rvdx_Theme_Setup' ) ) {
 		 * @return bool
 		 */
 		public function do_location( $location = null, $fallback = null ) {
-
-			$handler = false;
 			$done    = false;
 
-			// Choose handler
-			if ( function_exists( 'elementor_theme_do_location' ) ) {
-				$handler = 'elementor_theme_do_location';
-			} elseif ( class_exists( 'Header_Footer_Elementor' ) && class_exists( 'Rx_Theme_Assistant_Header_Footer_Plugin_Ext' ) ){
-				$handler = array( 'Rx_Theme_Assistant_Header_Footer_Plugin_Ext', 'rx_theme_assistant_return_template' );
+			switch ( true ) {
+				case function_exists( 'elementor_theme_do_location' ):
+					$handler = 'elementor_theme_do_location';
+				break;
+
+				case class_exists( 'Header_Footer_Elementor' ) && class_exists( 'Rx_Theme_Assistant_Header_Footer_Plugin_Ext' ) && in_array( $location, [ 'header', 'footer'] ):
+					$handler = array( 'Rx_Theme_Assistant_Header_Footer_Plugin_Ext', 'rx_theme_assistant_return_template' );
+				break;
+
+				case class_exists( 'Rx_Theme_Assistant_Dynamic_Pages' ) && in_array( $location, [ 'archive', 'single-post-content', '404-page', 'search-fail' ] ):
+					$handler = array( 'Rx_Theme_Assistant_Dynamic_Pages', 'get_page_template' );
+				break;
+
+				default:
+					$handler = false;
+				break;
 			}
 
 			// If handler is found - try to do passed location

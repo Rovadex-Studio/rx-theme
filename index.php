@@ -38,7 +38,7 @@ get_header();
 
 					else :
 
-						get_template_part( 'template-parts/content', 'none' );
+						rvdx_theme()->do_location( 'search-fail', 'template-parts/content-none.php' );
 
 					endif;
 				?></main><!-- #main -->

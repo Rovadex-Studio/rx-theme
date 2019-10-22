@@ -22,16 +22,7 @@ get_header();
 
 				<main id="main" class="site-main">
 
-					<section class="error-404 not-found">
-
-						<div class="page-content">
-							<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'rvdx-theme' ); ?></p>
-
-							<?php
-								get_search_form();
-							?>
-						</div><!-- .page-content -->
-					</section><!-- .error-404 -->
+					<?php rvdx_theme()->do_location( '404-page', 'template-parts/content-404' );?>
 
 				</main><!-- #main -->
 
