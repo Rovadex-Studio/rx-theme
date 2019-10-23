@@ -3,12 +3,6 @@ body{
 	background: $body_background_color;
 }
 
-/* Page preloader */
-.page-preloader {
-	border-top-color: $accent_color;
-	border-right-color: $accent_color;
-}
-
 /* Logo */
 .site-logo__link,
 .site-logo__link:hover {

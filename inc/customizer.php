@@ -43,14 +43,6 @@ function rvdx_theme_get_customizer_options() {
 				'field'   => 'checkbox',
 				'type'    => 'control',
 			),
-			'page_preloader' => array(
-				'title'    => esc_html__( 'Show page preloader', 'rvdx-theme' ),
-				'section'  => 'title_tagline',
-				'priority' => 62,
-				'default'  => true,
-				'field'    => 'checkbox',
-				'type'     => 'control',
-			),
 			'general_settings' => array(
 				'title'       => esc_html__( 'General Site settings', 'rvdx-theme' ),
 				'priority'    => 40,
@@ -1146,6 +1138,72 @@ function rvdx_theme_get_customizer_options() {
 				'type'            => 'control',
 			),
 
+			/** `Website Preloader` panel */
+			'preloader_options' => array(
+				'title'       => esc_html__( 'Website Preloader', 'rvdx-theme' ),
+				'priority'    => 55,
+				'type'        => 'section',
+			),
+			'page_preloader' => array(
+				'title'    => esc_html__( 'Show page preloader', 'rvdx-theme' ),
+				'section'  => 'preloader_options',
+				'default'  => true,
+				'field'    => 'checkbox',
+				'type'     => 'control',
+			),
+			'preloader_color' => array(
+				'title'           => esc_html__( 'Preloader Color', 'rvdx-theme' ),
+				'section'         => 'preloader_options',
+				'field'           => 'hex_color',
+				'default'         => '#398ffc',
+				'type'            => 'control',
+			),
+			'preloader_bg_color' => array(
+				'title'           => esc_html__( 'Background Color', 'rvdx-theme' ),
+				'section'         => 'preloader_options',
+				'field'           => 'hex_color',
+				'default'         => '#ffffff',
+				'type'            => 'control',
+			),
+			'preloader_bg_image' => array(
+				'title'   => esc_html__( 'Background Image', 'rvdx-theme' ),
+				'section' => 'preloader_options',
+				'field'   => 'image',
+				'type'    => 'control',
+			),
+			'preloader_bg_repeat' => array(
+				'title'   => esc_html__( 'Background Repeat', 'rvdx-theme' ),
+				'section' => 'preloader_options',
+				'default' => 'repeat',
+				'field'   => 'select',
+				'choices' => array(
+					'no-repeat'  => esc_html__( 'No Repeat', 'rvdx-theme' ),
+					'repeat'     => esc_html__( 'Tile', 'rvdx-theme' ),
+					'repeat-x'   => esc_html__( 'Tile Horizontally', 'rvdx-theme' ),
+					'repeat-y'   => esc_html__( 'Tile Vertically', 'rvdx-theme' ),
+				),
+				'type' => 'control',
+			),
+			'preloader_bg_position_x' => array(
+				'title'   => esc_html__( 'Background Position', 'rvdx-theme' ),
+				'section' => 'preloader_options',
+				'default' => 'center',
+				'field'   => 'select',
+				'choices' => array(
+					'left'   => esc_html__( 'Left', 'rvdx-theme' ),
+					'center' => esc_html__( 'Center', 'rvdx-theme' ),
+					'right'  => esc_html__( 'Right', 'rvdx-theme' ),
+				),
+				'type' => 'control',
+			),
+			'preloader_content' => array(
+				'title'   => esc_html__( 'Preloader Page Content', 'rvdx-theme' ),
+				'section' => 'preloader_options',
+				'default' => 'Loading...',
+				'field'   => 'textarea',
+				'type'    => 'control',
+			),
+
 			/** `Header` panel */
 			'header_options' => array(
 				'title'       => esc_html__( 'Header', 'rvdx-theme' ),
@@ -1736,6 +1794,7 @@ function rvdx_theme_get_dynamic_css_options() {
 		),
 		'css_files'      => array(
 			get_theme_file_path( 'assets/css/dynamic.css' ),
+			get_theme_file_path( 'assets/css/dynamic/preloader.css' ),
 			get_theme_file_path( 'assets/css/dynamic/header.css' ),
 			get_theme_file_path( 'assets/css/dynamic/menus.css' ),
 			get_theme_file_path( 'assets/css/dynamic/social.css' ),

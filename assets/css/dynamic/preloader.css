@@ -1,0 +1,15 @@
+/* #Website Preloader (regular scheme) */
+.page-preloader-cover {
+	background-color: $preloader_bg_color;
+	background-repeat: $preloader_bg_repeat;
+	background-position: $preloader_bg_position_x top;
+	background-attachment: $preloader_bg_attachment;
+	@background_url( $preloader_bg_image );
+}
+.page-preloader {
+	border-top-color: $preloader_color;
+	border-right-color: $preloader_color;
+}
+.page-preloader-content {
+	color: $primary_text_color;
+}

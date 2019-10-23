@@ -533,11 +533,11 @@ function rvdx_theme_get_page_preloader() {
 	$page_preloader = rvdx_theme()->customizer->get_value( 'page_preloader' );
 
 	if ( $page_preloader ) {
+		$preloader_content = rvdx_theme()->customizer->get_value( 'preloader_content' );
+
 		echo  apply_filters(
 			'rvdx-theme/page/preloader',
-			'<div class="page-preloader-cover">
-				<div class="page-preloader"></div>
-			</div>'
+			sprintf('<div class="page-preloader-cover"><div class="page-preloader"></div><div class="page-preloader-content">%s</div></div>', $preloader_content )
 		);
 	}
 }
