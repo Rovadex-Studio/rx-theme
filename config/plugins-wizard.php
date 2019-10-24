@@ -55,8 +55,8 @@ $plugins = array(
 		'access' => 'base',
 	),
 
-	'block-builder' => array(
-		'name'   => esc_html__( 'Elementor Blocks for Gutenberg', 'rvdx-theme' ),
+	'essential-addons-for-elementor-lite' => array(
+		'name'   => esc_html__( 'Essential Addons for Elementor', 'rvdx-theme' ),
 		'access' => 'base',
 	),
 
@@ -80,13 +80,13 @@ $plugins = array(
 		'access' => 'skins',
 	),
 
-	'autoptimize' => array(
-		'name'   => esc_html__( 'Autoptimize', 'rvdx-theme' ),
+	'phastpress' => array(
+		'name'   => esc_html__( 'Phast Press - plugin for optimizing asset loading (css, js and others)', 'rvdx-theme' ),
 		'access' => 'skins',
 	),
 
-	'wp-super-cache' => array(
-		'name'   => esc_html__( 'WP Super Cache', 'rvdx-theme' ),
+	'rocket-lazy-load' => array(
+		'name'   => esc_html__( 'Lazy Load - plugin for optimal image loading', 'rvdx-theme' ),
 		'access' => 'skins',
 	),
 );
@@ -105,6 +105,7 @@ $skins = array(
 		'jetwidgets-for-elementor',
 		'revslider',
 		'advanced-custom-fields',
+		'powerpack-lite-for-elementor',
 		'custom-post-type-ui',
 		'rx-theme-assistant',
 		'contact-form-7',
