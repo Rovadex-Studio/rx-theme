@@ -1,5 +1,7 @@
 body{
 	background-color: $color__background-screen;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 .site {
 	@include hyphens(auto);
