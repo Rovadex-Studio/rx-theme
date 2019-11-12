@@ -24,22 +24,14 @@
 
 		page_preloader_init: function(self) {
 			if ($('.page-preloader-cover')[0]) {
-				$( window ).on('load', function () {
-					$( 'body' ).removeClass( 'website-loading' );
-
-					if ( "onanimationend" in window && 'ontransitionend' in window ) {
-						$('.page-preloader-cover')
-							.on( 'animationend', removePreLoader )
-							.on( 'transitionend', removePreLoader )
-							.addClass( 'hide-loader' );
-					} else {
-						$('.page-preloader-cover').fadeTo(500, 0, removePreLoader);
-					}
-
-					function removePreLoader(){
-						$( this ).remove();
-					}
-				});
+				$( window )
+					.on( 'load', function () {
+						$( 'body' ).removeClass( 'website-loading' );
+						$('.page-preloader-cover').addClass( 'hide-loader' );
+					})
+					.on( 'beforeunload ', function () {
+						$('.page-preloader-cover').removeClass( 'hide-loader' );
+					});
 			}
 		},
 

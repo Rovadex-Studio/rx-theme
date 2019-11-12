@@ -14,9 +14,13 @@ $main-loader-border-width: 3px;
 	height: 100%;
 	background-color: $color__bg-preloader-cover;
 	background-attachment: fixed;
+	transition: all 0.5s ease-out;
+	will-change: auto;
+	opacity: 1;
 	&.hide-loader{
-		transition: all 0.5s ease-in;
-		transform: translateY( -100% );
+		pointer-events: none;
+		opacity: 0;
+		transition-timing-function: ease-in;
 	}
 }
 
@@ -27,6 +31,7 @@ $main-loader-border-width: 3px;
 	border: $main-loader-border-width solid transparent;
 	animation: tm_spin 1s linear infinite;
 	z-index: 11;
+	will-change: auto;
 }
 .page-preloader-content{
 	padding: 20px;
