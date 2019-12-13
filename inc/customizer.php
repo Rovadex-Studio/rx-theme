@@ -257,7 +257,7 @@ function rvdx_theme_get_customizer_options() {
 				'type'    => 'control',
 			),
 			'body_background_color' => array(
-				'title'   => esc_html__( 'Backgraund Color', 'rvdx-theme' ),
+				'title'   => esc_html__( 'Background Color', 'rvdx-theme' ),
 				'section' => 'color_scheme',
 				'default' => '#ffffff',
 				'field'   => 'hex_color',
