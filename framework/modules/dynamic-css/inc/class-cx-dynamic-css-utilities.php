@@ -759,7 +759,7 @@ if ( ! class_exists( 'CX_Dynamic_CSS_Utilities' ) ) {
 				return;
 			}
 
-			printf('%1$s: %2$s' , $rule, $value);
+			echo $rule . ': ' . $value;
 
 			if ( is_numeric( $value ) ) {
 				echo 'px; ';

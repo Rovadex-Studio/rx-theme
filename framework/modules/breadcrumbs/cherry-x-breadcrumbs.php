@@ -2,7 +2,7 @@
 /**
  * Module to build and show breadcrumbs
  *
- * Version: 1.0.0
+ * Version: 1.0.1
  *
  * @author     Cherry Team <support@cherryframework.com>, Justin Tadlock <justin@justintadlock.com>
  * @copyright  Copyright (c) 2008 - 2014, Justin Tadlock
@@ -169,13 +169,18 @@ if ( ! class_exists( 'CX_Breadcrumbs' ) ) {
 			$wrapper_classes = array_map( 'sanitize_html_class', $wrapper_classes );
 			$wrapper_css     = implode( ' ', $wrapper_classes );
 
-			$format = '<div class="%1$s">%2$s</div>';
-			$result = sprintf( $this->args['wrapper_format'], $title, $breadcrumb );
+			/* Open the breadcrumb trail containers. */
+			$result = "\n\t\t" . '<div class="' . esc_attr( $wrapper_css ) . '">';
+
+			$result .= sprintf( $this->args['wrapper_format'], $title, $breadcrumb );
+
+			/* Close the breadcrumb trail containers. */
+			$result .= "\n\t\t" . '</div>';
 
 			if ( true === $this->args['echo'] ) {
-				printf( $format, esc_attr( $wrapper_css ), $result );
+				echo $result;
 			} else {
-				return sprintf( $format, esc_attr( $wrapper_css ), $result );
+				return $result;
 			}
 
 		}
