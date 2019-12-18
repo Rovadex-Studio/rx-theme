@@ -29,7 +29,7 @@ get_header();
 
 					else :
 
-						rvdx_theme()->do_location( 'search-fail', 'template-parts/content-none.php' );
+						rvdx_theme()->do_location( 'search-fail', 'template-parts/content-none' );
 
 					endif;
 				?></main><!-- #main -->
