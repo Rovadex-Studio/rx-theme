@@ -91,7 +91,6 @@ if ( ! class_exists( 'CX_Fonts_Manager' ) ) {
 		 * @since 1.0.0
 		 */
 		public function prepare_fonts() {
-
 			$font_url = $this->get_fonts_url();
 			wp_enqueue_style( 'cx-google-fonts-' . $this->args['prefix'], $font_url );
 		}
@@ -328,7 +327,7 @@ if ( ! class_exists( 'CX_Fonts_Manager' ) ) {
 
 			if ( null === $this->google_fonts ) {
 
-				$callback = isset( $this->args['get_fonts'] ) && is_callable( $this->args['get_fonts'] ) ? $this->args['get_fonts'] : false;
+				$callback = isset( $this->args['get_google_fonts'] ) && is_callable( $this->args['get_google_fonts'] ) ? $this->args['get_google_fonts'] : false;
 
 				if ( $callback ) {
 					$this->google_fonts = call_user_func( $callback );

@@ -84,6 +84,24 @@ if ( ! class_exists( 'CX_Customizer' ) ) {
 		protected $fonts;
 
 		/**
+		 * Google fonts.
+		 *
+		 * @since 1.0.0
+		 * @access protected
+		 * @var array.
+		 */
+		protected $google_fonts = array();
+
+		/**
+		 * Standart fonts.
+		 *
+		 * @since 1.0.0
+		 * @access protected
+		 * @var array.
+		 */
+		protected $standard_fonts = array();
+
+		/**
 		 * Fonts manager instance
 		 *
 		 * @var object
@@ -930,15 +948,23 @@ if ( ! class_exists( 'CX_Customizer' ) ) {
 		 * @since 1.0.0
 		 */
 		public function prepare_fonts() {
+			$standard_fonts_data = $this->get_standard_fonts_data();
+			$google_fonts_data   = $this->get_google_fonts_data();
 
-			$fonts_data = $this->get_fonts_data();
+			foreach ( $standard_fonts_data as $type => $file ) {
 
-			foreach ( $fonts_data as $type => $file ) {
+				$fonts = $this->read_font_file( $file );
+				if ( is_array( $fonts ) ) {
+					$this->standard_fonts = array_merge( $this->standard_fonts, $this->satizite_font_family( $fonts ) );
+				}
+			}
+
+			foreach ( $google_fonts_data as $type => $file ) {
 
 				$fonts = $this->read_font_file( $file );
 
 				if ( is_array( $fonts ) ) {
-					$this->fonts = array_merge( $this->fonts, $this->satizite_font_family( $fonts ) );
+					$this->google_fonts = array_merge( $this->google_fonts, $this->satizite_font_family( $fonts ) );
 				}
 			}
 
@@ -949,7 +975,10 @@ if ( ! class_exists( 'CX_Customizer' ) ) {
 			 * @var   array         $this->fonts
 			 * @param CX_Customizer $this
 			 */
-			$this->fonts = apply_filters( 'cx_customizer/fonts_list', $this->fonts, $this );
+			$this->standard_fonts = apply_filters( 'cx_customizer/standard_fonts_list', $this->standard_fonts, $this );
+			$this->google_fonts = apply_filters( 'cx_customizer/google_fonts_list', $this->google_fonts, $this );
+
+			$this->fonts = apply_filters( 'cx_customizer/fonts_list', array_merge( $this->standard_fonts, $this->google_fonts ), $this );
 
 		}
 
@@ -959,7 +988,7 @@ if ( ! class_exists( 'CX_Customizer' ) ) {
 		 * @since  1.0.0
 		 * @return array
 		 */
-		public function get_fonts_data() {
+		public function get_standard_fonts_data() {
 
 			/**
 			 * Filter array of fonts data.
@@ -968,8 +997,28 @@ if ( ! class_exists( 'CX_Customizer' ) ) {
 			 * @param array  $data Set of fonts data.
 			 * @param object $this Cherry_Customiser instance.
 			 */
-			return apply_filters( 'cx_customizer/fonts_data', array(
+			return apply_filters( 'cx_customizer/standard_fonts_data', array(
 				'standard' => $this->path . 'assets/fonts/standard.json',
+			), $this );
+
+		}
+
+		/**
+		 * Retrieve array with fonts file path.
+		 *
+		 * @since  1.0.0
+		 * @return array
+		 */
+		public function get_google_fonts_data() {
+
+			/**
+			 * Filter array of fonts data.
+			 *
+			 * @since 1.0.0
+			 * @param array  $data Set of fonts data.
+			 * @param object $this Cherry_Customiser instance.
+			 */
+			return apply_filters( 'cx_customizer/google_fonts_data', array(
 				'google'   => $this->path . 'assets/fonts/google.json',
 			), $this );
 
@@ -995,6 +1044,26 @@ if ( ! class_exists( 'CX_Customizer' ) ) {
 			$this->prepare_fonts( $type );
 
 			return ! empty( $type ) && isset( $this->fonts[ $type ] ) ? $this->fonts[ $type ] : $this->fonts;
+		}
+
+		/**
+		 * Retrieve array with font-family (for select element).
+		 *
+		 * @since  1.0.0
+		 * @return array
+		 */
+		public function get_google_fonts() {
+			return $this->google_fonts;
+		}
+
+		/**
+		 * Retrieve array with font-family (for select element).
+		 *
+		 * @since  1.0.0
+		 * @return array
+		 */
+		public function get_standard_fonts() {
+			return $this->standard_fonts;
 		}
 
 		/**
