@@ -178,7 +178,7 @@ if ( ! class_exists( 'CX_Breadcrumbs' ) ) {
 			$result .= "\n\t\t" . '</div>';
 
 			if ( true === $this->args['echo'] ) {
-				echo $result;
+				printf( '%s', $result );
 			} else {
 				return $result;
 			}
