@@ -1032,7 +1032,7 @@ if ( ! class_exists( 'CX_Customizer' ) ) {
 		 * @param  string $type Font type.
 		 * @return array
 		 */
-		public function get_fonts {
+		public function get_fonts() {
 
 			if ( ! empty( $this->fonts ) ) {
 				return $this->fonts;
