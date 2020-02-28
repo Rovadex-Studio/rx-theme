@@ -219,6 +219,7 @@ if ( ! class_exists( 'CX_Customizer' ) ) {
 				'single'    => false,
 				'type'      => $this->type,
 				'get_fonts' => array( $this, 'get_fonts' ),
+				'get_google_fonts' => array( $this, 'get_google_fonts' ),
 				'options'   => $this->get_fonts_options()
 			) );
 
@@ -1031,19 +1032,15 @@ if ( ! class_exists( 'CX_Customizer' ) ) {
 		 * @param  string $type Font type.
 		 * @return array
 		 */
-		public function get_fonts( $type = '' ) {
-
-			if ( ! empty( $this->fonts[ $type ] ) ) {
-				return $this->fonts[ $type ];
-			}
+		public function get_fonts {
 
 			if ( ! empty( $this->fonts ) ) {
 				return $this->fonts;
 			}
 
-			$this->prepare_fonts( $type );
+			$this->prepare_fonts();
 
-			return ! empty( $type ) && isset( $this->fonts[ $type ] ) ? $this->fonts[ $type ] : $this->fonts;
+			return $this->fonts;
 		}
 
 		/**
@@ -1053,6 +1050,13 @@ if ( ! class_exists( 'CX_Customizer' ) ) {
 		 * @return array
 		 */
 		public function get_google_fonts() {
+
+			if ( ! empty( $this->google_fonts ) ) {
+				return $this->google_fonts;
+			}
+
+			$this->prepare_fonts();
+
 			return $this->google_fonts;
 		}
 
@@ -1063,6 +1067,13 @@ if ( ! class_exists( 'CX_Customizer' ) ) {
 		 * @return array
 		 */
 		public function get_standard_fonts() {
+
+			if ( ! empty( $this->standard_fonts ) ) {
+				return $this->standard_fonts;
+			}
+
+			$this->prepare_fonts();
+
 			return $this->standard_fonts;
 		}
 
