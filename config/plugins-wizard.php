@@ -17,7 +17,7 @@ $plugins = array(
 	'jet-data-importer' => array(
 		'name'   => esc_html__( 'Jet Data Importer', 'rvdx-theme' ),
 		'source' => 'remote', // 'local', 'remote', 'wordpress' (default).
-		'path'   => 'https://plugins.rovadex.com/jet-data-importer.zip',
+		'path'   => 'https://assets.rovadex.com/plugins/jet-data-importer.zip',
 		'access' => 'base',
 	),
 
@@ -39,7 +39,7 @@ $plugins = array(
 	'rx-theme-assistant' => array(
 		'name'   => esc_html__( 'Rx Theme Assistant', 'rvdx-theme' ),
 		'source' => 'remote', // 'local', 'remote', 'wordpress' (default).
-		'path'   => 'http://plugins.rovadex.com/rx-theme-assistant.zip',
+		'path'   => 'https://assets.rovadex.com/plugins/rx-theme-assistant.zip',
 		'access' => 'base',
 	),
 
@@ -119,7 +119,7 @@ $skins = array(
 				'block-builder',
 			),
 			'lite'            => false,
-			'demo'            => 'https://' . $theme_slag . '.rovadex.com/',
+			'demo'            => 'https://wp.rovadex.com/' . $theme_slag,
 			'thumb'           => get_theme_file_uri( 'screenshot.png' ),
 			'name'            => $theme->get( 'Name' ),
 			'additional_info' => array(
@@ -133,25 +133,25 @@ $skins = array(
 				),
 				'info_blocks' => array(
 					'documentation' => array(
-						'thumb'       => 'https://plugins.rovadex.com/rx-theme-wizard/documentation-thumb.png',
+						'thumb'       => 'https://assets.rovadex.com/plugins/rx-theme-wizard/documentation-thumb.png',
 						'title'       => esc_html__( 'Documentation', 'rvdx-theme' ),
 						'description' => esc_html__( 'Detailed documentation which explains in easy way how to setup and customize our theme. Your site customisations will be easy and fast!', 'rvdx-theme' ),
 						'link_text'   => esc_html__( 'Read', 'rvdx-theme' ),
-						'link'        => 'https://documentation.rovadex.com/' . $theme_slag,
+						'link'        => 'https://assets.rovadex.com/documentation/' . $theme_slag,
 					),
 					'support' => array(
-						'thumb'       => 'https://plugins.rovadex.com/rx-theme-wizard/support-thumb.png',
+						'thumb'       => 'https://assets.rovadex.com/plugins/rx-theme-wizard/support-thumb.png',
 						'title'       => esc_html__( 'Support', 'rvdx-theme' ),
 						'description' => esc_html__( 'We always care about our customers, our loyal support team are always ready to help', 'rvdx-theme' ),
 						'link_text'   => esc_html__( 'Submit Ticket', 'rvdx-theme' ),
 						'link'        => 'https://rovadex.ticksy.com',
 					),
 					'author' => array(
-						'thumb'       => 'https://plugins.rovadex.com/rx-theme-wizard/author-thumb.png',
+						'thumb'       => 'https://assets.rovadex.com/plugins/rx-theme-wizard/author-thumb.png',
 						'title'       => esc_html__( 'Rovadex', 'rvdx-theme' ),
 						'description' => esc_html__( 'Business has an idea, an idea has a realization. We develop ideas for your business on the Internet. With our help, you will put into effect the most demanding and quality projects.', 'rvdx-theme' ),
 						'link_text'   => esc_html__( 'Author Site', 'rvdx-theme' ),
-						'link'        => 'https://rovadex.com/',
+						'link'        => 'https://rovadex.com',
 					),
 				),
 			)

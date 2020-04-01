@@ -540,16 +540,16 @@ if ( ! class_exists( 'Rvdx_Theme_Setup' ) ) {
 			$done    = false;
 
 			switch ( true ) {
-				case function_exists( 'elementor_theme_do_location' ):
-					$handler = 'elementor_theme_do_location';
-				break;
-
 				case class_exists( 'Header_Footer_Elementor' ) && class_exists( 'Rx_Theme_Assistant_Header_Footer_Plugin_Ext' ) && in_array( $location, [ 'header', 'footer'] ):
 					$handler = array( 'Rx_Theme_Assistant_Header_Footer_Plugin_Ext', 'rx_theme_assistant_return_template' );
 				break;
 
 				case class_exists( 'Rx_Theme_Assistant_Dynamic_Pages' ) && in_array( $location, [ 'archive', 'single-post-content', '404-page', 'search-fail' ] ):
 					$handler = array( 'Rx_Theme_Assistant_Dynamic_Pages', 'get_page_template' );
+				break;
+
+				case function_exists( 'elementor_theme_do_location' ):
+					$handler = 'elementor_theme_do_location';
 				break;
 
 				default:

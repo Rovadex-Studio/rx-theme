@@ -13,10 +13,10 @@ $config = array(
 	'advanced_import' => array(
 		'default' => array(
 			'label'    => $theme->get( 'Name' ),
-			'full'     => 'https://demo-content.rovadex.com/' . $theme_slag . '/default/default.xml',
+			'full'     => 'https://assets.rovadex.com/demo-content/' . $theme_slag . '/default/default.xml',
 			'lite'     => false,
 			'thumb'    => get_theme_file_uri( 'screenshot.png' ),
-			'demo_url' => 'https://' . $theme_slag . '.rovadex.com/',
+			'demo_url' => 'https://wp.rovadex.com/' . $theme_slag,
 		),
 	),
 	'import' => array(
@@ -58,7 +58,8 @@ $config = array(
 			'elementor_stretched_section_container',
 			'elementor_viewport_lg',
 			'elementor_viewport_md',
-			'elementor_global_image_lightbox',
+			'elementor_load_fa4_shim',
+			'elementor_allow_svg',
 			'mc4wp',
 			'mc4wp_mailchimp_list_ids',
 			'theme_mods_rvdx-theme',
