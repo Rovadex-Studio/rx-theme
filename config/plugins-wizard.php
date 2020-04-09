@@ -75,13 +75,15 @@ $plugins = array(
 		'access' => 'skins',
 	),
 
-	'wordpress-seo' => array(
-		'name'   => esc_html__( 'Yoast SEO', 'rvdx-theme' ),
+	'envato-market' => array(
+		'name'   => esc_html__( 'Envato Market - plugin helps customers updates Themes & Plugins purchased through Envato Market', 'rvdx-theme' ),
+		'source' => 'remote', // 'local', 'remote', 'wordpress' (default).
+		'path'   => 'https://goo.gl/pkJS33',
 		'access' => 'skins',
 	),
 
-	'phastpress' => array(
-		'name'   => esc_html__( 'Phast Press - plugin for optimizing asset loading (css, js and others)', 'rvdx-theme' ),
+	'wordpress-seo' => array(
+		'name'   => esc_html__( 'Yoast SEO', 'rvdx-theme' ),
 		'access' => 'skins',
 	),
 
