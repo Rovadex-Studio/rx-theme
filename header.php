@@ -19,8 +19,11 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php do_action( 'rvdx-theme/site/page-start' ); ?>
-<?php rvdx_theme_get_page_preloader(); ?>
+<?php
+	wp_body_open();
+	do_action( 'rvdx-theme/site/page-start' );
+	rvdx_theme_get_page_preloader();
+?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'rvdx-theme' ); ?></a>
 	<header id="masthead" <?php echo rvdx_theme_get_container_classes( 'site-header' ); ?>>

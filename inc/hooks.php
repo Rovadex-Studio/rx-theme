@@ -52,6 +52,17 @@ function rvdx_theme_meta_viewport() {
 }
 
 /**
+ * Backwards compatibility for function wp_body_open
+ *
+ * @return void
+ */
+if ( ! function_exists( 'wp_body_open' ) ) {
+	function wp_body_open() {
+			do_action( 'wp_body_open' );
+	}
+}
+
+/**
  * Add extra body classes
  *
  * @param  array $classes Existing classes.
