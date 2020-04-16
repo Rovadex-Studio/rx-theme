@@ -104,21 +104,22 @@ $skins = array(
 	'base' => array(
 		'jet-data-importer',
 		'elementor',
+		'header-footer-elementor',
 		'jetwidgets-for-elementor',
+		'rx-theme-assistant',
 		'revslider',
 		'advanced-custom-fields',
-		'powerpack-lite-for-elementor',
+		'essential-addons-for-elementor-lite',
 		'custom-post-type-ui',
-		'rx-theme-assistant',
 		'contact-form-7',
 	),
 	'advanced' => array(
 		'default' => array(
 			'full'  => array(
-				'cherry-ld-mods-switcher',
 				'wp-gdpr-compliance',
-				'gutenberg',
-				'block-builder',
+				'envato-market',
+				'wordpress-seo',
+				'rocket-lazy-load',
 			),
 			'lite'            => false,
 			'demo'            => 'https://wp.rovadex.com/' . $theme_slag,
