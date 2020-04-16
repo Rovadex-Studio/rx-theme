@@ -32,6 +32,7 @@ if ( ! function_exists( 'rvdx_theme_post_excerpt' ) ) :
 		} else {
 			$excerpt = get_the_content( '!--more' );
 			$post_format = strpos( $excerpt, '!--more' ) ? 'tag_more' : get_post_format() ;
+			$post_format = post_password_required() ? 'password' : $post_format ;
 
 			switch ( $post_format ) {
 				case 'link':
@@ -45,6 +46,11 @@ if ( ! function_exists( 'rvdx_theme_post_excerpt' ) ) :
 				break;
 
 				case 'video':
+					$excerpt = apply_filters( 'the_content', $excerpt );
+					$excerpt = str_replace( ']]>', ']]&gt;', $excerpt );
+				break;
+
+				case 'password':
 					$excerpt = apply_filters( 'the_content', $excerpt );
 					$excerpt = str_replace( ']]>', ']]&gt;', $excerpt );
 				break;
